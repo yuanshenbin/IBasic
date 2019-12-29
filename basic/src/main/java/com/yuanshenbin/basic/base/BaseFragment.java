@@ -88,7 +88,7 @@ public abstract class BaseFragment<VH extends BasicViewHolder> extends SupportFr
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
-            } catch (InstantiationException e) {
+            } catch (java.lang.InstantiationException e) {
                 e.printStackTrace();
             } finally {
 

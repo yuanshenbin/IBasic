@@ -84,11 +84,6 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
         if (mVH == null) {
             try {
 
-//                val data = (this.javaClass
-//                        .getGenericSuperclass() as ParameterizedType).actualTypeArguments
-//                val c = Class.forName((data[0] as Class<*>).name).getConstructor(ViewGroup::class.java)
-//                mVH = c.newInstance(rootView) as VH
-//
                 Type[] data = ((ParameterizedType) (this.getClass()
                         .getGenericSuperclass())).getActualTypeArguments();
                 Constructor c = Class.forName(((Class) data[0]).getName()).getConstructor(ViewGroup.class);
