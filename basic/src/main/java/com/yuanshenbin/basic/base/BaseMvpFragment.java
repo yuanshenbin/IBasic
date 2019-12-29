@@ -54,7 +54,7 @@ public abstract class BaseMvpFragment<VH extends BasicViewHolder, V, P extends B
             e.printStackTrace();
         } catch (ClassCastException e) {
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (java.lang.InstantiationException e) {
             e.printStackTrace();
         }
         return null;
