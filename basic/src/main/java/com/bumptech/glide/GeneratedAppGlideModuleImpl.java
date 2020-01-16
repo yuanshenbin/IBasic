@@ -18,7 +18,7 @@ final class GeneratedAppGlideModuleImpl extends GeneratedAppGlideModule {
 
     GeneratedAppGlideModuleImpl() {
         if (Log.isLoggable("Glide", 3)) {
-            Log.d("Glide", "Discovered AppGlideModule from annotation: com.yjp.webpimgloader.MyAppGlideModule");
+            Log.d("Glide", "Discovered AppGlideModule from annotation: .MyAppGlideModule");
         }
 
     }
