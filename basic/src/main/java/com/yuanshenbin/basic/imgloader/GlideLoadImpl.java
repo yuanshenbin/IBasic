@@ -88,6 +88,8 @@ public class GlideLoadImpl implements ILoadProxyInterface {
         GlideApp.with(this.ctx)
                 .asGif()
                 .placeholder(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder)
+                .error(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder)
+                .fallback(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder)
                 .load(path).onlyRetrieveFromCache(true).into(view);
     }
 
@@ -143,7 +145,9 @@ public class GlideLoadImpl implements ILoadProxyInterface {
     }
 
     private void loadImg(Object url, ImageView view, int placeholder) {
-        GlideApp.with(this.ctx).load(url).placeholder(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder).into(view);
+        GlideApp.with(this.ctx).load(url).placeholder(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder)
+                .error(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder)
+                .fallback(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder).into(view);
 
     }
 }
