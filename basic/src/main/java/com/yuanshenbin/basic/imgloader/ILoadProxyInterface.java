@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.request.target.SimpleTarget;
 
 public interface ILoadProxyInterface {
-    void loadImage(ImageView var1, Object var2);
+    void loadImage(ImageView var1, Object var2,int placeholder);
 
     void setLoaderOptions(LoaderOptions var1);
 

@@ -7,20 +7,20 @@ package com.yuanshenbin.basic.imgloader;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+
 import com.bumptech.glide.request.target.SimpleTarget;
 
 
 public class ImageLoader {
     private static volatile ImageLoader manager = null;
     private ILoadProxyInterface iLoadProxyInterface;
-
+    private int mResourceId =0;
     private ImageLoader() {
     }
 
     public static ImageLoader getInstance() {
         if (manager == null) {
-            Class var0 = ImageLoader.class;
-            synchronized(ImageLoader.class) {
+            synchronized (ImageLoader.class) {
                 if (manager == null) {
                     manager = new ImageLoader();
                 }
@@ -40,8 +40,13 @@ public class ImageLoader {
         return this;
     }
 
-    public ImageLoader displayImage(Object url, ImageView view) {
-        this.iLoadProxyInterface.loadImage(view, url);
+    public void displayImage(Object url, ImageView view) {
+        this.iLoadProxyInterface.loadImage(view, url,mResourceId);
+        mResourceId =0;
+        return;
+    }
+    public ImageLoader placeholder(int placeholder) {
+        this.mResourceId = placeholder;
         return this;
     }
 

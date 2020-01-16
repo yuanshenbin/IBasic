@@ -28,6 +28,7 @@ public class GlideLoadImpl implements ILoadProxyInterface {
     public GlideLoadImpl() {
     }
 
+
     public void setLoaderOptions(LoaderOptions options) {
         this.ctx = options.getContext();
         this.options = options;
@@ -67,19 +68,30 @@ public class GlideLoadImpl implements ILoadProxyInterface {
         GlideApp.with(this.ctx).asBitmap().load(imgUrl).into(requestListener);
     }
 
-    public void loadImage(ImageView view, Object path) {
+    @Override
+
+    public void loadImage(ImageView view, Object path, int placeholder) {
         if (path == null) {
-            this.loadImg(this.options.getPlaceholderResId(), view);
+            this.loadImg(this.options.getPlaceholderResId(), view, placeholder);
         } else if (TextUtils.isEmpty(String.valueOf(path).trim())) {
-            this.loadImg(this.options.getPlaceholderResId(), view);
+            this.loadImg(this.options.getPlaceholderResId(), view, placeholder);
         } else if (path instanceof Integer) {
-            this.loadImg(path, view);
+            this.loadImg(path, view, placeholder);
+        } else if (String.valueOf(path).endsWith(".gif")) {
+            this.loadGif(view, String.valueOf(path), placeholder);
         } else {
-            this.hasImagCache(view, String.valueOf(path));
+            this.hasImagCache(view, String.valueOf(path), placeholder);
         }
     }
 
-    private void hasWebpCache(final ImageView view, final String path) {
+    private void loadGif(final ImageView view, final String path, final int placeholder) {
+        GlideApp.with(this.ctx)
+                .asGif()
+                .placeholder(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder)
+                .load(path).onlyRetrieveFromCache(true).into(view);
+    }
+
+    private void hasWebpCache(final ImageView view, final String path, final int placeholder) {
         int index = path.lastIndexOf(".");
         String tails = path;
         if (index > 0) {
@@ -88,7 +100,7 @@ public class GlideLoadImpl implements ILoadProxyInterface {
 
         GlideApp.with(this.ctx).load(tails).onlyRetrieveFromCache(true).listener(new RequestListener<Drawable>() {
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                GlideLoadImpl.this.loadWebP(view, path);
+                GlideLoadImpl.this.loadWebP(view, path, placeholder);
                 return true;
             }
 
@@ -98,10 +110,10 @@ public class GlideLoadImpl implements ILoadProxyInterface {
         }).into(view);
     }
 
-    private void hasImagCache(final ImageView view, final String path) {
+    private void hasImagCache(final ImageView view, final String path, final int placeholder) {
         GlideApp.with(this.ctx).load(path).onlyRetrieveFromCache(true).listener(new RequestListener<Drawable>() {
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                GlideLoadImpl.this.hasWebpCache(view, path);
+                GlideLoadImpl.this.hasWebpCache(view, path, placeholder);
                 return true;
             }
 
@@ -111,7 +123,7 @@ public class GlideLoadImpl implements ILoadProxyInterface {
         }).into(view);
     }
 
-    private void loadWebP(final ImageView view, final String path) {
+    private void loadWebP(final ImageView view, final String path, final int placeholder) {
         int index = path.lastIndexOf(".");
         String tails = path;
         if (index > 0) {
@@ -120,7 +132,7 @@ public class GlideLoadImpl implements ILoadProxyInterface {
 
         GlideApp.with(this.ctx).load(tails).placeholder(this.options.getPlaceholderResId()).listener(new RequestListener<Drawable>() {
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                GlideLoadImpl.this.loadImg(path, view);
+                GlideLoadImpl.this.loadImg(path, view, placeholder);
                 return true;
             }
 
@@ -130,7 +142,8 @@ public class GlideLoadImpl implements ILoadProxyInterface {
         }).into(view);
     }
 
-    private void loadImg(Object url, ImageView view) {
-        GlideApp.with(this.ctx).load(url).placeholder(this.options.getPlaceholderResId()).into(view);
+    private void loadImg(Object url, ImageView view, int placeholder) {
+        GlideApp.with(this.ctx).load(url).placeholder(placeholder == 0 ? this.options.getPlaceholderResId() : placeholder).into(view);
+
     }
 }
