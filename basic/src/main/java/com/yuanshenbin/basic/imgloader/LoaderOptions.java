@@ -21,7 +21,7 @@ public class LoaderOptions {
     private Context context;
     private int asImternalcd;
 
-    public LoaderOptions(LoaderOptions.Builder builder) {
+    public LoaderOptions(Builder builder) {
         this.context = builder.context;
         this.fallbackResId = builder.fallbackResId;
         this.placeholderResId = builder.placeholderResId;
@@ -90,47 +90,47 @@ public class LoaderOptions {
             this.context = context;
         }
 
-        public LoaderOptions.Builder setReSizeW(int reSizeW) {
+        public Builder setReSizeW(int reSizeW) {
             this.reSizeW = reSizeW;
             return this;
         }
 
-        public LoaderOptions.Builder setReSizeH(int reSizeH) {
+        public Builder setReSizeH(int reSizeH) {
             this.reSizeH = reSizeH;
             return this;
         }
 
-        public LoaderOptions.Builder setFallbackResId(int fallbackResId) {
+        public Builder setFallbackResId(int fallbackResId) {
             this.fallbackResId = fallbackResId;
             return this;
         }
 
-        public LoaderOptions.Builder setPlaceHolderResId(int placeholderResId) {
+        public Builder setPlaceHolderResId(int placeholderResId) {
             this.placeholderResId = placeholderResId;
             return this;
         }
 
-        public LoaderOptions.Builder setErrorResId(int errorResId) {
+        public Builder setErrorResId(int errorResId) {
             this.errorResId = errorResId;
             return this;
         }
 
-        public LoaderOptions.Builder setDiskCacheStrategy(DiskCacheStrategy diskCacheStrategy) {
+        public Builder setDiskCacheStrategy(DiskCacheStrategy diskCacheStrategy) {
             this.diskCacheStrategy = diskCacheStrategy;
             return this;
         }
 
-        public LoaderOptions.Builder setCacheSizeInM(int cacheSizeInM) {
+        public Builder setCacheSizeInM(int cacheSizeInM) {
             this.cacheSizeInM = cacheSizeInM;
             return this;
         }
 
-        public LoaderOptions.Builder setMemoryCategory(MemoryCategory memoryCategory) {
+        public Builder setMemoryCategory(MemoryCategory memoryCategory) {
             this.memoryCategory = memoryCategory;
             return this;
         }
 
-        public LoaderOptions.Builder setAsImternalcd(int asImternalcd) {
+        public Builder setAsImternalcd(int asImternalcd) {
             this.asImternalcd = asImternalcd;
             return this;
         }

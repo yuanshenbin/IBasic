@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="IButtom">
+
+    <declare-styleable name="IButton">
         <attr name="i_btn_radius_size" format="dimension" /><!--弧度大小-->
         <!--变线的颜色和宽-->
         <attr name="i_btn_stroke_width" format="dimension" />
@@ -76,4 +77,81 @@
 
 
     </declare-styleable>
+
+    <declare-styleable name="IRelativeLayout">
+        <attr name="i_rl_radius_size" format="dimension" /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_rl_stroke_width" format="dimension" />
+        <attr name="i_rl_stroke_color" format="color" />
+        <attr name="i_rl_solid_color" format="color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_rl_pressed_color" format="color" />
+        <!--正常状态颜色-->
+        <attr name="i_rl_normal_color" format="color" />
+        <!--不可用的颜色-->
+        <attr name="i_rl_enabled_color" format="color" />
+
+
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_rl_stroke_width_unselected" format="dimension" />
+        <attr name="i_rl_stroke_color_unselected" format="color" />
+        <attr name="i_rl_solid_color_unselected" format="color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_rl_pressed_color_unselected" format="color" />
+        <!--正常状态颜色-->
+        <attr name="i_rl_normal_color_unselected" format="color" />
+        <!--不可用的颜色-->
+        <attr name="i_rl_enabled_color_unselected" format="color" />
+
+
+        <!--是否默认勾选-->
+        <attr name="i_rl_selected" format="boolean"/>
+
+
+
+    </declare-styleable>
+
+
+
+    <declare-styleable name="ILinearLayout">
+        <attr name="i_ll_radius_size" format="dimension" /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_ll_stroke_width" format="dimension" />
+        <attr name="i_ll_stroke_color" format="color" />
+        <attr name="i_ll_solid_color" format="color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_ll_pressed_color" format="color" />
+        <!--正常状态颜色-->
+        <attr name="i_ll_normal_color" format="color" />
+        <!--不可用的颜色-->
+        <attr name="i_ll_enabled_color" format="color" />
+
+
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_ll_stroke_width_unselected" format="dimension" />
+        <attr name="i_ll_stroke_color_unselected" format="color" />
+        <attr name="i_ll_solid_color_unselected" format="color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_ll_pressed_color_unselected" format="color" />
+        <!--正常状态颜色-->
+        <attr name="i_ll_normal_color_unselected" format="color" />
+        <!--不可用的颜色-->
+        <attr name="i_ll_enabled_color_unselected" format="color" />
+
+
+        <!--是否默认勾选-->
+        <attr name="i_ll_selected" format="boolean"/>
+
+
+
+    </declare-styleable>
+
+
+
 </resources>

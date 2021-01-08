@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 
+import com.yuanshenbin.basic.state.OnEmptyListener;
 import com.yuanshenbin.basic.state.OnRetryListener;
 import com.yuanshenbin.basic.state.StateLayoutManager;
 
@@ -16,15 +17,14 @@ import java.io.Serializable;
  * desc   :
  */
 
-public abstract class BaseFragmentDelegate extends YJPDelegate implements Serializable {
+public abstract class BaseFragmentDelegate extends IDelegate implements Serializable {
 
 
-    public StateLayoutManager getStateLayoutManager(View root, OnRetryListener listener) {
+    public StateLayoutManager getStateLayoutManager(View root, OnRetryListener retryListener, OnEmptyListener emptyListener) {
         return null;
     }
 
-
-    public void onConfig(Fragment fragment) {
+    public void onConfig(Fragment activity) {
 
     }
 

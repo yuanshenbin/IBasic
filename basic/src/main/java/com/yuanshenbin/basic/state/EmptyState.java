@@ -10,11 +10,11 @@ import android.support.annotation.DrawableRes;
  */
 
 public abstract class EmptyState extends StateAbstract {
-
+    protected OnRetryListener listener;
 
     public abstract void showEmpty(@DrawableRes int resId, String... msg);
 
     public abstract void showEmpty(@DrawableRes int resId);
 
-    public abstract void showEmpty(String... msg);
+    public abstract void showEmpty(CharSequence... msg);
 }

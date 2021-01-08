@@ -5,8 +5,8 @@ import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 
-import com.yuanshenbin.basic.R;
-import com.yuanshenbin.basic.IDividerItemDecoration;
+import com.yijiupi.core.basic.R;
+import com.yijiupi.core.basic.widget.YJPDividerItemDecoration;
 
 
 /**
@@ -17,14 +17,14 @@ import com.yuanshenbin.basic.IDividerItemDecoration;
 
 public class RecyclerDividerUtils {
 
-    public static IDividerItemDecoration getDivider1px(Context context) {
-        IDividerItemDecoration decoration = new IDividerItemDecoration(context, RecyclerView.VERTICAL);
+    public static YJPDividerItemDecoration getDivider1px(Context context) {
+        YJPDividerItemDecoration decoration = new YJPDividerItemDecoration(context, RecyclerView.VERTICAL);
         decoration.setDrawable(ContextCompat.getDrawable(context, R.drawable.core_basic_item_divider_1px));
         return decoration;
     }
 
-    public static IDividerItemDecoration getDivider(Context context, @DrawableRes int id) {
-        IDividerItemDecoration decoration = new IDividerItemDecoration(context, RecyclerView.VERTICAL);
+    public static YJPDividerItemDecoration getDivider(Context context, @DrawableRes int id) {
+        YJPDividerItemDecoration decoration = new YJPDividerItemDecoration(context, RecyclerView.VERTICAL);
         decoration.setDrawable(ContextCompat.getDrawable(context, id));
         return decoration;
     }

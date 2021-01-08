@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.yuanshenbin.basic.constant.BasicConstants;
 import com.yuanshenbin.basic.delegate.BaseFragmentDelegate;
+import com.yuanshenbin.basic.state.OnEmptyListener;
 import com.yuanshenbin.basic.state.OnRetryListener;
 import com.yuanshenbin.basic.state.StateLayoutManager;
 import com.yuanshenbin.network.model.ResponseModel;
@@ -129,14 +130,20 @@ public abstract class BaseFragment<VH extends BasicViewHolder> extends SupportFr
             mDelegate.onReload();
     }
 
+    /**
+     * 空页面点击
+     * @param text
+     */
+    public void onEmptyClick(CharSequence... text) {
 
+    }
     protected View mView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(initLayoutId(), container, false);
-
+        setCreate(true);
         mDelegate = initDelegate();
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -144,14 +151,6 @@ public abstract class BaseFragment<VH extends BasicViewHolder> extends SupportFr
         }
         initConfig();
         return mView;
-    }
-
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
     }
 
 
@@ -165,6 +164,11 @@ public abstract class BaseFragment<VH extends BasicViewHolder> extends SupportFr
                 @Override
                 public void onRetry() {
                     onReload();
+                }
+            }, new OnEmptyListener() {
+                @Override
+                public void onEmptyClick(CharSequence... text) {
+                    BaseFragment.this.onEmptyClick(text);
                 }
             });
         }
@@ -341,4 +345,5 @@ public abstract class BaseFragment<VH extends BasicViewHolder> extends SupportFr
         mDisposable.clear();
         super.onDestroyView();
     }
+
 }
