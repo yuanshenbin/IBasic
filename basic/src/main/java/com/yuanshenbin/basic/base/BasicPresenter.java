@@ -2,7 +2,7 @@ package com.yuanshenbin.basic.base;
 
 import android.content.Context;
 
-import com.yijiupi.network.model.ResponseModel;
+import com.yuanshenbin.network.model.ResponseModel;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -50,10 +50,7 @@ public class BasicPresenter<V> {
         mView = view;
         mContext = context.getContext();
     }
-    public void attach(V view, BaseProgressDialog context) {
-        mView = view;
-        mContext = context.getContext();
-    }
+
     public void attach(V view, BaseFragment context) {
         mView = view;
         mBaseFragment = context;

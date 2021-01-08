@@ -1,42 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yuanshenbin.basic" >  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    package="com.yuanshenbin.basic" >
 
-
-
-
-    <application>
-
-
-        <activity
-            android:name=".develop.LogDetailActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/develop_mode_AppTheme" />
-
-        <activity
-            android:name="develop.LogListActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/develop_mode_AppTheme" />
-
-        <activity
-            android:name="develop.DevelopModeActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/develop_mode_AppTheme" />
-
-        <activity
-            android:name="develop.SystemApiActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/develop_mode_AppTheme"
-            android:windowSoftInputMode="stateHidden|stateUnchanged" />
-
-        <provider
-            android:name="develop.FileProvider"
-            android:authorities="${applicationId}.android7.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/develop_mode_filepaths" />
-        </provider>
-    </application>
 
 </manifest>
