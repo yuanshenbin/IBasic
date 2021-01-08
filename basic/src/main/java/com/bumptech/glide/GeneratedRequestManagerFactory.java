@@ -8,7 +8,7 @@ package com.bumptech.glide;
 import com.bumptech.glide.manager.Lifecycle;
 import com.bumptech.glide.manager.RequestManagerTreeNode;
 import com.bumptech.glide.manager.RequestManagerRetriever.RequestManagerFactory;
-import com.yjp.webpimgloader.GlideRequests;
+import com.yuanshenbin.basic.imgloader.GlideRequests;
 
 final class GeneratedRequestManagerFactory implements RequestManagerFactory {
     GeneratedRequestManagerFactory() {
