@@ -8,6 +8,7 @@ import com.yuanshenbin.basic.util.NetworkUtils;
 import com.yuanshenbin.network.model.ResponseModel;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * author : yuanshenbin
@@ -51,7 +52,7 @@ abstract class IDelegate implements Serializable {
         return false;
     }
 
-    public void handleListData(CommonAdapter adapter, Object result, int loading, int size, CharSequence emptyMsg){}
+    public void handleListData(CommonAdapter adapter, List list, Object result, int loading, int size, CharSequence emptyMsg){}
 
 
     public void onTitle(String title) {
