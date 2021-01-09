@@ -4,8 +4,12 @@ package com.yuanshenbin.basic.adapter;
 
 import android.support.v7.widget.RecyclerView;
 
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.listener.OnLoadMoreListener;
+import com.chad.library.adapter.base.module.LoadMoreModule;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+
 import java.util.List;
 
 /**
@@ -14,30 +18,24 @@ import java.util.List;
  * desc   :
  */
 
-public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder> {
-
-    public CommonAdapter(int layoutResId, List<T> data) {
-        super(layoutResId, data);
-    }
-
+public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder> implements LoadMoreModule {
     /**
      * @param layoutResId
      * @param data
-     * @param recyclerView 不传没有分页效果
      */
-    public CommonAdapter(int layoutResId, List<T> data, RecyclerView recyclerView) {
+    public CommonAdapter(int layoutResId, List<T> data) {
         super(layoutResId, data);
-        this.setOnLoadMoreListener(new RequestLoadMoreListener() {
+        getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onLoadMoreRequested() {
-
+            public void onLoadMore() {
                 if (l != null) {
                     l.onLoadMore();
                 }
-
             }
-        }, recyclerView);
+        });
+
     }
+
 
     public OnMoreLoadListener l;
 
