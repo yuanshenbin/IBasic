@@ -43,7 +43,9 @@ public abstract class BaseListActivity<VH extends BasicViewHolder, Bean> extends
         swipe_to_load_layout.setRefreshing(false);
         if (!isPullAndPush) {
             mPage--;
-            mAdapter.loadMoreFail();
+            if (mAdapter.getLoadMoreModule() != null) {
+                mAdapter.getLoadMoreModule().loadMoreFail();
+            }
         }
     }
 }

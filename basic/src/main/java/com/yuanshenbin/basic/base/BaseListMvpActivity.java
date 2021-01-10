@@ -4,7 +4,6 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.yuanshenbin.basic.adapter.CommonAdapter;
 import com.yuanshenbin.basic.constant.BasicConstants;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public abstract class BaseListMvpActivity<VH extends BasicViewHolder, Bean, V, P
     public void setFill(Object result, int loading, int size, CharSequence emptyMsg) {
         swipe_to_load_layout.setRefreshing(false);
         if (mDelegate != null) {
-            mDelegate.handleListData(mAdapter,mData, result, loading, size, emptyMsg);
+            mDelegate.handleListData(mAdapter, mData, result, loading, size, emptyMsg);
         }
     }
 
@@ -44,7 +43,9 @@ public abstract class BaseListMvpActivity<VH extends BasicViewHolder, Bean, V, P
         swipe_to_load_layout.setRefreshing(false);
         if (!isPullAndPush) {
             mPage--;
-            mAdapter.loadMoreFail();
+            if (mAdapter.getLoadMoreModule() != null) {
+                mAdapter.getLoadMoreModule().loadMoreFail();
+            }
         }
     }
 }

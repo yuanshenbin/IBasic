@@ -43,7 +43,9 @@ public abstract class BaseListMvpFragment<VH extends BasicViewHolder, Bean, V, P
         swipe_to_load_layout.setRefreshing(false);
         if (!isPullAndPush) {
             mPage--;
-            mAdapter.loadMoreFail();
+            if (mAdapter.getLoadMoreModule() != null) {
+                mAdapter.getLoadMoreModule().loadMoreFail();
+            }
         }
     }
 }
