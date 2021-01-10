@@ -20,15 +20,15 @@ public abstract class BaseListFragment<VH extends BasicViewHolder, Bean> extends
 
     protected CommonAdapter<Bean> mAdapter;
 
-    public void setFill(Object result, int loading, int size, CharSequence emptyMsg) {
+    public void setFill(Object result, int loading, int page,int size, CharSequence emptyMsg) {
         swipe_to_load_layout.setRefreshing(false);
         if (mDelegate != null) {
-            mDelegate.handleListData(mAdapter, mData,result, isPullAndPush,loading, size, emptyMsg);
+            mDelegate.handleListData(mAdapter, mData,result, isPullAndPush,loading,page, size, emptyMsg);
         }
     }
 
     public void setFill(Object result, int loading, int size) {
-        setFill(result, loading, size, null);
+        setFill(result, loading,mPage, size, null);
     }
 
     public void setFill(Object result, int loading) {
@@ -36,7 +36,7 @@ public abstract class BaseListFragment<VH extends BasicViewHolder, Bean> extends
     }
 
     public void setFill(Object result, int loading, CharSequence empty) {
-        setFill(result, loading, BasicConstants.PAGESIZE, empty);
+        setFill(result, loading,mPage, BasicConstants.PAGESIZE, empty);
     }
 
     protected void setListLoadFail() {
