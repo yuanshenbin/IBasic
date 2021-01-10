@@ -23,7 +23,7 @@ public abstract class BaseListActivity<VH extends BasicViewHolder, Bean> extends
     public void setFill(Object result, int loading, int size, CharSequence emptyMsg) {
         swipe_to_load_layout.setRefreshing(false);
         if (mDelegate != null) {
-            mDelegate.handleListData(mAdapter, mData,result, loading, size, emptyMsg);
+            mDelegate.handleListData(mAdapter, mData,result, isPullAndPush,loading, size, emptyMsg);
         }
     }
 

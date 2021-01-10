@@ -52,7 +52,7 @@ abstract class IDelegate implements Serializable {
         return false;
     }
 
-    public void handleListData(CommonAdapter adapter, List list, Object result, int loading, int size, CharSequence emptyMsg){}
+    public void handleListData(CommonAdapter adapter, List list, Object result,boolean isPullAndPush, int loading, int size, CharSequence emptyMsg){}
 
 
     public void onTitle(String title) {
