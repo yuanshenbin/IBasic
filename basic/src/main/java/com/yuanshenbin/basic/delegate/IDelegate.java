@@ -16,7 +16,7 @@ import java.util.List;
  * desc   :
  */
 
-abstract class YJPDelegate implements Serializable {
+abstract class IDelegate implements Serializable {
 
     public void onShowToast(Context context, String str) {
 
@@ -52,6 +52,9 @@ abstract class YJPDelegate implements Serializable {
         return false;
     }
 
+    public void handleListData(CommonAdapter adapter, List list, Object result,boolean isPullAndPush, int loading,int page, int size, CharSequence emptyMsg){}
+
+
     public void onTitle(String title) {
 
     }
@@ -74,7 +77,4 @@ abstract class YJPDelegate implements Serializable {
 
     }
 
-    public void handleListData(CommonAdapter adapter,List mData,Object result, boolean pull, int page, int size,int loading){
-
-    }
 }

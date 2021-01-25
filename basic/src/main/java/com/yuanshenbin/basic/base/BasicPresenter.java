@@ -1,7 +1,9 @@
 package com.yuanshenbin.basic.base;
 
 import android.content.Context;
+
 import com.yuanshenbin.network.model.ResponseModel;
+
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

@@ -1,10 +1,15 @@
 package com.yuanshenbin.basic.util;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -181,6 +186,47 @@ public class StacksManager {
                 weakReference.get().finish();
             }
         }
+    }
+
+    /**
+     * 检查activity是否在栈中
+     * @param context
+     * @param className 绝对路径的actiivty
+     * @param maxNum 检查栈顶下面多说个activity
+     * @return
+     */
+    public boolean isActivityStack(Context context, String className, int maxNum) {
+        boolean flag = false;
+        try {
+            Intent intent = new Intent();
+            intent.setClassName(context.getApplicationContext(), className);
+            ComponentName cmpName = intent.resolveActivity(context.getApplicationContext().getPackageManager());
+
+            if (cmpName != null) {// 说明系统中存在这个activity
+                ActivityManager am = (ActivityManager) context.getApplicationContext().getSystemService(context.getApplicationContext().ACTIVITY_SERVICE);
+                List<ActivityManager.RunningTaskInfo> taskInfoList = am.getRunningTasks(maxNum);//获取从栈顶开始往下查找的15个activity  
+                for (ActivityManager.RunningTaskInfo taskInfo : taskInfoList) {
+                    if (taskInfo.baseActivity.equals(cmpName)) {// 说明它已经启动了
+                        flag = true;
+                        break;//跳出循环，优化效率  
+                    }
+
+                }
+            }
+        } catch (Exception e) {
+            return flag;
+        }
+
+        return flag;
+    }
+
+    /**
+     * @param context
+     * @param className
+     * @return
+     */
+    public boolean isActivityStack(Context context, String className) {
+        return isActivityStack(context, className, 15);
     }
 
 }

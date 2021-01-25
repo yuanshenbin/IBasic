@@ -20,6 +20,6 @@ public abstract class NetworkState extends StateAbstract {
 
     public abstract void showNetwork(@DrawableRes int resId);
 
-    public abstract void showNetwork(String... msg); 
+    public abstract void showNetwork(String... msg);
     
 }

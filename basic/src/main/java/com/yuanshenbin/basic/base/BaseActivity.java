@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.yuanshenbin.basic.constant.BasicConstants;
 import com.yuanshenbin.basic.delegate.BaseActivityDelegate;
+import com.yuanshenbin.basic.state.OnEmptyListener;
 import com.yuanshenbin.basic.state.OnRetryListener;
 import com.yuanshenbin.basic.state.StateLayoutManager;
 import com.yuanshenbin.network.model.ResponseModel;
@@ -83,7 +84,6 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
         mVH = initViewHolder();
         if (mVH == null) {
             try {
-
                 Type[] data = ((ParameterizedType) (this.getClass()
                         .getGenericSuperclass())).getActualTypeArguments();
                 Constructor c = Class.forName(((Class) data[0]).getName()).getConstructor(ViewGroup.class);
@@ -138,6 +138,14 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
         }
     }
 
+    /**
+     * 空页面点击
+     *
+     * @param text
+     */
+    public void onEmptyClick(CharSequence... text) {
+
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -156,6 +164,7 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
         if (null != extras) {
             initIntentExtras(extras);
         }
+
         setContentView(initLayoutId());
 
     }
@@ -189,6 +198,11 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
                 @Override
                 public void onRetry() {
                     onReload();
+                }
+            }, new OnEmptyListener() {
+                @Override
+                public void onEmptyClick(CharSequence... text) {
+                    BaseActivity.this.onEmptyClick();
                 }
             });
         }
@@ -387,9 +401,7 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
     protected void onDestroy() {
         if (mDelegate != null)
             mDelegate.onDestroy();
-        mDelegate = null;
         mDisposable.clear();
-        mVH = null;
         super.onDestroy();
 
     }
@@ -400,6 +412,7 @@ public abstract class BaseActivity<VH extends BasicViewHolder> extends AppCompat
         if (mDelegate != null)
             mDelegate.finish();
     }
+
     @Override
     public Resources getResources() {
         try {

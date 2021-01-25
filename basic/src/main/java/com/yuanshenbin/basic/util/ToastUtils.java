@@ -4,9 +4,10 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * author : yuanshenbin
- * time   : 2018/8/27
- * desc   : toast
+ * Toast帮助类
+ *
+ * @author back
+ * @version landingtech_v1
  */
 public class ToastUtils {
 

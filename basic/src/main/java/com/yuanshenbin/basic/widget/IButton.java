@@ -1,4 +1,4 @@
-package com.yuanshenbin.basic;
+package com.yuanshenbin.basic.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -18,7 +18,7 @@ import com.yuanshenbin.basic.R;
  * desc   :
  */
 
-public class IButtom extends AppCompatButton {
+public class IButton extends AppCompatButton {
 
     private int i_btn_pressed_color;//按下的颜色
 
@@ -61,32 +61,32 @@ public class IButtom extends AppCompatButton {
     private boolean i_btn_selected;
 
 
-    public IButtom(Context context) {
+    public IButton(Context context) {
         super(context);
     }
 
-    public IButtom(Context context, AttributeSet attrs) {
+    public IButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (attrs != null) {
-            TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IButtom);
+            TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IButton);
 
-            i_btn_selected = ta.getBoolean(R.styleable.IButtom_i_btn_selected, true);
-            i_btn_text_color = ta.getColor(R.styleable.IButtom_i_btn_text_color, 0);
-            i_btn_normal_color = ta.getColor(R.styleable.IButtom_i_btn_normal_color, 0);
-            i_btn_enabled_color = ta.getColor(R.styleable.IButtom_i_btn_enabled_color, 0);
-            i_btn_stroke_color = ta.getColor(R.styleable.IButtom_i_btn_stroke_color, 0);
-            i_btn_solid_color = ta.getColor(R.styleable.IButtom_i_btn_solid_color, 0);
-            i_btn_pressed_color = ta.getColor(R.styleable.IButtom_i_btn_pressed_color, 0);
-            i_btn_radius_size = (int) ta.getDimension(R.styleable.IButtom_i_btn_radius_size, 0);
-            i_btn_stroke_width = (int) ta.getDimension(R.styleable.IButtom_i_btn_stroke_width, 0);
+            i_btn_selected = ta.getBoolean(R.styleable.IButton_i_btn_selected, true);
+            i_btn_text_color = ta.getColor(R.styleable.IButton_i_btn_text_color, 0);
+            i_btn_normal_color = ta.getColor(R.styleable.IButton_i_btn_normal_color, 0);
+            i_btn_enabled_color = ta.getColor(R.styleable.IButton_i_btn_enabled_color, 0);
+            i_btn_stroke_color = ta.getColor(R.styleable.IButton_i_btn_stroke_color, 0);
+            i_btn_solid_color = ta.getColor(R.styleable.IButton_i_btn_solid_color, 0);
+            i_btn_pressed_color = ta.getColor(R.styleable.IButton_i_btn_pressed_color, 0);
+            i_btn_radius_size = (int) ta.getDimension(R.styleable.IButton_i_btn_radius_size, 0);
+            i_btn_stroke_width = (int) ta.getDimension(R.styleable.IButton_i_btn_stroke_width, 0);
 
-            i_btn_text_color_unselected = ta.getColor(R.styleable.IButtom_i_btn_text_color_unselected, 0);
-            i_btn_pressed_color_unselected = ta.getColor(R.styleable.IButtom_i_btn_pressed_color_unselected, 0);
-            i_btn_normal_color_unselected = ta.getColor(R.styleable.IButtom_i_btn_normal_color_unselected, 0);
-            i_btn_enabled_color_unselected = ta.getColor(R.styleable.IButtom_i_btn_enabled_color_unselected, 0);
-            i_btn_stroke_color_unselected = ta.getColor(R.styleable.IButtom_i_btn_stroke_color_unselected, 0);
-            i_btn_solid_color_unselected = ta.getColor(R.styleable.IButtom_i_btn_solid_color_unselected, 0);
-            i_btn_stroke_width_unselected = (int) ta.getDimension(R.styleable.IButtom_i_btn_stroke_width_unselected, 0);
+            i_btn_text_color_unselected = ta.getColor(R.styleable.IButton_i_btn_text_color_unselected, 0);
+            i_btn_pressed_color_unselected = ta.getColor(R.styleable.IButton_i_btn_pressed_color_unselected, 0);
+            i_btn_normal_color_unselected = ta.getColor(R.styleable.IButton_i_btn_normal_color_unselected, 0);
+            i_btn_enabled_color_unselected = ta.getColor(R.styleable.IButton_i_btn_enabled_color_unselected, 0);
+            i_btn_stroke_color_unselected = ta.getColor(R.styleable.IButton_i_btn_stroke_color_unselected, 0);
+            i_btn_solid_color_unselected = ta.getColor(R.styleable.IButton_i_btn_solid_color_unselected, 0);
+            i_btn_stroke_width_unselected = (int) ta.getDimension(R.styleable.IButton_i_btn_stroke_width_unselected, 0);
             ta.recycle();
         }
         selectedState(i_btn_selected);
@@ -218,5 +218,14 @@ public class IButtom extends AppCompatButton {
                 setTextColor(i_btn_text_color_unselected);
             }
         }
+        i_btn_selected =selected;
+    }
+
+    /**
+     * 获取选中状态
+     * @return
+     */
+    public  boolean isSelectedState(){
+        return  i_btn_selected;
     }
 }

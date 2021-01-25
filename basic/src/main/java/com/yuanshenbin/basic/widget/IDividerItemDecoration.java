@@ -1,4 +1,4 @@
-package com.yuanshenbin.basic;
+package com.yuanshenbin.basic.widget;
 
 
 import android.content.Context;

@@ -195,4 +195,8 @@ public abstract class SupportFragment extends Fragment {
             onSupportVisible();
         }
     }
+
+    protected void setCreate(boolean create) {
+        isCreate = create;
+    }
 }

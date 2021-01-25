@@ -6,7 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 
 import com.yuanshenbin.basic.R;
-import com.yuanshenbin.basic.IDividerItemDecoration;
+import com.yuanshenbin.basic.widget.IDividerItemDecoration;
 
 
 /**
@@ -19,7 +19,7 @@ public class RecyclerDividerUtils {
 
     public static IDividerItemDecoration getDivider1px(Context context) {
         IDividerItemDecoration decoration = new IDividerItemDecoration(context, RecyclerView.VERTICAL);
-        decoration.setDrawable(ContextCompat.getDrawable(context, R.drawable.core_basic_item_divider_1px));
+        decoration.setDrawable(ContextCompat.getDrawable(context, R.drawable.basic_item_divider_1px));
         return decoration;
     }
 

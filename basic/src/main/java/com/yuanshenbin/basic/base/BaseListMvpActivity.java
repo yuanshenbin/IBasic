@@ -17,25 +17,35 @@ public abstract class BaseListMvpActivity<VH extends BasicViewHolder, Bean, V, P
         extends BaseMvpActivity<VH, V, P> {
     protected SwipeToLoadLayout swipe_to_load_layout;
     protected List<Bean> mData = new ArrayList<>();
+
     protected CommonAdapter<Bean> mAdapter;
 
-    public void handleListData(Object result, boolean pull, int page, int loading) {
-        this.handleListData(result, pull, page, 20, loading);
+    public void setFill(Object result, int loading, int page,int size, CharSequence emptyMsg) {
+        swipe_to_load_layout.setRefreshing(false);
+        if (mDelegate != null) {
+            mDelegate.handleListData(mAdapter, mData,result, isPullAndPush,loading,page, size, emptyMsg);
+        }
     }
 
-    public void handleListData(Object result, boolean pull, int page, int size, int loading) {
-        this.swipe_to_load_layout.setRefreshing(false);
-        if (this.mDelegate != null) {
-            this.mDelegate.handleListData(this.mAdapter, this.mData, result, pull, page, size, loading);
-        }
+    public void setFill(Object result, int loading, int size) {
+        setFill(result, loading,mPage, size, null);
+    }
 
+    public void setFill(Object result, int loading) {
+        setFill(result, loading, BasicConstants.PAGESIZE);
+    }
+
+    public void setFill(Object result, int loading, CharSequence empty) {
+        setFill(result, loading,mPage, BasicConstants.PAGESIZE, empty);
     }
 
     protected void setListLoadFail() {
         swipe_to_load_layout.setRefreshing(false);
         if (!isPullAndPush) {
             mPage--;
-            mAdapter.loadMoreFail();
+            if (mAdapter.getLoadMoreModule() != null) {
+                mAdapter.getLoadMoreModule().loadMoreFail();
+            }
         }
     }
 }

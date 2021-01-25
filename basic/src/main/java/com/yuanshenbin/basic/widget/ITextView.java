@@ -1,4 +1,4 @@
-package com.yuanshenbin.basic;
+package com.yuanshenbin.basic.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,6 +10,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 import com.yuanshenbin.basic.R;
+
 
 /**
  * author : yuanshenbin
@@ -217,5 +218,15 @@ public class ITextView extends AppCompatTextView {
                 setTextColor(i_tv_text_color_unselected);
             }
         }
+        i_tv_selected =selected;
     }
+
+    /**
+     * 获取选中状态
+     * @return
+     */
+    public  boolean isSelectedState(){
+        return  i_tv_selected;
+    }
+
 }

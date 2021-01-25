@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-
 import com.yuanshenbin.basic.util.ToastUtils;
 
 import java.lang.reflect.Constructor;

@@ -1,7 +1,11 @@
 package com.yuanshenbin.basic.util;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.text.Spannable;
@@ -55,6 +59,11 @@ public class Utils {
     public static boolean isEmpty(String str) {
         return str == null || str.toString().trim().length() == 0;
     }
+
+    public static boolean isEmpty(CharSequence str) {
+        return str == null || str.toString().trim().length() == 0;
+    }
+
     /**
      * 判断集合为空
      *
@@ -62,8 +71,9 @@ public class Utils {
      * @return
      */
     public static boolean isEmpty(List list) {
-        return list == null || list.size()==0;
+        return list == null || list.size() == 0;
     }
+
     /**
      * 判断集合为空
      *
@@ -71,7 +81,7 @@ public class Utils {
      * @return
      */
     public static boolean isEmpty(Map map) {
-        return map == null || map.size()==0;
+        return map == null || map.size() == 0;
     }
 
     /**
@@ -140,6 +150,17 @@ public class Utils {
         context.startActivity(intent);
     }
 
+    public static void copy(Context context, CharSequence text) {
+        copy(context, text, "复制成功");
+    }
+
+    public static void copy(Context context, CharSequence text, String hint) {
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData mClipData = ClipData.newPlainText("Label", text);
+        cm.setPrimaryClip(mClipData);
+        ToastUtils.shortToast(context, hint);
+    }
+
     /**
      * 发送短信
      *
@@ -185,5 +206,23 @@ public class Utils {
         } else {
             return style;
         }
+    }
+
+    /**
+     * 检查包是否存在
+     * @param packageName 包名
+     * @return
+     */
+    public static boolean checkPackageName(Context context, String packageName) {
+        if (Utils.isEmpty(packageName)) {
+            return false;
+        }
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageInfo != null;
     }
 }
