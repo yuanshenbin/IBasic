@@ -1,7 +1,7 @@
 package com.yuanshenbin.basic.state;
 
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 /**
  * author : yuanshenbin

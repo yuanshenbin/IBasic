@@ -1,12 +1,13 @@
 package com.yuanshenbin.basic.util;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 
 import com.yuanshenbin.basic.R;
 import com.yuanshenbin.basic.widget.IDividerItemDecoration;
+
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**

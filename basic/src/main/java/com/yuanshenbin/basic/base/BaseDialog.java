@@ -2,16 +2,14 @@ package com.yuanshenbin.basic.base;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
-import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
-
 
 import com.yuanshenbin.basic.R;
 import com.yuanshenbin.basic.call.Callback;
@@ -20,6 +18,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
 
 /**
  * author : yuanshenbin
@@ -185,6 +186,7 @@ public abstract class BaseDialog<VH extends BasicViewHolder, Call> extends Dialo
 
     /**
      * 获得根view
+     *
      * @return
      */
     public Window getRootView() {
@@ -198,6 +200,17 @@ public abstract class BaseDialog<VH extends BasicViewHolder, Call> extends Dialo
     protected int getWidth() {
         return WindowManager.LayoutParams.MATCH_PARENT;
     }
+
+    protected int getWidthDefault() {
+        return (int) (getWidthPixels() * 0.85);
+    }
+
+    protected int getWidthPixels() {
+        DisplayMetrics metric = new DisplayMetrics();
+        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metric);
+        return metric.widthPixels;
+    }
+
 
     protected float getAlpha() {
         return 1.0f;

@@ -1,15 +1,15 @@
 package com.yuanshenbin.basic.delegate;
 
 
-import android.support.v4.app.Fragment;
 import android.view.View;
-
 
 import com.yuanshenbin.basic.state.OnEmptyListener;
 import com.yuanshenbin.basic.state.OnRetryListener;
 import com.yuanshenbin.basic.state.StateLayoutManager;
 
 import java.io.Serializable;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * author : yuanshenbin

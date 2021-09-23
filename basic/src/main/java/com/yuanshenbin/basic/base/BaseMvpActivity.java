@@ -1,10 +1,10 @@
 package com.yuanshenbin.basic.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import androidx.annotation.Nullable;
 
 /**
  * author : yuanshenbin

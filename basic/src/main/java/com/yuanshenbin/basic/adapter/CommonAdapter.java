@@ -1,10 +1,6 @@
 package com.yuanshenbin.basic.adapter;
 
 
-
-import android.support.v7.widget.RecyclerView;
-
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.chad.library.adapter.base.module.LoadMoreModule;
@@ -41,7 +37,7 @@ public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolde
 
     public interface OnMoreLoadListener {
         void onLoadMore();
-    }
+    }//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
 
     public void setOnMoreLoadListener(OnMoreLoadListener l) {
         this.l = l;

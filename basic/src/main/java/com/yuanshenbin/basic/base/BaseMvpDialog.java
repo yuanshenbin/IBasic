@@ -1,10 +1,10 @@
 package com.yuanshenbin.basic.base;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import androidx.annotation.NonNull;
 
 /**
  * author : yuanshenbin

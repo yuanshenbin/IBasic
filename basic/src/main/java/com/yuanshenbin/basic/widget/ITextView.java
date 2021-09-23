@@ -5,11 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.DimenRes;
-import android.support.v7.widget.AppCompatTextView;
+
 import android.util.AttributeSet;
 
 import com.yuanshenbin.basic.R;
+
+import androidx.annotation.DimenRes;
+import androidx.appcompat.widget.AppCompatTextView;
 
 
 /**

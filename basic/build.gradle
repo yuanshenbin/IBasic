@@ -11,12 +11,12 @@ artifacts {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0.1"
 
@@ -36,7 +36,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:+'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 
     api 'io.reactivex.rxjava2:rxjava:2.1.1'
@@ -44,6 +43,9 @@ dependencies {
     api 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
     api 'com.google.code.gson:gson:2.8.2'
     api 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
-    api 'com.android.support:recyclerview-v7:+'
-    api('com.github.yuanshenbin:IRequest:+')
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api('com.github.yuanshenbin:IRequest:1.0.6')
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'com.tencent:mmkv:1.2.10'
+
 }

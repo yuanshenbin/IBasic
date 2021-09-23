@@ -1,7 +1,8 @@
 package com.yuanshenbin.basic.state;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 
 /**
  * author : yuanshenbin

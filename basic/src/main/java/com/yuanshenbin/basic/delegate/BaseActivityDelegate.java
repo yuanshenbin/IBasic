@@ -2,15 +2,15 @@ package com.yuanshenbin.basic.delegate;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-
 
 import com.yuanshenbin.basic.state.OnEmptyListener;
 import com.yuanshenbin.basic.state.OnRetryListener;
 import com.yuanshenbin.basic.state.StateLayoutManager;
 
 import java.io.Serializable;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * author : yuanshenbin
