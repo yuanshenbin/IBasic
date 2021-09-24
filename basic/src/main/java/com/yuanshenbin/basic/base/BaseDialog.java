@@ -57,7 +57,7 @@ public abstract class BaseDialog<VH extends BasicViewHolder, Call> extends Dialo
             Window win = this.getWindow();
             this.requestWindowFeature(Window.FEATURE_NO_TITLE);
             win.setGravity(getGravity());
-            win.setBackgroundDrawableResource(R.color.core_basic_color_transparent);
+            win.setBackgroundDrawableResource(R.color.basic_color_transparent);
 
             WindowManager.LayoutParams lp = win.getAttributes();
             win.getDecorView().setPadding(0, 0, 0, 0);
