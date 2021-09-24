@@ -10,7 +10,7 @@ import com.yuanshenbin.basic.R;
 import com.yuanshenbin.basic.base.BaseDialog;
 import com.yuanshenbin.basic.call.Callback;
 import com.yuanshenbin.basic.call.CustomDialogListener;
-import com.yuanshenbin.basic.config.BasicConfig;
+import com.yuanshenbin.basic.config.BasicOptions;
 import com.yuanshenbin.basic.dialog.vh.TipsVH;
 import com.yuanshenbin.basic.util.Utils;
 
@@ -114,19 +114,19 @@ public class TipsDialog extends BaseDialog<TipsVH, Object> {
 
     public static final class Builder {
         private Context context;
-        private String title = BasicConfig.getInstance().getTipsAbstract().getTitle();//标题
+        private String title = BasicOptions.getInstance().getTipsAbstract().getTitle();//标题
         private CharSequence content;//内容
         private boolean single = false;//是单选
         private Callback callback;
         private boolean cancelable = true;//控制dialog是否允许返回  true是可以
-        private String okContent = BasicConfig.getInstance().getTipsAbstract().getOkContentTitle();
-        private String cancelContent = BasicConfig.getInstance().getTipsAbstract().getCancelContentTitle();
+        private String okContent = BasicOptions.getInstance().getTipsAbstract().getOkContentTitle();
+        private String cancelContent = BasicOptions.getInstance().getTipsAbstract().getCancelContentTitle();
         private CustomDialogListener listener;
         private int resId;
-        private int okBtnColor = BasicConfig.getInstance().getTipsAbstract().getOkContentTitleColor();
-        private int cancelBtnColor = BasicConfig.getInstance().getTipsAbstract().getCancelContentColor();
-        private Integer titleGravity = BasicConfig.getInstance().getTipsAbstract().getTitleGravity();
-        private Integer contentGravity = BasicConfig.getInstance().getTipsAbstract().getContentGravity();
+        private int okBtnColor = BasicOptions.getInstance().getTipsAbstract().getOkContentTitleColor();
+        private int cancelBtnColor = BasicOptions.getInstance().getTipsAbstract().getCancelContentColor();
+        private Integer titleGravity = BasicOptions.getInstance().getTipsAbstract().getTitleGravity();
+        private Integer contentGravity = BasicOptions.getInstance().getTipsAbstract().getContentGravity();
 
         public Builder(Context context) {
             this.context = context;
