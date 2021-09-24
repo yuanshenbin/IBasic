@@ -14,7 +14,7 @@ import java.util.List;
  * time   : 2021-09-21
  * desc   :
  */
-public class SpUtils {
+public class SPUtils {
 
     private static MMKV sMMKV;
 
