@@ -19,7 +19,7 @@ public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolde
      * @param layoutResId
      * @param data
      */
-    public CommonAdapter(int layoutResId, List<T> data) {
+    public CommonAdapter(int layoutResId, List<T> data,boolean isMore) {
         super(layoutResId, data);
         getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
@@ -31,13 +31,15 @@ public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolde
         });
 
     }
-
+    public CommonAdapter(int layoutResId, List<T> data) {
+        super(layoutResId, data);
+    }
 
     public OnMoreLoadListener l;
 
     public interface OnMoreLoadListener {
         void onLoadMore();
-    }//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
+    }
 
     public void setOnMoreLoadListener(OnMoreLoadListener l) {
         this.l = l;
