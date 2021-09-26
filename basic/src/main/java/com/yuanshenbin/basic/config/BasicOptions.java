@@ -2,6 +2,7 @@ package com.yuanshenbin.basic.config;
 
 import android.content.Context;
 
+import com.tencent.mmkv.MMKV;
 import com.yuanshenbin.basic.imgloader.IImageLoaderProxy;
 import com.yuanshenbin.basic.imgloader.ImageLoader;
 
@@ -14,11 +15,11 @@ public class BasicOptions {
     private int pageSize = 20;//分页默认值
     private static BasicOptions instance;
     private Context mContext;
+    private IImageLoaderProxy mIImageLoaderProxy;
 
     private TipsAbstract mTipsAbstract = new TipsAbstract() {
     };
-    private MMKVAbstract mMMKVAbstract = new MMKVAbstract() {
-    };
+    private MMKVAbstract mMMKVAbstract ;
 
     public static BasicOptions getInstance() {
 
@@ -52,6 +53,18 @@ public class BasicOptions {
         ImageLoader.getInstance()
                 .setImageLoaderProxy(iImageLoaderProxy);
         return this;
+    }
+
+    public void build() {
+        if(mIImageLoaderProxy!=null){
+            ImageLoader.getInstance()
+                    .setImageLoaderProxy(mIImageLoaderProxy);
+        }
+        if(mMMKVAbstract!=null){
+            MMKV.initialize(mContext);
+        }else {
+            MMKV.initialize(mContext);
+        }
     }
 
     public TipsAbstract getTipsAbstract() {
