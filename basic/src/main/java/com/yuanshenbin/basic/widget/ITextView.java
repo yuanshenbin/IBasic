@@ -2,6 +2,7 @@ package com.yuanshenbin.basic.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -58,6 +59,8 @@ public class ITextView extends AppCompatTextView {
 
     private int i_tv_text_color_unselected;//字体颜色
 
+    private int i_tv_text_style;//字体粗
+
 
     /**
      * 是否选中状态
@@ -74,6 +77,7 @@ public class ITextView extends AppCompatTextView {
         if (attrs != null) {
             TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.ITextView);
 
+            i_tv_text_style =ta.getInt(R.styleable.ITextView_i_tv_text_style,0);
             i_tv_selected = ta.getBoolean(R.styleable.ITextView_i_tv_selected, true);
             i_tv_text_color= ta.getColor(R.styleable.ITextView_i_tv_text_color, 0);
             i_tv_pressed_color = ta.getColor(R.styleable.ITextView_i_tv_pressed_color, 0);
@@ -93,6 +97,15 @@ public class ITextView extends AppCompatTextView {
             i_tv_text_color_unselected= ta.getColor(R.styleable.ITextView_i_tv_text_color_unselected, 0);
             ta.recycle();
         }
+        if(i_tv_text_style==1){
+            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }else if(i_tv_text_style==2){
+            getPaint().setFakeBoldText(true);
+        }else if(i_tv_text_style==3){
+            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            getPaint().setFakeBoldText(true);
+        }
+
         selectedState(i_tv_selected);
 
     }
@@ -222,6 +235,7 @@ public class ITextView extends AppCompatTextView {
         }
         i_tv_selected =selected;
     }
+
 
     /**
      * 获取选中状态

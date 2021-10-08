@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-
 import android.util.AttributeSet;
 
 import com.yuanshenbin.basic.R;
@@ -21,89 +20,89 @@ import androidx.appcompat.widget.AppCompatButton;
  * desc   :
  */
 
-public class IButton extends AppCompatButton {
+public class IEditText extends AppCompatButton {
 
-    private int i_btn_pressed_color;//按下的颜色
+    private int i_et_pressed_color;//按下的颜色
 
-    private int i_btn_normal_color;//正常状态颜色
+    private int i_et_normal_color;//正常状态颜色
 
-    private int i_btn_enabled_color;//不可用的颜色
+    private int i_et_enabled_color;//不可用的颜色
 
-    private int i_btn_stroke_color;//边线的颜色
+    private int i_et_stroke_color;//边线的颜色
 
-    private int i_btn_solid_color;//填充颜色
-
-    @DimenRes
-    private int i_btn_radius_size;//弧度大小
+    private int i_et_solid_color;//填充颜色
 
     @DimenRes
-    private int i_btn_stroke_width;//边线的宽
+    private int i_et_radius_size;//弧度大小
 
-    private int i_btn_text_color;//字体颜色
+    @DimenRes
+    private int i_et_stroke_width;//边线的宽
+
+    private int i_et_text_color;//字体颜色
     /**
      * 未选中
      */
-    private int i_btn_pressed_color_unselected;//未选中按下的颜色
+    private int i_et_pressed_color_unselected;//未选中按下的颜色
 
-    private int i_btn_normal_color_unselected;//未选中正常状态颜色
+    private int i_et_normal_color_unselected;//未选中正常状态颜色
 
-    private int i_btn_enabled_color_unselected;//未选中不可用的颜色
+    private int i_et_enabled_color_unselected;//未选中不可用的颜色
 
-    private int i_btn_stroke_color_unselected;//未选中边线的颜色
+    private int i_et_stroke_color_unselected;//未选中边线的颜色
 
-    private int i_btn_solid_color_unselected;//未选中填充颜色
+    private int i_et_solid_color_unselected;//未选中填充颜色
 
     @DimenRes
-    private int i_btn_stroke_width_unselected;//未选中边线的宽
+    private int i_et_stroke_width_unselected;//未选中边线的宽
 
-    private int i_btn_text_color_unselected;//字体颜色
+    private int i_et_text_color_unselected;//字体颜色
 
-    private int i_btn_text_style;//字体粗
+    private int i_et_text_style;//字体粗
 
     /**
      * 是否选中状态
      */
-    private boolean i_btn_selected;
+    private boolean i_et_selected;
 
 
-    public IButton(Context context) {
+    public IEditText(Context context) {
         super(context);
     }
 
-    public IButton(Context context, AttributeSet attrs) {
+    public IEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (attrs != null) {
-            TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IButton);
+            TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IEditText);
 
-            i_btn_selected = ta.getBoolean(R.styleable.IButton_i_btn_selected, true);
-            i_btn_text_style =ta.getInt(R.styleable.IButton_i_btn_text_style,0);
-            i_btn_text_color = ta.getColor(R.styleable.IButton_i_btn_text_color, 0);
-            i_btn_normal_color = ta.getColor(R.styleable.IButton_i_btn_normal_color, 0);
-            i_btn_enabled_color = ta.getColor(R.styleable.IButton_i_btn_enabled_color, 0);
-            i_btn_stroke_color = ta.getColor(R.styleable.IButton_i_btn_stroke_color, 0);
-            i_btn_solid_color = ta.getColor(R.styleable.IButton_i_btn_solid_color, 0);
-            i_btn_pressed_color = ta.getColor(R.styleable.IButton_i_btn_pressed_color, 0);
-            i_btn_radius_size = (int) ta.getDimension(R.styleable.IButton_i_btn_radius_size, 0);
-            i_btn_stroke_width = (int) ta.getDimension(R.styleable.IButton_i_btn_stroke_width, 0);
+            i_et_selected = ta.getBoolean(R.styleable.IEditText_i_et_selected, true);
+            i_et_text_style =ta.getInt(R.styleable.IEditText_i_et_text_style,0);
+            i_et_text_color = ta.getColor(R.styleable.IEditText_i_et_text_color, 0);
+            i_et_normal_color = ta.getColor(R.styleable.IEditText_i_et_normal_color, 0);
+            i_et_enabled_color = ta.getColor(R.styleable.IEditText_i_et_enabled_color, 0);
+            i_et_stroke_color = ta.getColor(R.styleable.IEditText_i_et_stroke_color, 0);
+            i_et_solid_color = ta.getColor(R.styleable.IEditText_i_et_solid_color, 0);
+            i_et_pressed_color = ta.getColor(R.styleable.IEditText_i_et_pressed_color, 0);
+            i_et_radius_size = (int) ta.getDimension(R.styleable.IEditText_i_et_radius_size, 0);
+            i_et_stroke_width = (int) ta.getDimension(R.styleable.IEditText_i_et_stroke_width, 0);
 
-            i_btn_text_color_unselected = ta.getColor(R.styleable.IButton_i_btn_text_color_unselected, 0);
-            i_btn_pressed_color_unselected = ta.getColor(R.styleable.IButton_i_btn_pressed_color_unselected, 0);
-            i_btn_normal_color_unselected = ta.getColor(R.styleable.IButton_i_btn_normal_color_unselected, 0);
-            i_btn_enabled_color_unselected = ta.getColor(R.styleable.IButton_i_btn_enabled_color_unselected, 0);
-            i_btn_stroke_color_unselected = ta.getColor(R.styleable.IButton_i_btn_stroke_color_unselected, 0);
-            i_btn_solid_color_unselected = ta.getColor(R.styleable.IButton_i_btn_solid_color_unselected, 0);
-            i_btn_stroke_width_unselected = (int) ta.getDimension(R.styleable.IButton_i_btn_stroke_width_unselected, 0);
+            i_et_text_color_unselected = ta.getColor(R.styleable.IEditText_i_et_text_color_unselected, 0);
+            i_et_pressed_color_unselected = ta.getColor(R.styleable.IEditText_i_et_pressed_color_unselected, 0);
+            i_et_normal_color_unselected = ta.getColor(R.styleable.IEditText_i_et_normal_color_unselected, 0);
+            i_et_enabled_color_unselected = ta.getColor(R.styleable.IEditText_i_et_enabled_color_unselected, 0);
+            i_et_stroke_color_unselected = ta.getColor(R.styleable.IEditText_i_et_stroke_color_unselected, 0);
+            i_et_solid_color_unselected = ta.getColor(R.styleable.IEditText_i_et_solid_color_unselected, 0);
+            i_et_stroke_width_unselected = (int) ta.getDimension(R.styleable.IEditText_i_et_stroke_width_unselected, 0);
             ta.recycle();
         }
-        if(i_btn_text_style==1){
+        if(i_et_text_style==1){
             setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else if(i_btn_text_style==2){
+        }else if(i_et_text_style==2){
             getPaint().setFakeBoldText(true);
-        }else if(i_btn_text_style==3){
+        }else if(i_et_text_style==3){
             setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
             getPaint().setFakeBoldText(true);
         }
-        selectedState(i_btn_selected);
+        selectedState(i_et_selected);
 
     }
 
@@ -123,7 +122,7 @@ public class IButton extends AppCompatButton {
         // 设置绘画图片色值
 
         gradientDrawable.setColor(solidColor);
-        gradientDrawable.setStroke(i_btn_stroke_width, i_btn_stroke_color);
+        gradientDrawable.setStroke(i_et_stroke_width, i_et_stroke_color);
         // 绘画的是矩形
         gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         return gradientDrawable;
@@ -147,7 +146,7 @@ public class IButton extends AppCompatButton {
         if (normalDrawable != null) {
             stateListDrawable.addState(new int[]{android.R.attr.state_enabled}, normalDrawable);
         }
-        GradientDrawable gray = getSolidRectDrawable(i_btn_radius_size, i_btn_enabled_color);
+        GradientDrawable gray = getSolidRectDrawable(i_et_radius_size, i_et_enabled_color);
         if (gray != null) {
             stateListDrawable.addState(new int[]{}, gray);
         }
@@ -173,7 +172,7 @@ public class IButton extends AppCompatButton {
         if (solidColor != 0) {
             gradientDrawable.setColor(solidColor);
         }
-        gradientDrawable.setStroke(i_btn_stroke_width_unselected, i_btn_stroke_color_unselected);
+        gradientDrawable.setStroke(i_et_stroke_width_unselected, i_et_stroke_color_unselected);
         // 绘画的是矩形
         gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         return gradientDrawable;
@@ -197,7 +196,7 @@ public class IButton extends AppCompatButton {
         if (normalDrawable != null) {
             stateListDrawable.addState(new int[]{android.R.attr.state_enabled}, normalDrawable);
         }
-        GradientDrawable gray = getSolidRectDrawableUnselected(i_btn_radius_size, i_btn_enabled_color_unselected);
+        GradientDrawable gray = getSolidRectDrawableUnselected(i_et_radius_size, i_et_enabled_color_unselected);
         if (gray != null) {
             stateListDrawable.addState(new int[]{}, gray);
         }
@@ -213,26 +212,26 @@ public class IButton extends AppCompatButton {
     public void selectedState(boolean selected) {
         if (selected) {
             //不需要按下去的效果
-            if (i_btn_pressed_color == 0 && i_btn_normal_color == 0 && i_btn_enabled_color == 0) {
-                setBackgroundDrawable(getSolidRectDrawable(i_btn_radius_size, i_btn_solid_color));
+            if (i_et_pressed_color == 0 && i_et_normal_color == 0 && i_et_enabled_color == 0) {
+                setBackgroundDrawable(getSolidRectDrawable(i_et_radius_size, i_et_solid_color));
             } else {
-                setBackgroundDrawable(getStateListDrawable(getSolidRectDrawable(i_btn_radius_size, i_btn_pressed_color), getSolidRectDrawable(i_btn_radius_size, i_btn_normal_color)));
+                setBackgroundDrawable(getStateListDrawable(getSolidRectDrawable(i_et_radius_size, i_et_pressed_color), getSolidRectDrawable(i_et_radius_size, i_et_normal_color)));
             }
-            if (i_btn_text_color != 0) {
-                setTextColor(i_btn_text_color);
+            if (i_et_text_color != 0) {
+                setTextColor(i_et_text_color);
             }
         } else {
             //不需要按下去的效果
-            if (i_btn_pressed_color_unselected == 0 && i_btn_normal_color_unselected == 0 && i_btn_enabled_color_unselected == 0) {
-                setBackgroundDrawable(getSolidRectDrawableUnselected(i_btn_radius_size, i_btn_solid_color_unselected));
+            if (i_et_pressed_color_unselected == 0 && i_et_normal_color_unselected == 0 && i_et_enabled_color_unselected == 0) {
+                setBackgroundDrawable(getSolidRectDrawableUnselected(i_et_radius_size, i_et_solid_color_unselected));
             } else {
-                setBackgroundDrawable(getStateListDrawableUnselected(getSolidRectDrawableUnselected(i_btn_radius_size, i_btn_pressed_color_unselected), getSolidRectDrawableUnselected(i_btn_radius_size, i_btn_normal_color_unselected)));
+                setBackgroundDrawable(getStateListDrawableUnselected(getSolidRectDrawableUnselected(i_et_radius_size, i_et_pressed_color_unselected), getSolidRectDrawableUnselected(i_et_radius_size, i_et_normal_color_unselected)));
             }
-            if (i_btn_text_color_unselected != 0) {
-                setTextColor(i_btn_text_color_unselected);
+            if (i_et_text_color_unselected != 0) {
+                setTextColor(i_et_text_color_unselected);
             }
         }
-        i_btn_selected =selected;
+        i_et_selected =selected;
     }
 
     /**
@@ -240,6 +239,6 @@ public class IButton extends AppCompatButton {
      * @return
      */
     public  boolean isSelectedState(){
-        return  i_btn_selected;
+        return  i_et_selected;
     }
 }
