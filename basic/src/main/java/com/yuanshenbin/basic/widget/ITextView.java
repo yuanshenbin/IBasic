@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-
 import android.util.AttributeSet;
 
 import com.yuanshenbin.basic.R;
@@ -79,9 +77,9 @@ public class ITextView extends AppCompatTextView {
         if (attrs != null) {
             TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.ITextView);
 
-            i_tv_text_style =ta.getInt(R.styleable.ITextView_i_tv_text_style,0);
+            i_tv_text_style = ta.getInt(R.styleable.ITextView_i_tv_text_style, 0);
             i_tv_selected = ta.getBoolean(R.styleable.ITextView_i_tv_selected, true);
-            i_tv_text_color= ta.getColor(R.styleable.ITextView_i_tv_text_color, 0);
+            i_tv_text_color = ta.getColor(R.styleable.ITextView_i_tv_text_color, 0);
             i_tv_pressed_color = ta.getColor(R.styleable.ITextView_i_tv_pressed_color, 0);
             i_tv_normal_color = ta.getColor(R.styleable.ITextView_i_tv_normal_color, 0);
             i_tv_enabled_color = ta.getColor(R.styleable.ITextView_i_tv_enabled_color, 0);
@@ -96,19 +94,10 @@ public class ITextView extends AppCompatTextView {
             i_tv_solid_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_solid_color_unselected, 0);
             i_tv_pressed_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_pressed_color_unselected, 0);
             i_tv_stroke_width_unselected = (int) ta.getDimension(R.styleable.ITextView_i_tv_stroke_width_unselected, 0);
-            i_tv_text_color_unselected= ta.getColor(R.styleable.ITextView_i_tv_text_color_unselected, 0);
+            i_tv_text_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_text_color_unselected, 0);
             ta.recycle();
         }
-        if(i_tv_text_style==1){
-            getPaint().setStrokeWidth(1f);
-            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-        }else if(i_tv_text_style==2){
-            getPaint().setStrokeWidth(1.5f);
-            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-        }else if(i_tv_text_style==3){
-            getPaint().setStrokeWidth(1.8f);
-            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-        }
+
         selectedState(i_tv_selected);
 
     }
@@ -128,7 +117,7 @@ public class ITextView extends AppCompatTextView {
         // 设置矩形的圆角半径
         gradientDrawable.setCornerRadius(cornerRadius);
         // 设置绘画图片色值
-            gradientDrawable.setColor(solidColor);
+        gradientDrawable.setColor(solidColor);
         gradientDrawable.setStroke(i_tv_stroke_width, i_tv_stroke_color);
         // 绘画的是矩形
         gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
@@ -222,7 +211,7 @@ public class ITextView extends AppCompatTextView {
             } else {
                 setBackgroundDrawable(getStateListDrawable(getSolidRectDrawable(i_tv_radius_size, i_tv_pressed_color), getSolidRectDrawable(i_tv_radius_size, i_tv_normal_color)));
             }
-            if(i_tv_text_color!=0){
+            if (i_tv_text_color != 0) {
                 setTextColor(i_tv_text_color);
             }
         } else {
@@ -232,20 +221,38 @@ public class ITextView extends AppCompatTextView {
             } else {
                 setBackgroundDrawable(getStateListDrawableUnselected(getSolidRectDrawableUnselected(i_tv_radius_size, i_tv_pressed_color_unselected), getSolidRectDrawableUnselected(i_tv_radius_size, i_tv_normal_color_unselected)));
             }
-            if(i_tv_text_color_unselected!=0){
+            if (i_tv_text_color_unselected != 0) {
                 setTextColor(i_tv_text_color_unselected);
             }
         }
-        i_tv_selected =selected;
+        i_tv_selected = selected;
     }
 
 
     /**
      * 获取选中状态
+     *
      * @return
      */
-    public  boolean isSelectedState(){
-        return  i_tv_selected;
+    public boolean isSelectedState() {
+        return i_tv_selected;
     }
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        if (i_tv_text_style == 1) {
+            getPaint().setStrokeWidth(1f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+            getPaint().setAntiAlias(true);
+        } else if (i_tv_text_style == 2) {
+            getPaint().setStrokeWidth(1.5f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+            getPaint().setAntiAlias(true);
+        } else if (i_tv_text_style == 3) {
+            getPaint().setStrokeWidth(1.8f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+            getPaint().setAntiAlias(true);
+        }
+        super.onDraw(canvas);
+    }
 }

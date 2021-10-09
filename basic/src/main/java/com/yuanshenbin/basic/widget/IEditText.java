@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -13,7 +12,6 @@ import android.util.AttributeSet;
 import com.yuanshenbin.basic.R;
 
 import androidx.annotation.DimenRes;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
 
 
@@ -78,7 +76,7 @@ public class IEditText extends AppCompatEditText {
             TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IEditText);
 
             i_et_selected = ta.getBoolean(R.styleable.IEditText_i_et_selected, true);
-            i_et_text_style =ta.getInt(R.styleable.IEditText_i_et_text_style,0);
+            i_et_text_style = ta.getInt(R.styleable.IEditText_i_et_text_style, 0);
             i_et_text_color = ta.getColor(R.styleable.IEditText_i_et_text_color, 0);
             i_et_normal_color = ta.getColor(R.styleable.IEditText_i_et_normal_color, 0);
             i_et_enabled_color = ta.getColor(R.styleable.IEditText_i_et_enabled_color, 0);
@@ -97,19 +95,10 @@ public class IEditText extends AppCompatEditText {
             i_et_stroke_width_unselected = (int) ta.getDimension(R.styleable.IEditText_i_et_stroke_width_unselected, 0);
             ta.recycle();
         }
-        if(i_et_text_style==1){
-            getPaint().setStrokeWidth(1f);
-            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-        }else if(i_et_text_style==2){
-            getPaint().setStrokeWidth(1.5f);
-            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-        }else if(i_et_text_style==3){
-            getPaint().setStrokeWidth(1.8f);
-            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-        }
         selectedState(i_et_selected);
 
     }
+
     /**
      * 得到实心的drawable, 一般作为选中，点中的效果
      *
@@ -235,14 +224,33 @@ public class IEditText extends AppCompatEditText {
                 setTextColor(i_et_text_color_unselected);
             }
         }
-        i_et_selected =selected;
+        i_et_selected = selected;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        if (i_et_text_style == 1) {
+            getPaint().setStrokeWidth(1f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+            getPaint().setAntiAlias(true);
+        } else if (i_et_text_style == 2) {
+            getPaint().setStrokeWidth(1.5f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+            getPaint().setAntiAlias(true);
+        } else if (i_et_text_style == 3) {
+            getPaint().setStrokeWidth(1.8f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+            getPaint().setAntiAlias(true);
+        }
+        super.onDraw(canvas);
     }
 
     /**
      * 获取选中状态
+     *
      * @return
      */
-    public  boolean isSelectedState(){
-        return  i_et_selected;
+    public boolean isSelectedState() {
+        return i_et_selected;
     }
 }
