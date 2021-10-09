@@ -2,6 +2,8 @@ package com.yuanshenbin.basic.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -98,14 +100,15 @@ public class ITextView extends AppCompatTextView {
             ta.recycle();
         }
         if(i_tv_text_style==1){
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            getPaint().setStrokeWidth(1f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }else if(i_tv_text_style==2){
-            getPaint().setFakeBoldText(true);
+            getPaint().setStrokeWidth(1.5f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }else if(i_tv_text_style==3){
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-            getPaint().setFakeBoldText(true);
+            getPaint().setStrokeWidth(1.8f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }
-
         selectedState(i_tv_selected);
 
     }

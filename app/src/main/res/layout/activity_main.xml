@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/title"
+/>
+    <com.yuanshenbin.basic.widget.ITextView
+        android:layout_width="wrap_content"
+        android:text="哈哈 "
+        android:layout_height="wrap_content"/>
+    <com.yuanshenbin.basic.widget.ITextView
+        android:layout_width="wrap_content"
+        app:i_tv_text_style="medium"
+        android:text="哈哈 "
+        app:i_tv_solid_color="#000"
+        android:layout_height="wrap_content"/>
+    <com.yuanshenbin.basic.widget.ITextView
+        android:layout_width="wrap_content"
+        app:i_tv_text_style="semiBold"
+        android:text="哈哈 "
+        android:layout_height="wrap_content"/>
 
-</android.support.constraint.ConstraintLayout>
+    <com.yuanshenbin.basic.widget.ITextView
+        android:layout_width="wrap_content"
+        app:i_tv_text_style="bold"
+        android:text="哈哈 "
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

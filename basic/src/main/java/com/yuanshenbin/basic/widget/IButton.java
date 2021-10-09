@@ -2,6 +2,8 @@ package com.yuanshenbin.basic.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -75,8 +77,8 @@ public class IButton extends AppCompatButton {
         if (attrs != null) {
             TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IButton);
 
-            i_btn_selected = ta.getBoolean(R.styleable.IButton_i_btn_selected, true);
             i_btn_text_style =ta.getInt(R.styleable.IButton_i_btn_text_style,0);
+            i_btn_selected = ta.getBoolean(R.styleable.IButton_i_btn_selected, true);
             i_btn_text_color = ta.getColor(R.styleable.IButton_i_btn_text_color, 0);
             i_btn_normal_color = ta.getColor(R.styleable.IButton_i_btn_normal_color, 0);
             i_btn_enabled_color = ta.getColor(R.styleable.IButton_i_btn_enabled_color, 0);
@@ -96,16 +98,19 @@ public class IButton extends AppCompatButton {
             ta.recycle();
         }
         if(i_btn_text_style==1){
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            getPaint().setStrokeWidth(1f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }else if(i_btn_text_style==2){
-            getPaint().setFakeBoldText(true);
+            getPaint().setStrokeWidth(1.5f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }else if(i_btn_text_style==3){
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-            getPaint().setFakeBoldText(true);
+            getPaint().setStrokeWidth(1.8f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }
         selectedState(i_btn_selected);
 
     }
+
 
     /**
      * 得到实心的drawable, 一般作为选中，点中的效果

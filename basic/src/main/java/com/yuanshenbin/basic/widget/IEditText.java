@@ -2,6 +2,8 @@ package com.yuanshenbin.basic.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -12,6 +14,7 @@ import com.yuanshenbin.basic.R;
 
 import androidx.annotation.DimenRes;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
 
 
 /**
@@ -20,7 +23,7 @@ import androidx.appcompat.widget.AppCompatButton;
  * desc   :
  */
 
-public class IEditText extends AppCompatButton {
+public class IEditText extends AppCompatEditText {
 
     private int i_et_pressed_color;//按下的颜色
 
@@ -95,17 +98,18 @@ public class IEditText extends AppCompatButton {
             ta.recycle();
         }
         if(i_et_text_style==1){
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            getPaint().setStrokeWidth(1f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }else if(i_et_text_style==2){
-            getPaint().setFakeBoldText(true);
+            getPaint().setStrokeWidth(1.5f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }else if(i_et_text_style==3){
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-            getPaint().setFakeBoldText(true);
+            getPaint().setStrokeWidth(1.8f);
+            getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
         }
         selectedState(i_et_selected);
 
     }
-
     /**
      * 得到实心的drawable, 一般作为选中，点中的效果
      *

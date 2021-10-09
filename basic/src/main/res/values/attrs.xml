@@ -36,9 +36,8 @@
 
         <!--字体颜色-->
         <attr name="i_btn_text_color_unselected" format="color" />
-        <!--        字体粗-->
-        <attr name="i_btn_text_style">
-            <enum name="default" value="0" />
+                字体粗
+        <attr name="i_btn_text_style" format="enum">
             <enum name="medium" value="1" />
             <enum name="semiBold" value="2" />
             <enum name="bold" value="3" />
@@ -82,9 +81,8 @@
         <!--是否默认勾选-->
         <attr name="i_tv_selected" format="boolean" />
 
-<!--        字体粗-->
-        <attr name="i_tv_text_style">
-            <enum name="default" value="0" />
+        <!--        字体粗-->
+        <attr name="i_tv_text_style" format="enum">
             <enum name="medium" value="1" />
             <enum name="semiBold" value="2" />
             <enum name="bold" value="3" />
@@ -130,8 +128,7 @@
         <attr name="i_et_selected" format="boolean" />
 
         <!--        字体粗-->
-        <attr name="i_et_text_style">
-            <enum name="default" value="0" />
+        <attr name="i_et_text_style" format="enum">
             <enum name="medium" value="1" />
             <enum name="semiBold" value="2" />
             <enum name="bold" value="3" />
