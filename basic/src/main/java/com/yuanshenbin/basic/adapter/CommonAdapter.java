@@ -14,35 +14,33 @@ import java.util.List;
  * desc   :
  */
 
-public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder>  {
-//    /**
-//     * @param layoutResId
-//     * @param data
-//     */
-//    public CommonAdapter(int layoutResId, List<T> data) {
-//        super(layoutResId, data);
-//        getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
-//            @Override
-//            public void onLoadMore() {
-//                if (l != null) {
-//                    l.onLoadMore();
-//                }
-//            }
-//        });
-//
-//    }
+public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder> implements LoadMoreModule {
+    /**
+     * @param layoutResId
+     * @param data
+     */
     public CommonAdapter(int layoutResId, List<T> data) {
         super(layoutResId, data);
+        getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                if (l != null) {
+                    l.onLoadMore();
+                }
+            }
+        });
+
     }
 
-//    public OnMoreLoadListener l;
-//
-//    public interface OnMoreLoadListener {
-//        void onLoadMore();
-//    }
-//
-//    public void setOnMoreLoadListener(OnMoreLoadListener l) {
-//        this.l = l;
-//    }
+
+    public OnMoreLoadListener l;
+
+    public interface OnMoreLoadListener {
+        void onLoadMore();
+    }
+
+    public void setOnMoreLoadListener(OnMoreLoadListener l) {
+        this.l = l;
+    }
 
 }
