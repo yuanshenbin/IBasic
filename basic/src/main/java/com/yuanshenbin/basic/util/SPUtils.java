@@ -69,7 +69,7 @@ public class SPUtils {
         return getMMKV().decodeFloat(key);
     }
 
-    public <T> T getObject(String key, Class<T> cls) {
+    public static  <T> T getObject(String key, Class<T> cls) {
         return JsonUtils.object(getString(key), cls);
     }
 
@@ -82,7 +82,7 @@ public class SPUtils {
      * @param <T>
      * @return
      */
-    public <T> List<T> getList(String key, Class<T> cls) {
+    public  static  <T> List<T> getList(String key, Class<T> cls) {
         List<T> list = new ArrayList<>();
         String json = getString(key);
         if (!Utils.isEmpty(json)) {
