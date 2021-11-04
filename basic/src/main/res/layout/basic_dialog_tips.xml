@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:i_ll_radius_size="2dp"
-    app:i_ll_solid_color="#ffffff">
+    app:i_radius_size="2dp"
+    app:i_solid_color="#ffffff">
 
     <TextView
         android:id="@+id/tv_title"

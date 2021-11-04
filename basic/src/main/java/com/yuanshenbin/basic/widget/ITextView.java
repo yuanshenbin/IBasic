@@ -23,49 +23,49 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 public class ITextView extends AppCompatTextView {
 
-    private int i_tv_pressed_color;//按下的颜色
+    private int i_pressed_color;//按下的颜色
 
-    private int i_tv_normal_color;//正常状态颜色
+    private int i_normal_color;//正常状态颜色
 
-    private int i_tv_enabled_color;//不可用的颜色
+    private int i_enabled_color;//不可用的颜色
 
-    private int i_tv_stroke_color;//边线的颜色
+    private int i_stroke_color;//边线的颜色
 
-    private int i_tv_solid_color;//填充颜色
-
-    @DimenRes
-    private int i_tv_radius_size;//弧度大小
+    private int i_solid_color;//填充颜色
 
     @DimenRes
-    private int i_tv_stroke_width;//边线的宽
+    private int i_radius_size;//弧度大小
 
-    private int i_tv_text_color;//字体颜色
+    @DimenRes
+    private int i_stroke_width;//边线的宽
+
+    private int i_text_color;//字体颜色
 
     /**
      * 未选中
      */
-    private int i_tv_pressed_color_unselected;//未选中按下的颜色
+    private int i_pressed_color_unselected;//未选中按下的颜色
 
-    private int i_tv_normal_color_unselected;//未选中正常状态颜色
+    private int i_normal_color_unselected;//未选中正常状态颜色
 
-    private int i_tv_enabled_color_unselected;//未选中不可用的颜色
+    private int i_enabled_color_unselected;//未选中不可用的颜色
 
-    private int i_tv_stroke_color_unselected;//未选中边线的颜色
+    private int i_stroke_color_unselected;//未选中边线的颜色
 
-    private int i_tv_solid_color_unselected;//未选中填充颜色
+    private int i_solid_color_unselected;//未选中填充颜色
 
     @DimenRes
-    private int i_tv_stroke_width_unselected;//未选中边线的宽
+    private int i_stroke_width_unselected;//未选中边线的宽
 
-    private int i_tv_text_color_unselected;//字体颜色
+    private int i_text_color_unselected;//字体颜色
 
-    private int i_tv_text_style;//字体粗
+    private int i_text_style;//字体粗
 
 
     /**
      * 是否选中状态
      */
-    private boolean i_tv_selected;
+    private boolean i_selected;
 
 
     public ITextView(Context context) {
@@ -77,28 +77,28 @@ public class ITextView extends AppCompatTextView {
         if (attrs != null) {
             TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.ITextView);
 
-            i_tv_text_style = ta.getInt(R.styleable.ITextView_i_tv_text_style, 0);
-            i_tv_selected = ta.getBoolean(R.styleable.ITextView_i_tv_selected, true);
-            i_tv_text_color = ta.getColor(R.styleable.ITextView_i_tv_text_color, 0);
-            i_tv_pressed_color = ta.getColor(R.styleable.ITextView_i_tv_pressed_color, 0);
-            i_tv_normal_color = ta.getColor(R.styleable.ITextView_i_tv_normal_color, 0);
-            i_tv_enabled_color = ta.getColor(R.styleable.ITextView_i_tv_enabled_color, 0);
-            i_tv_stroke_color = ta.getColor(R.styleable.ITextView_i_tv_stroke_color, 0);
-            i_tv_solid_color = ta.getColor(R.styleable.ITextView_i_tv_solid_color, 0);
-            i_tv_radius_size = (int) ta.getDimension(R.styleable.ITextView_i_tv_radius_size, 0);
-            i_tv_stroke_width = (int) ta.getDimension(R.styleable.ITextView_i_tv_stroke_width, 0);
+            i_text_style = ta.getInt(R.styleable.ITextView_i_text_style, 0);
+            i_selected = ta.getBoolean(R.styleable.ITextView_i_selected, true);
+            i_text_color = ta.getColor(R.styleable.ITextView_i_text_color, 0);
+            i_pressed_color = ta.getColor(R.styleable.ITextView_i_pressed_color, 0);
+            i_normal_color = ta.getColor(R.styleable.ITextView_i_normal_color, 0);
+            i_enabled_color = ta.getColor(R.styleable.ITextView_i_enabled_color, 0);
+            i_stroke_color = ta.getColor(R.styleable.ITextView_i_stroke_color, 0);
+            i_solid_color = ta.getColor(R.styleable.ITextView_i_solid_color, 0);
+            i_radius_size = (int) ta.getDimension(R.styleable.ITextView_i_radius_size, 0);
+            i_stroke_width = (int) ta.getDimension(R.styleable.ITextView_i_stroke_width, 0);
 
-            i_tv_normal_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_normal_color_unselected, 0);
-            i_tv_enabled_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_enabled_color_unselected, 0);
-            i_tv_stroke_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_stroke_color_unselected, 0);
-            i_tv_solid_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_solid_color_unselected, 0);
-            i_tv_pressed_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_pressed_color_unselected, 0);
-            i_tv_stroke_width_unselected = (int) ta.getDimension(R.styleable.ITextView_i_tv_stroke_width_unselected, 0);
-            i_tv_text_color_unselected = ta.getColor(R.styleable.ITextView_i_tv_text_color_unselected, 0);
+            i_normal_color_unselected = ta.getColor(R.styleable.ITextView_i_normal_color_unselected, 0);
+            i_enabled_color_unselected = ta.getColor(R.styleable.ITextView_i_enabled_color_unselected, 0);
+            i_stroke_color_unselected = ta.getColor(R.styleable.ITextView_i_stroke_color_unselected, 0);
+            i_solid_color_unselected = ta.getColor(R.styleable.ITextView_i_solid_color_unselected, 0);
+            i_pressed_color_unselected = ta.getColor(R.styleable.ITextView_i_pressed_color_unselected, 0);
+            i_stroke_width_unselected = (int) ta.getDimension(R.styleable.ITextView_i_stroke_width_unselected, 0);
+            i_text_color_unselected = ta.getColor(R.styleable.ITextView_i_text_color_unselected, 0);
             ta.recycle();
         }
 
-        selectedState(i_tv_selected);
+        selectedState(i_selected);
 
     }
 
@@ -118,7 +118,7 @@ public class ITextView extends AppCompatTextView {
         gradientDrawable.setCornerRadius(cornerRadius);
         // 设置绘画图片色值
         gradientDrawable.setColor(solidColor);
-        gradientDrawable.setStroke(i_tv_stroke_width, i_tv_stroke_color);
+        gradientDrawable.setStroke(i_stroke_width, i_stroke_color);
         // 绘画的是矩形
         gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         return gradientDrawable;
@@ -142,7 +142,7 @@ public class ITextView extends AppCompatTextView {
         if (normalDrawable != null) {
             stateListDrawable.addState(new int[]{android.R.attr.state_enabled}, normalDrawable);
         }
-        GradientDrawable gray = getSolidRectDrawable(i_tv_radius_size, i_tv_enabled_color);
+        GradientDrawable gray = getSolidRectDrawable(i_radius_size, i_enabled_color);
         if (gray != null) {
             stateListDrawable.addState(new int[]{}, gray);
         }
@@ -166,7 +166,7 @@ public class ITextView extends AppCompatTextView {
         gradientDrawable.setCornerRadius(cornerRadius);
         // 设置绘画图片色值
         gradientDrawable.setColor(solidColor);
-        gradientDrawable.setStroke(i_tv_stroke_width_unselected, i_tv_stroke_color_unselected);
+        gradientDrawable.setStroke(i_stroke_width_unselected, i_stroke_color_unselected);
         // 绘画的是矩形
         gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         return gradientDrawable;
@@ -190,7 +190,7 @@ public class ITextView extends AppCompatTextView {
         if (normalDrawable != null) {
             stateListDrawable.addState(new int[]{android.R.attr.state_enabled}, normalDrawable);
         }
-        GradientDrawable gray = getSolidRectDrawableUnselected(i_tv_radius_size, i_tv_enabled_color_unselected);
+        GradientDrawable gray = getSolidRectDrawableUnselected(i_radius_size, i_enabled_color_unselected);
         if (gray != null) {
             stateListDrawable.addState(new int[]{}, gray);
         }
@@ -206,26 +206,26 @@ public class ITextView extends AppCompatTextView {
     public void selectedState(boolean selected) {
         if (selected) {
             //不需要按下去的效果
-            if (i_tv_pressed_color == 0 && i_tv_normal_color == 0 && i_tv_enabled_color == 0) {
-                setBackgroundDrawable(getSolidRectDrawable(i_tv_radius_size, i_tv_solid_color));
+            if (i_pressed_color == 0 && i_normal_color == 0 && i_enabled_color == 0) {
+                setBackgroundDrawable(getSolidRectDrawable(i_radius_size, i_solid_color));
             } else {
-                setBackgroundDrawable(getStateListDrawable(getSolidRectDrawable(i_tv_radius_size, i_tv_pressed_color), getSolidRectDrawable(i_tv_radius_size, i_tv_normal_color)));
+                setBackgroundDrawable(getStateListDrawable(getSolidRectDrawable(i_radius_size, i_pressed_color), getSolidRectDrawable(i_radius_size, i_normal_color)));
             }
-            if (i_tv_text_color != 0) {
-                setTextColor(i_tv_text_color);
+            if (i_text_color != 0) {
+                setTextColor(i_text_color);
             }
         } else {
             //不需要按下去的效果
-            if (i_tv_pressed_color_unselected == 0 && i_tv_normal_color_unselected == 0 && i_tv_enabled_color_unselected == 0) {
-                setBackgroundDrawable(getSolidRectDrawableUnselected(i_tv_radius_size, i_tv_solid_color_unselected));
+            if (i_pressed_color_unselected == 0 && i_normal_color_unselected == 0 && i_enabled_color_unselected == 0) {
+                setBackgroundDrawable(getSolidRectDrawableUnselected(i_radius_size, i_solid_color_unselected));
             } else {
-                setBackgroundDrawable(getStateListDrawableUnselected(getSolidRectDrawableUnselected(i_tv_radius_size, i_tv_pressed_color_unselected), getSolidRectDrawableUnselected(i_tv_radius_size, i_tv_normal_color_unselected)));
+                setBackgroundDrawable(getStateListDrawableUnselected(getSolidRectDrawableUnselected(i_radius_size, i_pressed_color_unselected), getSolidRectDrawableUnselected(i_radius_size, i_normal_color_unselected)));
             }
-            if (i_tv_text_color_unselected != 0) {
-                setTextColor(i_tv_text_color_unselected);
+            if (i_text_color_unselected != 0) {
+                setTextColor(i_text_color_unselected);
             }
         }
-        i_tv_selected = selected;
+        i_selected = selected;
     }
 
 
@@ -235,20 +235,20 @@ public class ITextView extends AppCompatTextView {
      * @return
      */
     public boolean isSelectedState() {
-        return i_tv_selected;
+        return i_selected;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (i_tv_text_style == 1) {
+        if (i_text_style == 1) {
             getPaint().setStrokeWidth(1f);
             getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
             getPaint().setAntiAlias(true);
-        } else if (i_tv_text_style == 2) {
+        } else if (i_text_style == 2) {
             getPaint().setStrokeWidth(1.5f);
             getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
             getPaint().setAntiAlias(true);
-        } else if (i_tv_text_style == 3) {
+        } else if (i_text_style == 3) {
             getPaint().setStrokeWidth(1.8f);
             getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
             getPaint().setAntiAlias(true);
