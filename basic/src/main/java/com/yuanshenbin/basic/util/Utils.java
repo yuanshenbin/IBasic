@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.provider.Settings;
 import android.text.Spannable;
@@ -210,6 +211,7 @@ public class Utils {
 
     /**
      * 检查包是否存在
+     *
      * @param packageName 包名
      * @return
      */
@@ -224,5 +226,12 @@ public class Utils {
             e.printStackTrace();
         }
         return packageInfo != null;
+    }
+
+    public static boolean isExistActivity(Context context, String className) {
+        Intent intent = new Intent();
+        intent.setClassName(context, className);
+        List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, 0);
+        return !Utils.isEmpty(list);
     }
 }

@@ -1,6 +1,7 @@
 package com.yuanshenbin.basic.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 /**
  * author : 作者不明，旺盛拷贝的
@@ -71,6 +72,13 @@ public class DisplayUtils {
      */
     public static int getHeight(Context context) {
         int height = context.getResources().getDisplayMetrics().heightPixels;
+        return height;
+    }
+
+    public  int getStatusBarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        int height = resources.getDimensionPixelSize(resourceId);
         return height;
     }
 }

@@ -67,23 +67,23 @@ public class IRelativeLayout extends RelativeLayout {
     public IRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (attrs != null) {
-            TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.ICustomView);
+            TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.IRelativeLayout);
 
-            i_selected = ta.getBoolean(R.styleable.ICustomView_i_selected, true);
-            i_normal_color = ta.getColor(R.styleable.ICustomView_i_normal_color, 0);
-            i_enabled_color = ta.getColor(R.styleable.ICustomView_i_enabled_color, 0);
-            i_stroke_color = ta.getColor(R.styleable.ICustomView_i_stroke_color, 0);
-            i_solid_color = ta.getColor(R.styleable.ICustomView_i_solid_color, 0);
-            i_pressed_color = ta.getColor(R.styleable.ICustomView_i_pressed_color, 0);
-            i_radius_size = (int) ta.getDimension(R.styleable.ICustomView_i_radius_size, 0);
-            i_stroke_width = (int) ta.getDimension(R.styleable.ICustomView_i_stroke_width, 0);
+            i_selected = ta.getBoolean(R.styleable.IRelativeLayout_i_selected, true);
+            i_normal_color = ta.getColor(R.styleable.IRelativeLayout_i_normal_color, 0);
+            i_enabled_color = ta.getColor(R.styleable.IRelativeLayout_i_enabled_color, 0);
+            i_stroke_color = ta.getColor(R.styleable.IRelativeLayout_i_stroke_color, 0);
+            i_solid_color = ta.getColor(R.styleable.IRelativeLayout_i_solid_color, 0);
+            i_pressed_color = ta.getColor(R.styleable.IRelativeLayout_i_pressed_color, 0);
+            i_radius_size = (int) ta.getDimension(R.styleable.IRelativeLayout_i_radius_size, 0);
+            i_stroke_width = (int) ta.getDimension(R.styleable.IRelativeLayout_i_stroke_width, 0);
 
-            i_pressed_color_unselected = ta.getColor(R.styleable.ICustomView_i_pressed_color_unselected, 0);
-            i_normal_color_unselected = ta.getColor(R.styleable.ICustomView_i_normal_color_unselected, 0);
-            i_enabled_color_unselected = ta.getColor(R.styleable.ICustomView_i_enabled_color_unselected, 0);
-            i_stroke_color_unselected = ta.getColor(R.styleable.ICustomView_i_stroke_color_unselected, 0);
-            i_solid_color_unselected = ta.getColor(R.styleable.ICustomView_i_solid_color_unselected, 0);
-            i_stroke_width_unselected = (int) ta.getDimension(R.styleable.ICustomView_i_stroke_width_unselected, 0);
+            i_pressed_color_unselected = ta.getColor(R.styleable.IRelativeLayout_i_pressed_color_unselected, 0);
+            i_normal_color_unselected = ta.getColor(R.styleable.IRelativeLayout_i_normal_color_unselected, 0);
+            i_enabled_color_unselected = ta.getColor(R.styleable.IRelativeLayout_i_enabled_color_unselected, 0);
+            i_stroke_color_unselected = ta.getColor(R.styleable.IRelativeLayout_i_stroke_color_unselected, 0);
+            i_solid_color_unselected = ta.getColor(R.styleable.IRelativeLayout_i_solid_color_unselected, 0);
+            i_stroke_width_unselected = (int) ta.getDimension(R.styleable.IRelativeLayout_i_stroke_width_unselected, 0);
             ta.recycle();
         }
         selectedState(i_selected);
