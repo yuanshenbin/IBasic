@@ -75,7 +75,7 @@ public class DisplayUtils {
         return height;
     }
 
-    public  int getStatusBarHeight(Context context) {
+    public static int getStatusBarHeight(Context context) {
         Resources resources = context.getResources();
         int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
         int height = resources.getDimensionPixelSize(resourceId);
