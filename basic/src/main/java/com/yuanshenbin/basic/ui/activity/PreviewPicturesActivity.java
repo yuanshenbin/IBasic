@@ -68,7 +68,7 @@ public class PreviewPicturesActivity extends BaseActivity<PreviewPicturesVH> {
 
             @Override
             public void onPageSelected(int position) {
-                changeTitle();
+                changeTitle(position);
             }
 
             @Override
@@ -76,7 +76,7 @@ public class PreviewPicturesActivity extends BaseActivity<PreviewPicturesVH> {
 
             }
         });
-        changeTitle();
+        changeTitle(query_pictures.getIndex());
     }
 
     @Override
@@ -130,7 +130,7 @@ public class PreviewPicturesActivity extends BaseActivity<PreviewPicturesVH> {
     }
 
 
-    private void changeTitle() {
-        mVH.tv_title.setText(String.format("%s/%s", query_pictures.getIndex() + 1, query_pictures.getPath().size()));
+    private void changeTitle( int position) {
+        mVH.tv_title.setText(String.format("%s/%s",  position + 1, query_pictures.getPath().size()));
     }
 }
