@@ -228,10 +228,81 @@ public class Utils {
         return packageInfo != null;
     }
 
+    /**
+     * 检测activity是否存在
+     *
+     * @param context
+     * @param className
+     * @return
+     */
     public static boolean isExistActivity(Context context, String className) {
         Intent intent = new Intent();
         intent.setClassName(context, className);
         List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, 0);
         return !Utils.isEmpty(list);
+    }
+
+    /**
+     * 打开系统浏览器
+     *
+     * @param context
+     * @param hint
+     * @param url
+     */
+    public static void openUrl(Context context, String url, String hint) {
+        try {
+            Uri uri = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            context.startActivity(intent);
+        } catch (Exception e) {
+            ToastUtils.shortToast(context, hint);
+        }
+    }
+
+    public static void openUrl(Context context, String url) {
+        openUrl(context, url, "url:" + url + "无法正常打开");
+    }
+
+    /**
+     * 版本比较
+     * @param currentVersion
+     * @param newVersion
+     * @return
+     */
+    public  int versionCompare(String currentVersion, String newVersion){
+        if(currentVersion.equals(newVersion)){
+            return 0;
+        }
+        String[] verArr1 = currentVersion.split("\\.");
+        String[] verArr2 = newVersion.split("\\.");
+        int maxflag = 1;
+        int minLen = 0;
+        if(verArr1.length > verArr2.length){
+            minLen = verArr2.length;
+        }else{
+            minLen = verArr1.length;
+            maxflag = 2;
+        }
+        for(int i = 0; i < minLen; i++){
+            if(Integer.valueOf(verArr1[i]) - Integer.valueOf(verArr2[i]) > 0){
+                return 1;
+            }else if(Integer.valueOf(verArr1[i]) - Integer.valueOf(verArr2[i]) < 0){
+                return -1;
+            }
+        }
+        if(maxflag == 1){
+            for (int j = minLen; j < verArr1.length; j++) {
+                if(Integer.valueOf(verArr1[j]).intValue() > 0){
+                    return 1;
+                }
+            }
+        }else{
+            for (int k = minLen; k < verArr2.length; k++) {
+                if(Integer.valueOf(verArr2[k]).intValue() > 0){
+                    return -1;
+                }
+            }
+        }
+        return 0;
     }
 }
