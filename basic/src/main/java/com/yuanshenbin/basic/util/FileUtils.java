@@ -1,6 +1,7 @@
 package com.yuanshenbin.basic.util;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
 
 import java.io.File;
@@ -31,7 +32,13 @@ public class FileUtils {
      */
     public static String getCachePath(Context context, String path) {
         if (isExistSDCard()) {
-            File file = new File(Environment.getExternalStorageDirectory(), path);
+            File file;
+            if (Build.VERSION.SDK_INT >= 29) {
+                file =new File(context.getExternalFilesDir("") + File.separator + "Media" +path);
+            } else {
+                file =new File(Environment.getExternalStorageDirectory(), path);
+            }
+
             if (!file.exists()) file.mkdirs();
             return file.getAbsolutePath() + File.separator;
         } else {
