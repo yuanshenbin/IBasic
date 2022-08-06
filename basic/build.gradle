@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.yuanshenbin'
-//将源代码打包进aar
-task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.sourceFiles
-}
-artifacts {
-    archives androidSourcesJar
-}
+//apply plugin: 'com.github.dcendents.android-maven'
+//group='com.github.yuanshenbin'
+////将源代码打包进aar
+//task androidSourcesJar(type: Jar) {
+//    classifier = 'sources'
+//    from android.sourceSets.main.java.sourceFiles
+//}
+//artifacts {
+//    archives androidSourcesJar
+//}
 
 android {
     compileSdkVersion 30
