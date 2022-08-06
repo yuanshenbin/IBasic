@@ -42,4 +42,12 @@ public class ImageLoader {
         mIImageLoaderProxy.options(l);
         return this;
     }
+
+    public long getCacheSize() {
+        return mIImageLoaderProxy.getCacheSize();
+    }
+
+    public void clearCache() {
+        mIImageLoaderProxy.clearCache();
+    }
 }

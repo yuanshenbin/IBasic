@@ -231,7 +231,7 @@
         <attr name="i_text_color_unselected"  />
         <!--        字体粗-->
         <attr name="i_text_style" />
-
+        <attr name="i_remove_font_padding" format="boolean" />
 
 
     </declare-styleable>

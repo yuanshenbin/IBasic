@@ -15,7 +15,7 @@ import java.lang.reflect.Type;
  * time   : 2018/6/14
  * desc   :
  */
-public abstract class BaseMvpReletiveLayout<VH extends BasicViewHolder, V, P extends BasicPresenter<V>> extends BaseReletiveLayout<VH> {
+public abstract class BaseMvpRelativeLayout<VH extends BasicViewHolder, V, P extends BasicPresenter<V>> extends BaseRelativeLayout<VH> {
     protected P mPresenter;
 
     @Override
@@ -53,7 +53,7 @@ public abstract class BaseMvpReletiveLayout<VH extends BasicViewHolder, V, P ext
     }
 
 
-    public BaseMvpReletiveLayout(Context context, AttributeSet attrs) {
+    public BaseMvpRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPresenter = getT(this);
         mPresenter.attach((V) this, this);

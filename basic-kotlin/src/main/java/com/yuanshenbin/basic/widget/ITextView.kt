@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
@@ -18,6 +19,8 @@ import com.yuanshenbin.basic.R
  * desc   :
  */
 class ITextView : AppCompatTextView {
+    private var mPaint: Paint? = null
+    private var mBounds: Rect? = null
     private var i_pressed_color= 0//按下的颜色 = 0
     private var i_normal_color= 0 //正常状态颜色 = 0
     private var i_enabled_color= 0//不可用的颜色 = 0
@@ -44,6 +47,9 @@ class ITextView : AppCompatTextView {
     private var i_stroke_width_unselected= 0 //未选中边线的宽 = 0
     private var i_text_color_unselected= 0 //字体颜色 = 0
     private var i_text_style= 0 //字体粗 = 0
+
+    private var i_remove_font_padding //是否移除字体内边距
+            = false
 
     /**
      * 获取选中状态
@@ -76,11 +82,36 @@ class ITextView : AppCompatTextView {
             i_pressed_color_unselected = ta.getColor(R.styleable.ITextView_i_pressed_color_unselected, 0)
             i_stroke_width_unselected = ta.getDimension(R.styleable.ITextView_i_stroke_width_unselected, 0f).toInt()
             i_text_color_unselected = ta.getColor(R.styleable.ITextView_i_text_color_unselected, 0)
+            i_remove_font_padding = ta.getBoolean(R.styleable.ITextView_i_remove_font_padding, false)
+            if (i_remove_font_padding) {
+                mPaint = paint
+                mBounds = Rect()
+            }
             ta.recycle()
         }
         selectedState(isSelectedState)
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        if (i_remove_font_padding) {
+            calculateTextParams()
+            setMeasuredDimension(mBounds!!.right - mBounds!!.left, -mBounds!!.top + mBounds!!.bottom)
+        }
+    }
+
+    /**
+     * 计算文本参数
+     */
+    private fun calculateTextParams(): String? {
+        val text = text.toString()
+        val textLength = text.length
+        mPaint!!.getTextBounds(text, 0, textLength, mBounds)
+        if (textLength == 0) {
+            mBounds!!.right = mBounds!!.left
+        }
+        return text
+    }
     /**
      * 得到实心的drawable, 一般作为选中，点中的效果
      *
@@ -220,6 +251,19 @@ class ITextView : AppCompatTextView {
                 paint.isAntiAlias = true
             }
         }
-        super.onDraw(canvas)
+        if (i_remove_font_padding) {
+            drawText(canvas)
+        } else {
+            super.onDraw(canvas)
+        }
+    }
+    private fun drawText(canvas: Canvas) {
+        val text = calculateTextParams()
+        val left = mBounds!!.left
+        val bottom = mBounds!!.bottom
+        mBounds!!.offset(-mBounds!!.left, -mBounds!!.top)
+        mPaint!!.isAntiAlias = true
+        mPaint!!.color = currentTextColor
+        canvas.drawText(text!!, (-left).toFloat(), (mBounds!!.bottom - bottom).toFloat(), mPaint!!)
     }
 }

@@ -20,7 +20,7 @@ import java.lang.reflect.Type;
  * time   : 2018/6/14
  * desc   :
  */
-public abstract class BaseReletiveLayout<VH extends BasicViewHolder> extends RelativeLayout {
+public abstract class BaseRelativeLayout<VH extends BasicViewHolder> extends RelativeLayout {
 
     protected Context mContext;
     protected VH mVH;
@@ -98,7 +98,7 @@ public abstract class BaseReletiveLayout<VH extends BasicViewHolder> extends Rel
 
     }
 
-    public BaseReletiveLayout(Context context, AttributeSet attrs) {
+    public BaseRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         initAttributeSet(attrs);
         if (isFlag()) {

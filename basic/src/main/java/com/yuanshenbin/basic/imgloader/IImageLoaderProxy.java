@@ -14,4 +14,8 @@ public interface IImageLoaderProxy {
     void placeholder(int resId);
 
     void options(ImageOptions l);
+
+    long getCacheSize();
+
+    void clearCache();
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -22,7 +23,8 @@ import androidx.appcompat.widget.AppCompatTextView;
  */
 
 public class ITextView extends AppCompatTextView {
-
+    private Paint mPaint;
+    private Rect mBounds ;
     private int i_pressed_color;//按下的颜色
 
     private int i_normal_color;//正常状态颜色
@@ -61,6 +63,7 @@ public class ITextView extends AppCompatTextView {
 
     private int i_text_style;//字体粗
 
+    private boolean i_remove_font_padding;//是否移除字体内边距
 
     /**
      * 是否选中状态
@@ -95,11 +98,38 @@ public class ITextView extends AppCompatTextView {
             i_pressed_color_unselected = ta.getColor(R.styleable.ITextView_i_pressed_color_unselected, 0);
             i_stroke_width_unselected = (int) ta.getDimension(R.styleable.ITextView_i_stroke_width_unselected, 0);
             i_text_color_unselected = ta.getColor(R.styleable.ITextView_i_text_color_unselected, 0);
+            i_remove_font_padding
+                    = ta.getBoolean(R.styleable.ITextView_i_remove_font_padding, false);
+            if (i_remove_font_padding) {
+                mPaint = getPaint();
+                mBounds = new Rect();
+            }
             ta.recycle();
         }
 
         selectedState(i_selected);
 
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (i_remove_font_padding) {
+            calculateTextParams();
+            setMeasuredDimension(mBounds.right - mBounds.left, -mBounds.top + mBounds.bottom);
+        }
+    }
+    /**
+     * 计算文本参数
+     */
+    private String calculateTextParams() {
+        String text = getText().toString();
+        int textLength = text.length();
+        mPaint.getTextBounds(text, 0, textLength, mBounds);
+        if (textLength == 0) {
+            mBounds.right = mBounds.left;
+        }
+        return text;
     }
 
     /**
@@ -253,6 +283,22 @@ public class ITextView extends AppCompatTextView {
             getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
             getPaint().setAntiAlias(true);
         }
-        super.onDraw(canvas);
+        if(i_remove_font_padding){
+            drawText(canvas);
+        }else {
+            super.onDraw(canvas);
+        }
+
+
+    }
+    private void drawText(Canvas canvas) {
+        String text = calculateTextParams();
+        int left = mBounds.left;
+        int bottom = mBounds.bottom;
+        mBounds.offset(-mBounds.left, -mBounds.top);
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(getCurrentTextColor());
+        canvas.drawText(text, (float) (-left), (float) (mBounds.bottom - bottom), mPaint);
+
     }
 }

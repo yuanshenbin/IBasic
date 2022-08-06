@@ -20,7 +20,7 @@ public class BasicPresenter<V> {
     public V mView;
     public Context mContext;
     public CompositeDisposable mDisposable;
-    private BaseMvpReletiveLayout mRelativeLayout;
+    private BaseMvpRelativeLayout mRelativeLayout;
     private BaseMvpLinearLayout mLinearLayout;
     private BaseFragment mBaseFragment;
 
@@ -57,7 +57,7 @@ public class BasicPresenter<V> {
         mContext = context.getActivity();
     }
 
-    public void attach(V view, BaseMvpReletiveLayout context) {
+    public void attach(V view, BaseMvpRelativeLayout context) {
         mView = view;
         mRelativeLayout = context;
         mContext = context.getContext();
