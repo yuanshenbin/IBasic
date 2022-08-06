@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yuanshenbin.basic.widget.ILinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:i_radius_size="2dp"
+    app:i_solid_color="#ffffff">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="left"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="提示"
+        android:textColor="#000000"
+        android:textSize="19sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="left"
+            android:maxHeight="300dp"
+            android:textColor="#ff333333"
+            android:textSize="15sp"
+            tools:text="温馨提示，温馨提示，温馨提示，温馨提示，温馨提示，温馨提示，温馨提示，温馨提示" />
+    </LinearLayout>
+
+    <include layout="@layout/basic_dialog_tips_bottom_styles" />
+</com.yuanshenbin.basic.widget.ILinearLayout>

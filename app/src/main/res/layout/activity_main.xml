@@ -4,38 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/title"
-/>
-    <com.yuanshenbin.basic.widget.ITextView
-        android:layout_width="wrap_content"
-        android:text="哈哈 "
-        android:layout_height="wrap_content"/>
-    <com.yuanshenbin.basic.widget.ITextView
-        android:layout_width="wrap_content"
-        app:i_tv_text_style="medium"
-        android:text="哈哈 "
-        android:layout_height="wrap_content"/>
-    <com.yuanshenbin.basic.widget.ITextView
-        android:layout_width="wrap_content"
-        app:i_tv_text_style="semiBold"
-        android:text="哈哈 "
-        android:layout_height="wrap_content"/>
-
-    <com.yuanshenbin.basic.widget.ITextView
-        android:layout_width="wrap_content"
-        app:i_tv_text_style="bold"
-        android:text="哈哈 "
-        android:layout_height="wrap_content"/>
+    android:orientation="vertical">
 
 
+    <com.yuanshenbin.basic.widget.ITextView
+        android:id="@+id/tv_title"
+        app:i_stroke_width="3dp"
+        app:i_stroke_color="#ff0000"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+    <com.yuanshenbin.basic.widget.ITextView
+        android:text="沙发敦敦实实"
+        android:background="#ff0000"
+        app:i_text_style="semiBold"
+        app:i_remove_font_padding="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <com.yuanshenbin.basic.widget.ITextView
+        android:text="沙发敦敦实实"
+        android:background="#ff0000"
+        app:i_text_style="semiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </com.yuanshenbin.basic.widget.ITextView>
 
 </LinearLayout>

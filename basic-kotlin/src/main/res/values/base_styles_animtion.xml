@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--放大到正常-->
+    <style name="BaseHintDialog" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/base_hint_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/base_hint_dialog_exit</item>
+    </style>
+
+
+    <!--底部弹出Dialog动画-->
+    <style name="BaseBottomDialog" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/base_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/base_bottom_out</item>
+    </style>
+
+</resources>

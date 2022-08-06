@@ -1,0 +1,11 @@
+<resources>
+
+
+    <!--放大到正常-->
+    <style name="basic_tips_dialog" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/basic_dialog_tips_enter</item>
+        <item name="android:windowExitAnimation">@anim/basic_dialog_tips_exit</item>
+    </style>
+
+
+</resources>

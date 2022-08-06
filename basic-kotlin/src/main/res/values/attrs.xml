@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <attr name="i_radius_size" format="dimension" /><!--弧度大小-->
+    <!--变线的颜色和宽-->
+    <attr name="i_stroke_width" format="dimension" />
+    <attr name="i_stroke_color" format="color" />
+    <attr name="i_solid_color" format="color" /><!--填充的颜色-->
+
+    <!--按下的颜色-->
+    <attr name="i_pressed_color" format="color" />
+    <!--正常状态颜色-->
+    <attr name="i_normal_color" format="color" />
+    <!--不可用的颜色-->
+    <attr name="i_enabled_color" format="color" />
+
+    <!--字体颜色-->
+    <attr name="i_text_color" format="color" />
+    <!--未选中-->
+    <!--变线的颜色和宽-->
+    <attr name="i_stroke_width_unselected" format="dimension" />
+    <attr name="i_stroke_color_unselected" format="color" />
+    <attr name="i_solid_color_unselected" format="color" /><!--填充的颜色-->
+
+    <!--按下的颜色-->
+    <attr name="i_pressed_color_unselected" format="color" />
+    <!--正常状态颜色-->
+    <attr name="i_normal_color_unselected" format="color" />
+    <!--不可用的颜色-->
+    <attr name="i_enabled_color_unselected" format="color" />
+
+    <!--是否默认勾选-->
+    <attr name="i_selected" format="boolean" />
+
+    <!--字体颜色-->
+    <attr name="i_text_color_unselected" format="color" />
+    <!--        字体粗-->
+    <attr name="i_text_style" format="enum" tools:ignore="ResourceName">
+        <enum name="medium" value="1" />
+        <enum name="semiBold" value="2" />
+        <enum name="bold" value="3" />
+    </attr>
+
+    <declare-styleable name="IRelativeLayout" tools:ignore="ResourceName">
+
+        <attr name="i_radius_size"  /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width"  />
+        <attr name="i_stroke_color" />
+        <attr name="i_solid_color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color" />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color"  />
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width_unselected"  />
+        <attr name="i_stroke_color_unselected"  />
+        <attr name="i_solid_color_unselected"  /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color_unselected"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color_unselected"  />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color_unselected"  />
+
+        <!--是否默认勾选-->
+        <attr name="i_selected"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color_unselected"  />
+        <!--        字体粗-->
+        <attr name="i_text_style" />
+    </declare-styleable>
+    <declare-styleable name="ILinearLayout" tools:ignore="ResourceName">
+        <attr name="i_radius_size"  /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width"  />
+        <attr name="i_stroke_color" />
+        <attr name="i_solid_color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color" />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color"  />
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width_unselected"  />
+        <attr name="i_stroke_color_unselected"  />
+        <attr name="i_solid_color_unselected"  /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color_unselected"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color_unselected"  />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color_unselected"  />
+
+        <!--是否默认勾选-->
+        <attr name="i_selected"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color_unselected"  />
+        <!--        字体粗-->
+        <attr name="i_text_style" />
+
+
+    </declare-styleable>
+    <declare-styleable name="IButton" tools:ignore="ResourceName">
+        <attr name="i_radius_size"  /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width"  />
+        <attr name="i_stroke_color" />
+        <attr name="i_solid_color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color" />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color"  />
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width_unselected"  />
+        <attr name="i_stroke_color_unselected"  />
+        <attr name="i_solid_color_unselected"  /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color_unselected"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color_unselected"  />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color_unselected"  />
+
+        <!--是否默认勾选-->
+        <attr name="i_selected"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color_unselected"  />
+        <!--        字体粗-->
+        <attr name="i_text_style" />
+
+    </declare-styleable>
+    <declare-styleable name="IEditText" tools:ignore="ResourceName">
+        <attr name="i_radius_size"  /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width"  />
+        <attr name="i_stroke_color" />
+        <attr name="i_solid_color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color" />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color"  />
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width_unselected"  />
+        <attr name="i_stroke_color_unselected"  />
+        <attr name="i_solid_color_unselected"  /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color_unselected"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color_unselected"  />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color_unselected"  />
+
+        <!--是否默认勾选-->
+        <attr name="i_selected"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color_unselected"  />
+        <!--        字体粗-->
+        <attr name="i_text_style" />
+
+    </declare-styleable>
+    <declare-styleable name="ITextView" tools:ignore="ResourceName">
+        <attr name="i_radius_size"  /><!--弧度大小-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width"  />
+        <attr name="i_stroke_color" />
+        <attr name="i_solid_color" /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color" />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color"  />
+        <!--未选中-->
+        <!--变线的颜色和宽-->
+        <attr name="i_stroke_width_unselected"  />
+        <attr name="i_stroke_color_unselected"  />
+        <attr name="i_solid_color_unselected"  /><!--填充的颜色-->
+
+        <!--按下的颜色-->
+        <attr name="i_pressed_color_unselected"  />
+        <!--正常状态颜色-->
+        <attr name="i_normal_color_unselected"  />
+        <!--不可用的颜色-->
+        <attr name="i_enabled_color_unselected"  />
+
+        <!--是否默认勾选-->
+        <attr name="i_selected"  />
+
+        <!--字体颜色-->
+        <attr name="i_text_color_unselected"  />
+        <!--        字体粗-->
+        <attr name="i_text_style" />
+        <attr name="i_remove_font_padding" format="boolean" />
+
+
+    </declare-styleable>
+
+
+
+    <!--自定义MD进度调-->
+    <declare-styleable name="ProgressWheelWidget" tools:ignore="ResourceName">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView" tools:ignore="ResourceName">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <!--小进度条-->
+    <attr name="MiniLoadingStyle" format="reference" tools:ignore="ResourceName" />
+    <declare-styleable name="MiniLoadingView" tools:ignore="ResourceName">
+        <!--loading控件的大小，默认32dp-->
+        <attr name="mlv_loading_view_size" format="dimension" />
+        <!--loading控件的颜色，默认白色-->
+        <attr name="mlv_loading_view_color" format="color" />
+    </declare-styleable>
+
+
+</resources>
