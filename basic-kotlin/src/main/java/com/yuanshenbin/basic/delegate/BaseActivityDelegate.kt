@@ -13,14 +13,14 @@ import java.io.Serializable
  * desc   :
  */
 abstract class BaseActivityDelegate : IDelegate(), Serializable {
-    fun onCreate(savedInstanceState: Bundle?) {}
-    fun onStatusBar(activity: AppCompatActivity?) {}
-    fun getStateLayoutManager(root: AppCompatActivity?, retryListener: OnRetryListener?, emptyListener: OnEmptyListener?): StateLayoutManager? {
+    open fun onCreate(savedInstanceState: Bundle?) {}
+    open fun onStatusBar(activity: AppCompatActivity?) {}
+    open fun getStateLayoutManager(root: AppCompatActivity?, retryListener: OnRetryListener?, emptyListener: OnEmptyListener?): StateLayoutManager? {
         return null
     }
 
-    fun onConfig(activity: AppCompatActivity?) {}
-    fun onRestart() {}
-    fun onDestroy() {}
-    fun finish() {}
+    open fun onConfig(activity: AppCompatActivity?) {}
+    open fun onRestart() {}
+    open fun onDestroy() {}
+    open fun finish() {}
 }

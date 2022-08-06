@@ -14,8 +14,8 @@ import java.io.Serializable
  * desc   :
  */
 abstract class IDelegate : Serializable {
-    fun onShowToast(context: Context?, str: String?) {}
-    fun onStateLayout(model: ResponseModel?, layoutManager: StateLayoutManager?) {
+    open fun onShowToast(context: Context?, str: String?) {}
+    open fun onStateLayout(model: ResponseModel?, layoutManager: StateLayoutManager?) {
         if (layoutManager != null && model != null) {
             when (model.state) {
                 ResponseEnum.开始 -> layoutManager.showLoading()
@@ -33,15 +33,15 @@ abstract class IDelegate : Serializable {
         }
     }
 
-    fun onListDataEmpty(pullAndPush: Boolean, result: Any?): Boolean {
+    open fun onListDataEmpty(pullAndPush: Boolean, result: Any?): Boolean {
         return false
     }
 
-    fun handleListData(adapter: CommonAdapter<*>?, list: List<*>?, result: Any?, isPullAndPush: Boolean, loading: Int, page: Int, size: Int, emptyMsg: CharSequence?) {}
-    fun onTitle(title: String?) {}
-    fun onStart() {}
-    fun onStop() {}
-    fun onResume() {}
-    fun onPause() {}
-    fun onReload() {}
+    open fun handleListData(adapter: CommonAdapter<*>?, list: List<*>?, result: Any?, isPullAndPush: Boolean, loading: Int, page: Int, size: Int, emptyMsg: CharSequence?) {}
+    open fun onTitle(title: String?) {}
+    open fun onStart() {}
+    open fun onStop() {}
+    open fun onResume() {}
+    open fun onPause() {}
+    open fun onReload() {}
 }
