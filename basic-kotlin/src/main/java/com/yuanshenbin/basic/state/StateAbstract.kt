@@ -18,7 +18,7 @@ abstract class StateAbstract {
 
     @LayoutRes
     abstract fun onCreateView(): Int
-    fun onViewCreated(context: Context?, root: LinearLayout) {
+    open  fun onViewCreated(context: Context?, root: LinearLayout) {
         mContext = context
         this.root = root
         if (root.visibility == View.GONE) {

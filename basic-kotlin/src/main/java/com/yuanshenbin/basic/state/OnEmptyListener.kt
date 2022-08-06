@@ -8,3 +8,4 @@ package com.yuanshenbin.basic.state
 interface OnEmptyListener {
     fun onEmptyClick(vararg text: CharSequence?)
 }
+
