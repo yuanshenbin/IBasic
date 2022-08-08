@@ -23,9 +23,11 @@ abstract class IDelegate : Serializable {
                 ResponseEnum.结束 -> {
                 }
                 ResponseEnum.失败 -> if (NetworkUtils.isNetworkConnected(layoutManager.context)) {
-                    layoutManager.networkState.showNetwork("网络似乎开小差了", "重试")
+                    layoutManager?.getNetworkState()?.showNetwork("网络似乎开小差了", "重试")
                 } else {
                     layoutManager.showNetwork()
+
+
                 }
                 else -> {
                 }

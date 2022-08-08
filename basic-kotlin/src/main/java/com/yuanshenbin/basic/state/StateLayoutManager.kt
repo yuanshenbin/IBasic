@@ -9,7 +9,7 @@ import android.widget.LinearLayout
  * time   : 2017/12/7
  * desc   :  页面状态管理
  */
-class StateLayoutManager(builder: Builder) {
+class StateLayoutManager(builder:Builder) {
     val context: Context
     private val root: LinearLayout?
     private val errorState: ErrorState?
@@ -87,12 +87,14 @@ class StateLayoutManager(builder: Builder) {
         }
     }
 
-    class Builder(internal var context: Context, internal var root: View,
+    class Builder(internal  var context: Context,internal var root: View,
                   internal var errorState: ErrorState? = null,
                   internal var timeOutState: TimeOutState? = null,
-                  internal var emptyState: EmptyState? = null,
-                  internal var loadingState: LoadingState? = null,
-                  internal var networkState: NetworkState? = null
+                  internal  var emptyState: EmptyState? = null,
+                  internal   var loadingState: LoadingState? = null,
+                 internal var networkState: NetworkState? = null
+
+
     ) {
 
         constructor(context: Context, root: View) :
@@ -127,6 +129,7 @@ class StateLayoutManager(builder: Builder) {
         }
 
         fun build(): StateLayoutManager {
+
             return StateLayoutManager(this)
         }
 

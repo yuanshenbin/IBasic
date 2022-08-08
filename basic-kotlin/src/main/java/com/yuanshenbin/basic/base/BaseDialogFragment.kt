@@ -145,11 +145,17 @@ abstract class BaseDialogFragment<VH : BasicViewHolder?> : AppCompatDialogFragme
     private fun doConfigBase() {
         if (mDelegate != null) {
             mDelegate!!.onConfig(this)
-            mStateLayoutManager = mDelegate!!.getStateLayoutManager(rootView, OnRetryListener { this@BaseDialogFragment.onReload() }, object : OnEmptyListener {
-                override fun onEmptyClick(vararg text: CharSequence?) {
-                    this@BaseDialogFragment.onEmptyClick(*text)
-                }
-            })
+            mStateLayoutManager = mDelegate!!.getStateLayoutManager(rootView,
+                    object : OnRetryListener {
+                        override fun onRetry() {
+                            this@BaseDialogFragment.onReload()
+                        }
+                    },
+                    object : OnEmptyListener {
+                        override fun onEmptyClick(vararg text: CharSequence?) {
+                            this@BaseDialogFragment.onEmptyClick(*text)
+                        }
+                    })
         }
     }
 
