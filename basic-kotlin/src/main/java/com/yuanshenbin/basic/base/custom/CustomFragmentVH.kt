@@ -1,8 +1,6 @@
 package com.yuanshenbin.basic.base.custom
 
 import android.view.View
-import android.view.ViewGroup
-import android.view.Window
 import com.yuanshenbin.basic.base.BasicViewHolder
 
 /**
