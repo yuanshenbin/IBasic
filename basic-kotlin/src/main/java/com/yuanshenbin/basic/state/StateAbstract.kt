@@ -18,7 +18,7 @@ abstract class StateAbstract {
 
     @LayoutRes
     abstract fun onCreateView(): Int
-    open  fun onViewCreated(context: Context?, root: LinearLayout) {
+    open fun onViewCreated(context: Context?, root: LinearLayout) {
         mContext = context
         this.root = root
         if (root.visibility == View.GONE) {
@@ -33,7 +33,7 @@ abstract class StateAbstract {
         viewStub.inflate()
     }
 
-    fun removeViews(root: LinearLayout) {
+    open fun removeViews(root: LinearLayout) {
         root.removeAllViews()
     }
 }
