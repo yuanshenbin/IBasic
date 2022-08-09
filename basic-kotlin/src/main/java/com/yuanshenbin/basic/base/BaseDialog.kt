@@ -13,6 +13,7 @@ import android.view.WindowManager.BadTokenException
 import androidx.annotation.StyleRes
 import com.yuanshenbin.basic.R
 import com.yuanshenbin.basic.call.Callback
+import com.yuanshenbin.basic.util.ToastUtils
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
@@ -148,8 +149,12 @@ abstract class BaseDialog<VH : BasicViewHolder?, Call> : Dialog {
     /**
      * 初始化适配器
      */
-    open fun initAdapter() {}
-    open  fun initViews(win: Window?) {}
+    protected open fun initAdapter() {}
+    protected  open  fun initViews(win: Window?) {}
+
+    fun IShowToast(str: String?) {
+        ToastUtils.shortToast(mActivity!!, str)
+    }
 
     /**
      * 获得根view

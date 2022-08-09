@@ -19,6 +19,7 @@ import java.lang.reflect.ParameterizedType
 abstract class BaseRelativeLayout<VH : BasicViewHolder?>(context: Context?, attrs: AttributeSet?) : RelativeLayout(context, attrs) {
     @JvmField
     protected var mContext: Context? = null
+
     @JvmField
     protected var mVH: VH? = null
     open val isFlag: Boolean
@@ -29,7 +30,7 @@ abstract class BaseRelativeLayout<VH : BasicViewHolder?>(context: Context?, attr
      *
      * @return
      */
-    protected abstract fun initLayoutId(): Int
+    protected abstract open fun initLayoutId(): Int
     protected fun initViewHolder(): VH? {
         return mVH
     }
@@ -70,19 +71,19 @@ abstract class BaseRelativeLayout<VH : BasicViewHolder?>(context: Context?, attr
      * 初始化默认数据
      * xxx = new xxx();
      */
-    protected abstract fun initDatas()
+    protected abstract open fun initDatas()
 
     /**
      * 初始化监听事件
      */
-    protected abstract fun initEvents()
+    protected abstract open fun initEvents()
 
     /**
      * 初始化适配器
      */
-    protected fun initAdapter() {}
-    protected fun initAttributeSet(attrs: AttributeSet?) {}
-    protected fun IShowToast(str: String?) {
+    protected open fun initAdapter() {}
+    protected open fun initAttributeSet(attrs: AttributeSet?) {}
+     fun IShowToast(str: String?) {
         shortToast(mContext!!, str)
     }
 

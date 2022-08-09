@@ -48,15 +48,15 @@ abstract class BaseFragment<VH : BasicViewHolder?> : SupportFragment() {
     /**
      * 初始化传来的数据
      */
-    open fun initIntentExtras(bundle: Bundle?) {}
-    abstract open fun initDelegate(): BaseFragmentDelegate?
+    protected  open fun initIntentExtras(bundle: Bundle?) {}
+    protected  abstract open fun initDelegate(): BaseFragmentDelegate?
 
     /**
      * 布局id
      *
      * @return
      */
-    abstract open override fun initLayoutId(): Int
+    protected   abstract open override fun initLayoutId(): Int
     fun initViewHolder(): VH? {
         return mVH
     }
@@ -94,17 +94,17 @@ abstract class BaseFragment<VH : BasicViewHolder?> : SupportFragment() {
      * 初始化默认数据
      * xxx = new xxx();
      */
-    abstract open fun initDatas()
+    protected  abstract open fun initDatas()
 
     /**
      * 初始化监听事件
      */
-    abstract open fun initEvents()
+    protected  abstract open fun initEvents()
 
     /**
      * 初始化适配器
      */
-    open fun initAdapter() {}
+    protected open fun initAdapter() {}
 
 
     /**

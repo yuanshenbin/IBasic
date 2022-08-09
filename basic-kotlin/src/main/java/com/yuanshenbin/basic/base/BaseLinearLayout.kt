@@ -29,7 +29,7 @@ abstract class BaseLinearLayout<VH : BasicViewHolder?>(context: Context?, attrs:
      *
      * @return
      */
-     abstract fun initLayoutId(): Int
+    protected   abstract  open fun initLayoutId(): Int
      fun initViewHolder(): VH? {
         return mVH
     }
@@ -70,17 +70,17 @@ abstract class BaseLinearLayout<VH : BasicViewHolder?>(context: Context?, attrs:
      * 初始化默认数据
      * xxx = new xxx();
      */
-     abstract fun initDatas()
+    protected abstract  open fun initDatas()
 
     /**
      * 初始化监听事件
      */
-     abstract fun initEvents()
+    protected  abstract open  fun initEvents()
 
     /**
      * 初始化适配器
      */
-     fun initAdapter() {}
+    protected open  fun initAdapter() {}
      fun initAttributeSet(attrs: AttributeSet?) {}
      fun IShowToast(str: String?) {
         shortToast(mContext!!, str)
