@@ -48,9 +48,9 @@ class BasicOptions {
                     .setImageLoaderProxy(mIImageLoaderProxy)
         }
         if (mMKVAbstract != null) {
-           // MMKV.initialize(context)
+            MMKV.initialize(context)
         } else {
-           // MMKV.initialize(context)
+            MMKV.initialize(context)
         }
     }
 
@@ -59,8 +59,10 @@ class BasicOptions {
     }
 
 
+
     companion object {
         private var manager: BasicOptions? = null
+        @JvmStatic
         val instance: BasicOptions
             get() {
                 if (manager == null) {
