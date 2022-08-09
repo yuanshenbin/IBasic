@@ -60,14 +60,14 @@ abstract class BaseActivity<VH : BasicViewHolder> : AppCompatActivity() {
      * 初始化传来的数据
      */
     open fun initIntentExtras(bundle: Bundle?) {}
-    abstract fun initDelegate(): BaseActivityDelegate?
+    abstract open  fun initDelegate(): BaseActivityDelegate?
 
     /**
      * 布局id
      *
      * @return
      */
-    abstract fun initLayoutId(): Int
+    abstract open fun initLayoutId(): Int
     fun initViewHolder(): VH? {
         return mVH
     }
@@ -105,12 +105,12 @@ abstract class BaseActivity<VH : BasicViewHolder> : AppCompatActivity() {
      * 初始化默认数据
      * xxx = new xxx();
      */
-    abstract fun initDatas()
+    abstract open fun initDatas()
 
     /**
      * 初始化监听事件
      */
-    abstract fun initEvents()
+    abstract open fun initEvents()
 
     /**
      * 初始化适配器

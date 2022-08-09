@@ -52,14 +52,14 @@ abstract class BaseDialogFragment<VH : BasicViewHolder?> : AppCompatDialogFragme
      * 初始化传来的数据
      */
     fun initIntentExtras(bundle: Bundle?) {}
-    abstract fun initDelegate(): BaseFragmentDelegate?
+    abstract open fun initDelegate(): BaseFragmentDelegate?
 
     /**
      * 布局id
      *
      * @return
      */
-    abstract fun initLayoutId(): Int
+    abstract open fun initLayoutId(): Int
     fun initViewHolder(): VH? {
         return mVH
     }
@@ -97,17 +97,17 @@ abstract class BaseDialogFragment<VH : BasicViewHolder?> : AppCompatDialogFragme
      * 初始化默认数据
      * xxx = new xxx();
      */
-    abstract fun initDatas()
+    abstract open fun initDatas()
 
     /**
      * 初始化监听事件
      */
-    abstract fun initEvents()
+    abstract open fun initEvents()
 
     /**
      * 初始化适配器
      */
-    fun initAdapter() {}
+    open fun initAdapter() {}
 
     /**
      * 缺醒图重试

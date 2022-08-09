@@ -22,7 +22,9 @@ import java.lang.reflect.ParameterizedType
  * desc   :
  */
 abstract class BaseDialog<VH : BasicViewHolder?, Call> : Dialog {
+    @JvmField
     protected var mActivity: Activity? = null
+    @JvmField
     protected var mVH: VH? = null
 
     protected fun initViewHolder(): VH? {
@@ -130,24 +132,24 @@ abstract class BaseDialog<VH : BasicViewHolder?, Call> : Dialog {
         initAdapter()
     }
 
-    protected abstract fun initLayoutId(): Int
+    protected abstract open fun initLayoutId(): Int
 
     /**
      * 初始化默认数据
      * xxx = new xxx();
      */
-    protected abstract fun initDatas()
+    protected abstract open fun initDatas()
 
     /**
      * 初始化监听事件
      */
-    protected abstract fun initEvents()
+    protected abstract open fun initEvents()
 
     /**
      * 初始化适配器
      */
-    protected fun initAdapter() {}
-    protected fun initViews(win: Window?) {}
+    open fun initAdapter() {}
+    open  fun initViews(win: Window?) {}
 
     /**
      * 获得根view
