@@ -15,7 +15,7 @@ import android.widget.Toast
  * desc   :
  */
 abstract class BasicViewHolder {
-    var mContext: Context
+    open var mContext: Context
 
     constructor(rootView: ViewGroup) {
         mContext = rootView.context

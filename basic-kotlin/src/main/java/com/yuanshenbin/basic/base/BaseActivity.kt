@@ -55,12 +55,11 @@ abstract class BaseActivity<VH : BasicViewHolder> : AppCompatActivity() {
      */
     @JvmField
     var isPullAndPush = true
-
+    protected abstract open  fun initDelegate(): BaseActivityDelegate?
     /**
      * 初始化传来的数据
      */
     protected  open fun initIntentExtras(bundle: Bundle?) {}
-    protected abstract open  fun initDelegate(): BaseActivityDelegate?
 
     /**
      * 布局id

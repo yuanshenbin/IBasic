@@ -160,8 +160,8 @@ class TipsDialog(private val mBuilder: Builder) : BaseDialog<BasicViewHolder, An
             return this
         }
 
-        fun callback(callback: Callback<Any>?): Builder {
-            this.callback = callback
+        fun <T>callback(callback: Callback<T>?): Builder {
+            this.callback = callback as Callback<Any>
             return this
         }
 
@@ -170,8 +170,8 @@ class TipsDialog(private val mBuilder: Builder) : BaseDialog<BasicViewHolder, An
             return this
         }
 
-        fun setLayoutRes(resId: Int, listener: CustomDialogListener<Any>?): Builder {
-            this.listener = listener
+        fun <T>setLayoutRes(resId: Int, listener: CustomDialogListener<T>?): Builder {
+            this.listener = listener as CustomDialogListener<Any>
             this.resId = resId
             return this
         }
