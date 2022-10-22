@@ -1,8 +1,10 @@
 package com.yuanshenbin.basic.util
 
+import android.os.Parcelable
 import com.google.gson.Gson
 import com.google.gson.JsonParser
-import com.tencent.mmkv.MMKV
+import com.yuanshenbin.basic.util.JsonUtils.Companion.`object`
+import com.yuanshenbin.basic.util.Utils.Companion.isEmpty
 import java.util.*
 
 /**
@@ -11,62 +13,85 @@ import java.util.*
  * desc   :
  */
 object SPUtils {
-    private var sMMKV: MMKV? = null
-    val mMKV: MMKV?
-        get() {
-            if (sMMKV == null) {
-                sMMKV = MMKV.defaultMMKV()
-            }
-            return sMMKV
-        }
+    private var instance: SPProxy? = null
+
     @JvmStatic
-    fun removeValuesForKeys(vararg key: String?) {
-        mMKV!!.removeValuesForKeys(key)
+    fun initialize(proxy: SPProxy?): SPProxy? {
+        if (instance == null) {
+            instance = proxy
+        }
+        return instance
     }
+
+    @JvmStatic
+    fun removeValuesForKeys(key: String?) {
+        instance!!.filter(key)!!.removeValueForKey(key)
+    }
+
+    @JvmStatic
+    fun putParcelable(key: String?, value: Parcelable?) {
+        instance!!.filter(key)!!.encode(key, value)
+    }
+
+    @JvmStatic
+    fun <T : Parcelable?> getParcelable(key: String?, value: Class<T>?): T? {
+        return instance!!.filter(key)!!.decodeParcelable(key, value)
+    }
+
     @JvmStatic
     fun putInt(key: String?, value: Int) {
-        mMKV!!.encode(key, value)
+        instance!!.filter(key)!!.encode(key, value)
     }
+
     @JvmStatic
     fun getInt(key: String?): Int {
-        return mMKV!!.decodeInt(key)
+        return instance!!.filter(key)!!.decodeInt(key)
     }
+
     @JvmStatic
     fun putString(key: String?, value: String?) {
-        mMKV!!.encode(key, value)
+        instance!!.filter(key)!!.encode(key, value)
     }
+
     @JvmStatic
     fun getString(key: String?): String? {
-        return mMKV!!.decodeString(key)
+        return instance!!.filter(key)!!.decodeString(key)
     }
+
     @JvmStatic
     fun putBoolean(key: String?, value: Boolean) {
-        mMKV!!.encode(key, value)
+        instance!!.filter(key)!!.encode(key, value)
     }
+
     @JvmStatic
     fun getBoolean(key: String?): Boolean {
-        return mMKV!!.decodeBool(key)
+        return instance!!.filter(key)!!.decodeBool(key)
     }
+
     @JvmStatic
     fun putLong(key: String?, value: Long) {
-        mMKV!!.encode(key, value)
+        instance!!.filter(key)!!.encode(key, value)
     }
+
     @JvmStatic
     fun getLong(key: String?): Long {
-        return mMKV!!.decodeLong(key)
+        return instance!!.filter(key)!!.decodeLong(key)
     }
+
     @JvmStatic
     fun putFloat(key: String?, value: Float) {
-        mMKV!!.encode(key, value)
+        instance!!.filter(key)!!.encode(key, value)
     }
+
     @JvmStatic
     fun getFloat(key: String?): Float {
-        return mMKV!!.decodeFloat(key)
+        return instance!!.filter(key)!!.decodeFloat(key)
     }
+
     @JvmStatic
     fun <T> getObject(key: String?, cls: Class<T>?): T? {
         return try {
-            JsonUtils.`object`(getString(key), cls)
+            `object`(getString(key), cls)
         } catch (e: Exception) {
             null
         }
@@ -85,7 +110,7 @@ object SPUtils {
     fun <T> getList(key: String?, cls: Class<T>?): List<T> {
         val list: MutableList<T> = ArrayList()
         val json = getString(key)
-        if (!Utils.isEmpty(json)) {
+        if (!isEmpty(json)) {
             try {
                 val gson = Gson()
                 val array = JsonParser().parse(json).asJsonArray

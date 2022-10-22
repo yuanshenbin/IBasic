@@ -20,8 +20,10 @@ class BasicConstants {
 
         @JvmField
         val PAGESIZE: Int = BasicOptions.instance.pageSize
-        const val LUBAN_COUNT = 10 //连续压缩次数
-        const val COMPRESS_SIZE = 70 //图片压缩多少k
+        @JvmField
+        val COMPRESS_COUNT : Int = BasicOptions.instance.compressCount
+        @JvmField
+        val COMPRESS_SIZE : Int = BasicOptions.instance.compressSize
         const val DEFAULT = "default"
         const val DEFAULT_ERROR = "default_error" //rxjava会用到区分请求和自己抛出异常
     }

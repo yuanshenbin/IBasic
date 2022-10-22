@@ -3,8 +3,11 @@ package com.yuanshenbin.basic.util
 import android.content.Context
 import android.os.Build
 import android.os.Environment
+import com.yuanshenbin.basic.util.DataClearManager.deleteAllFile
+import com.yuanshenbin.basic.util.DataClearManager.getFolderSize
 import java.io.File
 import java.math.BigDecimal
+
 
 /**
  * author : yuanshenbin
@@ -140,5 +143,53 @@ class FileUtils  {
             val result4 = BigDecimal(teraBytes)
             return result4.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "TB"
         }
+
+
+        @Throws(java.lang.Exception::class)
+        @JvmStatic
+        fun deleteAllFile(file: File) {
+            try {
+                val fileList = file.listFiles()
+                for (i in fileList.indices) {
+                    // 如果下面还有文件
+                    if (fileList[i].isDirectory) {
+                        deleteAllFile(fileList[i])
+                    } else {
+                        fileList[i].delete()
+                    }
+                }
+            } catch (e: java.lang.Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        /**
+         * 删除app应用所有缓存
+         */
+        @Throws(java.lang.Exception::class)
+        @JvmStatic
+        fun deleteAll(context: Context) {
+            deleteAllFile(context.cacheDir)
+            if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+                deleteAllFile(context.externalCacheDir)
+            }
+        }
+
+        /**
+         * 获得所有缓存数据的大小
+         *
+         * @param context
+         * @return
+         * @throws Exception
+         */
+        @Throws(java.lang.Exception::class)
+        fun getTotalCacheSize(context: Context): String? {
+            var cacheSize = getFolderSize(context.cacheDir)
+            if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+                cacheSize += getFolderSize(context.externalCacheDir)
+            }
+            return getFormatSize(cacheSize.toDouble())
+        }
+
     }
 }

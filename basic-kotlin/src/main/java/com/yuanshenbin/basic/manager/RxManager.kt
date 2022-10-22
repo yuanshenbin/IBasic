@@ -11,13 +11,14 @@ import io.reactivex.schedulers.Schedulers
  * desc   :
  */
 object RxManager {
+    @JvmStatic
     fun <T> add(observable: Observable<T>, observer: Observer<T>?) {
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer!!)
     }
-
+    @JvmStatic
     fun <T> add(observable: Observable<T>) {
         observable
                 .subscribeOn(Schedulers.io())

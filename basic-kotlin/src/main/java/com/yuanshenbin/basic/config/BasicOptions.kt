@@ -4,6 +4,8 @@ import android.content.Context
 import com.tencent.mmkv.MMKV
 import com.yuanshenbin.basic.imgloader.IImageLoaderProxy
 import com.yuanshenbin.basic.imgloader.ImageLoader
+import com.yuanshenbin.basic.util.SPProxy
+import com.yuanshenbin.basic.util.SPUtils
 
 /**
  * author : yuanshenbin
@@ -11,14 +13,21 @@ import com.yuanshenbin.basic.imgloader.ImageLoader
  * desc   : 一些基础配置
  */
 class BasicOptions {
-    var pageSize  = 20 //分页默认值
+    var pageSize = 20 //分页默认值
         private set
     var context: Context? = null
         private set
+    var compressSize = 100
+        //默认压缩大小
+        private set
+    var compressCount = 10
+        //默认压缩次数
+        private set
+    private var mMMKV: MMKV? = null
     private val mIImageLoaderProxy: IImageLoaderProxy? = null
     var tipsAbstract: TipsAbstract = object : TipsAbstract() {}
         private set
-    var mMKVAbstract: MMKVAbstract? = null
+    var spProxy: SPProxy? = null
         private set
 
     fun init(context: Context?): BasicOptions {
@@ -26,8 +35,8 @@ class BasicOptions {
         return this
     }
 
-    fun MMKVConfig(MMKVAbstract: MMKVAbstract?): BasicOptions {
-        mMKVAbstract = MMKVAbstract
+    fun spProxy(spProxy: SPProxy?): BasicOptions {
+        this.spProxy = spProxy
         return this
     }
 
@@ -47,10 +56,15 @@ class BasicOptions {
             ImageLoader.instance
                     .setImageLoaderProxy(mIImageLoaderProxy)
         }
-        if (mMKVAbstract != null) {
-            MMKV.initialize(context)
+        if (spProxy != null) {
+            SPUtils.initialize(spProxy)
         } else {
-            MMKV.initialize(context)
+            mMMKV = MMKV.mmkvWithID(context!!.packageName)
+            SPUtils.initialize(object : SPProxy {
+                override fun filter(key: String?): MMKV? {
+                    return mMMKV
+                }
+            })
         }
     }
 
@@ -58,10 +72,17 @@ class BasicOptions {
         this.pageSize = pageSize
     }
 
+    fun compressSize(compressSize: Int) {
+        this.compressSize = compressSize
+    }
 
+    fun compressCount(compressCount: Int) {
+        this.compressCount = compressCount
+    }
 
     companion object {
         private var manager: BasicOptions? = null
+
         @JvmStatic
         val instance: BasicOptions
             get() {
