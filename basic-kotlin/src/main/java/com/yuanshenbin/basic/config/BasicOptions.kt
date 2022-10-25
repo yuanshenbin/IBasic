@@ -56,6 +56,7 @@ class BasicOptions {
             ImageLoader.instance
                     .setImageLoaderProxy(mIImageLoaderProxy)
         }
+        MMKV.initialize(context)
         if (spProxy != null) {
             SPUtils.initialize(spProxy)
         } else {
