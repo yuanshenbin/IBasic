@@ -11,8 +11,11 @@ import java.util.*
  * desc   : 基类
  */
 abstract class BaseListActivity<VH : BasicViewHolder, Bean> : BaseActivity<VH>() {
+    @JvmField
     var swipe_to_load_layout: SwipeToLoadLayout? = null
+    @JvmField
     var mData: List<Bean> = ArrayList()
+    @JvmField
     var mAdapter: CommonAdapter<Bean>? = null
     fun setFill(result: Any?, loading: Int, page: Int, size: Int, emptyMsg: CharSequence?) {
         swipe_to_load_layout!!.isRefreshing = false
