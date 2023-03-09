@@ -22,4 +22,6 @@
     <dimen name="load_more_drawable_size_google">36dp</dimen>
 
 
+
+    <dimen name="basic_develop_mode_float_width">50dp</dimen>
 </resources>

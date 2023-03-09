@@ -8,4 +8,10 @@
     <color name="base_common_bg">#FFF4F6FA</color>
     <color name="base_transparent">#00ffffff</color>
     <color name="base_black">#000000</color>
+
+
+
+
+    <color name="basic_develop_mode_colorDividerComponent">#999999</color>
+    <color name="basic_develop_mode_colorPrimaryDark">#999999</color>
 </resources>

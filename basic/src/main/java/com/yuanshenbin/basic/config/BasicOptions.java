@@ -5,6 +5,8 @@ import android.content.Context;
 import com.tencent.mmkv.MMKV;
 import com.yuanshenbin.basic.imgloader.IImageLoaderProxy;
 import com.yuanshenbin.basic.imgloader.ImageLoader;
+import com.yuanshenbin.basic.util.SPProxy;
+import com.yuanshenbin.basic.util.SPUtils;
 
 /**
  * author : yuanshenbin
@@ -19,7 +21,9 @@ public class BasicOptions {
 
     private TipsAbstract mTipsAbstract = new TipsAbstract() {
     };
-    private MMKVAbstract mMMKVAbstract ;
+    private static MMKV mMMKV;
+    private static SPProxy mSPProxy;
+
 
     public static BasicOptions getInstance() {
 
@@ -35,14 +39,6 @@ public class BasicOptions {
         return this;
     }
 
-    public MMKVAbstract getMMKVAbstract() {
-        return mMMKVAbstract;
-    }
-
-    public BasicOptions MMKVConfig(MMKVAbstract MMKVAbstract) {
-        mMMKVAbstract = MMKVAbstract;
-        return this;
-    }
 
     public BasicOptions tipsDialogConfig(TipsAbstract tipsAbstract) {
         mTipsAbstract = tipsAbstract;
@@ -56,14 +52,20 @@ public class BasicOptions {
     }
 
     public void build() {
-        if(mIImageLoaderProxy!=null){
+        if (mIImageLoaderProxy != null) {
             ImageLoader.getInstance()
                     .setImageLoaderProxy(mIImageLoaderProxy);
         }
-        if(mMMKVAbstract!=null){
-            MMKV.initialize(mContext);
-        }else {
-            MMKV.initialize(mContext);
+        if (mSPProxy != null) {
+            SPUtils.initialize(mSPProxy);
+        } else {
+            mMMKV = MMKV.mmkvWithID(getContext().getPackageName());
+            SPUtils.initialize(new SPProxy() {
+                @Override
+                public MMKV getSP(String key) {
+                    return mMMKV;
+                }
+            });
         }
     }
 

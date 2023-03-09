@@ -1,5 +1,6 @@
 package com.yuanshenbin.basic.model
 
+import android.content.res.Configuration
 import java.io.Serializable
 
 /**
@@ -10,5 +11,6 @@ import java.io.Serializable
 class PreviewImgModel : Serializable {
     var path: List<String>? = null
     var index = 0
+    var orientation = Configuration.ORIENTATION_PORTRAIT
 
 }

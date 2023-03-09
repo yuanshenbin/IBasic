@@ -2,8 +2,13 @@ package com.yuanshenbin.basic.config
 
 import android.content.Context
 import com.tencent.mmkv.MMKV
+import com.yuanshenbin.basic.develop.DevelopConfig
+import com.yuanshenbin.basic.develop.DevelopMode
 import com.yuanshenbin.basic.imgloader.IImageLoaderProxy
 import com.yuanshenbin.basic.imgloader.ImageLoader
+import com.yuanshenbin.basic.log.ILog
+import com.yuanshenbin.basic.log.LogAbstract
+import com.yuanshenbin.basic.log.LogImpl
 import com.yuanshenbin.basic.util.SPProxy
 import com.yuanshenbin.basic.util.SPUtils
 
@@ -29,9 +34,22 @@ class BasicOptions {
         private set
     var spProxy: SPProxy? = null
         private set
+    private var debug: Boolean? = false
+    var developConfig: DevelopConfig? = null
+    var logAbstract: LogAbstract = object : LogImpl() {}
 
-    fun init(context: Context?): BasicOptions {
+    fun init(context: Context?, debug: Boolean): BasicOptions {
         this.context = context
+        this.debug = debug;
+        return this
+    }
+
+    fun isDebug(): Boolean? {
+        return debug
+    }
+
+    fun logAbstract(abstract: LogAbstract?): BasicOptions {
+        this.logAbstract = abstract!!
         return this
     }
 
@@ -45,16 +63,43 @@ class BasicOptions {
         return this
     }
 
+    fun developConfig(developConfig: DevelopConfig): BasicOptions {
+        this.developConfig = developConfig
+        return this
+    }
+
     fun imageLoaderProxy(iImageLoaderProxy: IImageLoaderProxy?): BasicOptions {
         ImageLoader.instance
                 .setImageLoaderProxy(iImageLoaderProxy)
         return this
     }
 
+    fun pageSize(pageSize: Int): BasicOptions {
+        this.pageSize = pageSize
+        return this
+    }
+
+    fun compressSize(compressSize: Int): BasicOptions {
+        this.compressSize = compressSize
+        return this
+    }
+
+    fun compressCount(compressCount: Int): BasicOptions {
+        this.compressCount = compressCount
+        return this
+    }
+
     fun build() {
+        context!!
+        ILog.initialize(logAbstract)
         if (mIImageLoaderProxy != null) {
             ImageLoader.instance
                     .setImageLoaderProxy(mIImageLoaderProxy)
+        }
+        if (developConfig != null) {
+            DevelopMode
+                    .getInstance()
+                    .InitializationConfig(developConfig)
         }
         MMKV.initialize(context)
         if (spProxy != null) {
@@ -67,18 +112,6 @@ class BasicOptions {
                 }
             })
         }
-    }
-
-    fun pageSize(pageSize: Int) {
-        this.pageSize = pageSize
-    }
-
-    fun compressSize(compressSize: Int) {
-        this.compressSize = compressSize
-    }
-
-    fun compressCount(compressCount: Int) {
-        this.compressCount = compressCount
     }
 
     companion object {

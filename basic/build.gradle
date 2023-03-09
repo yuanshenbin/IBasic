@@ -46,6 +46,6 @@ dependencies {
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api('com.github.yuanshenbin:IRequest:1.0.6')
     api 'androidx.appcompat:appcompat:1.1.0'
-    api 'com.tencent:mmkv:1.2.10'
+    api 'com.tencent:mmkv:1.2.15'
     api 'com.github.chrisbanes:PhotoView:2.3.0'
 }

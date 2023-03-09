@@ -16,9 +16,12 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        BasicOptions.Companion
+        BasicOptions
                 .getInstance()
+                .init(this, true)
                 .tipsDialogConfig(new TipsAbstract() {
                 }).build();
+
+
     }
 }

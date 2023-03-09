@@ -29,7 +29,7 @@ android {
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0.1"
 
@@ -49,8 +49,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api 'androidx.appcompat:appcompat:1.1.0'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
-
     api 'io.reactivex.rxjava2:rxjava:2.1.1'
     api 'io.reactivex.rxjava2:rxandroid:2.0.1'
     api 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
@@ -58,9 +58,10 @@ dependencies {
     api 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api('com.github.yuanshenbin:IRequest:1.0.8')
-    api 'androidx.appcompat:appcompat:1.1.0'
-    api 'com.tencent:mmkv:1.2.10'
+
+    api 'com.tencent:mmkv:1.2.13'
     api 'com.github.chrisbanes:PhotoView:2.3.0'
     api 'top.zibin:Luban:1.1.8'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+
 }

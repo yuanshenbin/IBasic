@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 public abstract class NetworkState extends StateAbstract {
     protected OnRetryListener listener;
-    
+
     public NetworkState(@Nullable OnRetryListener listener) {
         this.listener = listener;
     }
@@ -22,5 +22,5 @@ public abstract class NetworkState extends StateAbstract {
     public abstract void showNetwork(@DrawableRes int resId);
 
     public abstract void showNetwork(String... msg);
-    
+
 }

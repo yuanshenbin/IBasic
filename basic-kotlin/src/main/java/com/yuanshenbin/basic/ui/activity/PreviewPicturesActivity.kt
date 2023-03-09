@@ -13,7 +13,6 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.github.chrisbanes.photoview.PhotoView
 import com.yuanshenbin.basic.R
 import com.yuanshenbin.basic.base.BaseActivity
-import com.yuanshenbin.basic.base.BasicViewHolder
 import com.yuanshenbin.basic.delegate.BaseActivityDelegate
 import com.yuanshenbin.basic.imgloader.ImageLoader
 import com.yuanshenbin.basic.model.PreviewImgModel
@@ -40,11 +39,13 @@ class PreviewPicturesActivity : BaseActivity<PreviewPicturesVH>() {
 
     override fun initIntentExtras(bundle: Bundle?) {
         super.initIntentExtras(bundle)
-        mContext
         query_pictures = bundle?.getSerializable(RESULT_PICTURES) as PreviewImgModel?
     }
 
     override fun initLayoutId(): Int {
+        if(query_pictures!=null){
+            requestedOrientation = query_pictures!!.orientation;
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { //5.0 全透明实现
             //透明状态栏
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -114,7 +115,8 @@ class PreviewPicturesActivity : BaseActivity<PreviewPicturesVH>() {
     }
 
     private fun changeTitle(position: Int) {
-        tv_title.setText(String.format("%s/%s", position + 1, query_pictures!!.path!!.size))
+
+        tv_title.text = (position + 1).toString()+"/"+(query_pictures!!.path!!.size).toString()
     }
 
 
