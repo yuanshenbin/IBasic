@@ -7,6 +7,6 @@ package com.yuanshenbin.basic.call
  */
 abstract class Callback<T> {
     abstract fun ok(t: T)
-    fun cancel(t: T) {}
-    fun close() {}
+    open fun cancel(t: T) {}
+    open fun close() {}
 }
