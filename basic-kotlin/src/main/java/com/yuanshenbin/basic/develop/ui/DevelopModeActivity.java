@@ -42,6 +42,14 @@ public class DevelopModeActivity extends DevelopBaseActivity {
                 startActivity(new Intent(DevelopModeActivity.this, LogListActivity.class));
             }
         });
+        mVH.tv_catch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(DevelopModeActivity.this, ErrorDescActivity.class);
+                intent.putExtra(ErrorDescActivity.RESULT_ERROR_LIST,true);
+                startActivity(intent);
+            }
+        });
         mVH.layout_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +57,7 @@ public class DevelopModeActivity extends DevelopBaseActivity {
             }
         });
 
-        if (DevelopMode.getInstance().getDevelopConfig().getRootListener() != null) {
+        if (DevelopMode.getInstance().getDevelopConfig()!=null&&DevelopMode.getInstance().getDevelopConfig().getRootListener() != null) {
             mVH.sv_scroll.setVisibility(View.VISIBLE);
             mVH.ll_custom_root.removeAllViews();
             DevelopMode.getInstance().getDevelopConfig().getRootListener().onCustomRoot(mVH.ll_custom_root);
@@ -64,12 +72,14 @@ public class DevelopModeActivity extends DevelopBaseActivity {
         public TextView tv_title;
         public TextView tv_api;
         public TextView tv_log;
+        public TextView tv_catch;
         public LinearLayout ll_custom_root;
         public ScrollView sv_scroll;
 
         public ViewHolder(Activity rootView) {
             this.layout_back = (ImageView) rootView.findViewById(R.id.layout_back);
             this.tv_title = (TextView) rootView.findViewById(R.id.tv_title);
+            this.tv_catch = (TextView) rootView.findViewById(R.id.tv_catch);
             this.tv_api = (TextView) rootView.findViewById(R.id.tv_api);
             this.tv_log = (TextView) rootView.findViewById(R.id.tv_log);
             this.ll_custom_root = (LinearLayout) rootView.findViewById(R.id.ll_custom_root);

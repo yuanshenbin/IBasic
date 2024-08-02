@@ -8,6 +8,9 @@ import java.util.*
 class DateUtils  {
 
     companion object {
+
+
+
         @JvmStatic
         fun getMillisToString(millis: Long, format: Type): String {
             return getMillisToString(millis, SimpleDateFormat(format.value))

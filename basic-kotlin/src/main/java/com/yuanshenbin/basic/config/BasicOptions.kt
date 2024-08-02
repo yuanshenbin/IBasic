@@ -1,7 +1,9 @@
 package com.yuanshenbin.basic.config
 
 import android.content.Context
+import cat.ereza.customactivityoncrash.config.CaocConfig
 import com.tencent.mmkv.MMKV
+import com.yuanshenbin.basic.call.ICatchConfig
 import com.yuanshenbin.basic.develop.DevelopConfig
 import com.yuanshenbin.basic.develop.DevelopMode
 import com.yuanshenbin.basic.imgloader.IImageLoaderProxy
@@ -9,6 +11,7 @@ import com.yuanshenbin.basic.imgloader.ImageLoader
 import com.yuanshenbin.basic.log.ILog
 import com.yuanshenbin.basic.log.LogAbstract
 import com.yuanshenbin.basic.log.LogImpl
+import com.yuanshenbin.basic.develop.ui.ErrorDescActivity
 import com.yuanshenbin.basic.util.SPProxy
 import com.yuanshenbin.basic.util.SPUtils
 
@@ -37,6 +40,7 @@ class BasicOptions {
     private var debug: Boolean? = false
     var developConfig: DevelopConfig? = null
     var logAbstract: LogAbstract = object : LogImpl() {}
+    var catchConfig: ICatchConfig? = null
 
     fun init(context: Context?, debug: Boolean): BasicOptions {
         this.context = context
@@ -89,9 +93,24 @@ class BasicOptions {
         return this
     }
 
+    fun catchConfig(catchConfig: ICatchConfig?): BasicOptions {
+        this.catchConfig = catchConfig
+        return this
+    }
+
     fun build() {
         context!!
         ILog.initialize(logAbstract)
+        if (catchConfig != null) {
+            catchConfig?.config(CaocConfig.Builder.create()
+                    .errorActivity(ErrorDescActivity::class.java)
+                    .trackActivities(true))
+        } else {
+            CaocConfig.Builder.create()
+                    .errorActivity(ErrorDescActivity::class.java)
+                    .trackActivities(true).apply();
+        }
+
         if (mIImageLoaderProxy != null) {
             ImageLoader.instance
                     .setImageLoaderProxy(mIImageLoaderProxy)

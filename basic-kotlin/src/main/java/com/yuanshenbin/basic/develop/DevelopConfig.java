@@ -36,9 +36,9 @@ public class DevelopConfig {
         mode = builder.mode;
         debug = builder.debug;
         apiModels = builder.apiModels;
-        if (apiModels == null || apiModels.size() == 0) {
-            throw new ExceptionInInitializerError("Please invoke  SystemApi~");
-        }
+//        if (apiModels == null || apiModels.size() == 0) {
+//            throw new ExceptionInInitializerError("Please invoke  SystemApi~");
+//        }
         windowIcon = builder.windowIcon;
         context = builder.context;
         mRootListener =builder.rootListener;

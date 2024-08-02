@@ -25,9 +25,12 @@
         <activity
             android:name="com.yuanshenbin.basic.develop.ui.SystemApiActivity"
             android:launchMode="singleTask"
-            
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
 
+        <activity
+            android:launchMode="singleTask"
+            android:name=".develop.ui.ErrorDescActivity"
+            android:process=":error_activity" />
     </application>
 
 </manifest>

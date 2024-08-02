@@ -12,12 +12,16 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.view.View;
+import android.widget.Toast;
 
 import com.yuanshenbin.basic.R;
+import com.yuanshenbin.basic.db.DBManager;
 import com.yuanshenbin.basic.develop.ui.DevelopModeActivity;
+import com.yuanshenbin.basic.model.ErrorModel;
 import com.yuanshenbin.basic.model.LogModel;
 import com.yuanshenbin.basic.model.LogRecorder;
 
+import java.sql.SQLDataException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -218,5 +222,30 @@ public class DevelopMode {
         }
         return "开发者模式";
 
+    }
+
+    public void shareFile(Context context) {
+
+        DBManager mDBManager = new DBManager(context);
+        try {
+            mDBManager.open();
+        } catch (SQLDataException throwables) {
+            throwables.printStackTrace();
+        }
+
+        try {
+            ErrorModel model =mDBManager.loadLast();
+
+            Intent it = new Intent("android.intent.action.SEND");
+            it.putExtra("android.intent.extra.SUBJECT", "发送catch日志");
+            it.putExtra("android.intent.extra.TEXT", model.getDesc());
+            it.setType("text/plain");
+            context.startActivity(Intent.createChooser(it, "发送catch日志"));
+        }catch (Exception e){
+            Toast.makeText(context,"暂无日志",Toast.LENGTH_SHORT).show();
+
+        }finally {
+            mDBManager.close();
+        }
     }
 }

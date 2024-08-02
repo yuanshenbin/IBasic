@@ -29,8 +29,6 @@ class TipsDialog(private val mBuilder: Builder) : BaseDialog<BasicViewHolder, An
         }
     }
 
-
-
     override fun initLayoutId(): Int {
         return R.layout.basic_dialog_tips
     }
