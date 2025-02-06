@@ -212,7 +212,7 @@ abstract class BaseDialog<VH : BasicViewHolder?, Call> : Dialog {
         super.dismiss()
     }
 
-    var callback: Callback<Call>? = null
+    open  var callback: Callback<Call>? = null
 
 
     fun callback(callback: Callback<Call>): BaseDialog<VH, Call> {
