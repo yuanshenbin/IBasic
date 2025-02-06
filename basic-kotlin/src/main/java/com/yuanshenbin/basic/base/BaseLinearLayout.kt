@@ -81,7 +81,7 @@ abstract class BaseLinearLayout<VH : BasicViewHolder?>(context: Context?, attrs:
      * 初始化适配器
      */
     protected open  fun initAdapter() {}
-     fun initAttributeSet(attrs: AttributeSet?) {}
+     protected open  fun initAttributeSet(attrs: AttributeSet?) {}
      fun IShowToast(str: String?) {
         shortToast(mContext!!, str)
     }

@@ -82,7 +82,7 @@ abstract class BaseRelativeLayout<VH : BasicViewHolder?>(context: Context?, attr
      * 初始化适配器
      */
     protected open fun initAdapter() {}
-    protected open fun initAttributeSet(attrs: AttributeSet?) {}
+    protected open protected open  fun initAttributeSet(attrs: AttributeSet?) {}
      fun IShowToast(str: String?) {
         shortToast(mContext!!, str)
     }
