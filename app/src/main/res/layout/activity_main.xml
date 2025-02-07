@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-
-    android:gravity="center"
     android:orientation="vertical">
 
 
-    <com.yuanshenbin.basic.widget.ITextView
-        android:id="@+id/tv_title"
-        app:i_stroke_width="3dp"
-        app:i_stroke_color="#ff0000"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+    <Button
+        android:text="获取mac"
+        android:id="@+id/btn_mac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
 
 
-    <com.yuanshenbin.basic.widget.ITextView
-        android:text="沙发敦敦实实"
-        android:background="#ff0000"
-        app:i_text_style="semiBold"
-        app:i_remove_font_padding="true"
+    <TextView
+        android:id="@+id/tv_mac"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <com.yuanshenbin.basic.widget.ITextView
-        android:text="沙发敦敦实实"
-        android:background="#ff0000"
-        app:i_text_style="semiBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"></TextView>
 
-    </com.yuanshenbin.basic.widget.ITextView>
+    <Button
+
+        android:text="获取ssid"
+        android:id="@+id/btn_ssid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+    <TextView
+        android:id="@+id/tv_ssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+    <Button
+
+        android:text="获取bssid"
+        android:id="@+id/btn_bssid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+    <TextView
+        android:id="@+id/tv_bssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+
 
 </LinearLayout>
