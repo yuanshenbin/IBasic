@@ -171,7 +171,7 @@ public class DevelopMode {
                 }
             }
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, DevelopModeActivity.class), 0);
-            mBuilder.setSmallIcon(R.drawable.base_develop_mode_ic_launcher_round)
+            mBuilder.setSmallIcon(R.drawable.develop_mode_ic_launcher_round)
                     .setTicker("开发者权限已打开- -！")
                     .setContentTitle(PUSH_CHANNEL_NAME + " → 开发者调试常驻")
                     .setContentIntent(pendingIntent);
