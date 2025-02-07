@@ -14,7 +14,7 @@
         android:paddingRight="25dp"
         android:layout_centerVertical="true"
 
-        android:src="@mipmap/base_develop_mode_ic_arrow_back" />
+        android:src="@drawable/base_develop_mode_ic_arrow_back" />
 
     <TextView
         android:id="@+id/tv_title"
