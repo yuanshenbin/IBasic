@@ -211,8 +211,8 @@ abstract class BaseDialog<VH : BasicViewHolder?, Call> : Dialog {
         if (mActivity == null || !this.isShowing) return
         super.dismiss()
     }
-
-    open  var callback: Callback<Call>? = null
+    @JvmField
+    protected var callback: Callback<Call>? = null
 
 
     fun callback(callback: Callback<Call>): BaseDialog<VH, Call> {
