@@ -15,8 +15,8 @@ public class BasicConstants {
     public static final int LOADING_STATE4 = 4;//有数据下啦，没有loading
     public static  int PAGESIZE = BasicOptions.getInstance().getPageSize();
 
-    public static final int LUBAN_COUNT = 10;//连续压缩次数
-    public static final int COMPRESS_SIZE = 70;//图片压缩多少k
+    public static  int LUBAN_COUNT = BasicOptions.getInstance().getCompressCount();
+    public static  int COMPRESS_SIZE = BasicOptions.getInstance().getCompressSize();//图片压缩多少k
 
 
     public static final String DEFAULT = "default";

@@ -270,4 +270,6 @@
         <!--loading控件的颜色，默认白色-->
         <attr name="mlv_loading_view_color" format="color" />
     </declare-styleable>
+
+
 </resources>
