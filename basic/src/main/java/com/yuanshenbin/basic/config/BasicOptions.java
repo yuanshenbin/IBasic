@@ -124,9 +124,11 @@ public class BasicOptions {
                     .getInstance()
                     .InitializationConfig(developConfig);
         }
+        MMKV.initialize(mContext);
         if (mSPProxy != null) {
             SPUtils.initialize(mSPProxy);
         } else {
+
             mMMKV = MMKV.mmkvWithID(getContext().getPackageName());
             SPUtils.initialize(new SPProxy() {
                 @Override
