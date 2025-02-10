@@ -110,7 +110,7 @@ abstract class BaseFragment<VH : BasicViewHolder?> : SupportFragment() {
     /**
      * 缺醒图重试
      */
-    fun onReload() {
+    protected open fun onReload() {
         mDelegate?.onReload()
     }
 
