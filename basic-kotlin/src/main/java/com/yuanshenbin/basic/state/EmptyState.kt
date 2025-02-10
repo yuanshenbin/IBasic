@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes
  * desc   : 空数据状态
  */
 abstract class EmptyState : StateAbstract() {
+    @JvmField
     protected var listener: OnRetryListener? = null
     abstract fun showEmpty(@DrawableRes resId: Int, vararg msg: String?)
     abstract fun showEmpty(@DrawableRes resId: Int)
