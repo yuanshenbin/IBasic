@@ -10,17 +10,17 @@
         <activity
             android:name="com.yuanshenbin.basic.develop.ui.LogDetailActivity"
             android:launchMode="singleTask"
-             />
+            />
 
         <activity
             android:name="com.yuanshenbin.basic.develop.ui.LogListActivity"
             android:launchMode="singleTask"
-             />
+            />
 
         <activity
             android:name="com.yuanshenbin.basic.develop.ui.DevelopModeActivity"
             android:launchMode="singleTask"
-             />
+            />
 
         <activity
             android:name="com.yuanshenbin.basic.develop.ui.SystemApiActivity"
