@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import com.yuanshenbin.basic.R;
-import com.yuanshenbin.basic.util.DisplayUtils;
+import com.yuanshenbin.basic.util.IDisplayUtils;
 
 import androidx.annotation.NonNull;
 
@@ -50,7 +50,7 @@ public class MiniLoadingWidget extends View {
 
     private void initAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.MiniLoadingView, defStyleAttr, 0);
-        mSize = array.getDimensionPixelSize(R.styleable.MiniLoadingView_mlv_loading_view_size, DisplayUtils.dip2px(context, 32));
+        mSize = array.getDimensionPixelSize(R.styleable.MiniLoadingView_mlv_loading_view_size, IDisplayUtils.dip2px(context, 32));
         mPaintColor = array.getColor(R.styleable.MiniLoadingView_mlv_loading_view_color, Color.WHITE);
         array.recycle();
     }

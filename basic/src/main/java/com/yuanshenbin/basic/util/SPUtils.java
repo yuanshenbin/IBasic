@@ -81,7 +81,7 @@ public class SPUtils {
 
     public static <T> T getObject(String key, Class<T> cls) {
         try {
-            return JsonUtils.object(getString(key), cls);
+            return IJsonUtils.object(getString(key), cls);
         } catch (Exception e) {
             return null;
         }
@@ -99,7 +99,7 @@ public class SPUtils {
     public static <T> List<T> getList(String key, Class<T> cls) {
         List<T> list = new ArrayList<>();
         String json = getString(key);
-        if (!Utils.isEmpty(json)) {
+        if (!IUtils.isEmpty(json)) {
             try {
                 Gson gson = new Gson();
                 JsonArray array = new JsonParser().parse(json).getAsJsonArray();

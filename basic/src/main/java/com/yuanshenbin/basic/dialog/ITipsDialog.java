@@ -11,18 +11,18 @@ import com.yuanshenbin.basic.base.BaseDialog;
 import com.yuanshenbin.basic.call.Callback;
 import com.yuanshenbin.basic.call.CustomDialogListener;
 import com.yuanshenbin.basic.config.BasicOptions;
-import com.yuanshenbin.basic.dialog.vh.TipsVH;
-import com.yuanshenbin.basic.util.Utils;
+import com.yuanshenbin.basic.dialog.vh.ITipsVH;
+import com.yuanshenbin.basic.util.IUtils;
 
 /**
  * author : yuanshenbin
  * time   : 2021-02-14
  * desc   : 标准提示框
  */
-public class TipsDialog extends BaseDialog<TipsVH, Object> {
+public class ITipsDialog extends BaseDialog<ITipsVH, Object> {
     private Builder mBuilder;
 
-    public TipsDialog(final Builder builder) {
+    public ITipsDialog(final Builder builder) {
         super(builder.context);
         mBuilder = builder;
     }
@@ -50,7 +50,7 @@ public class TipsDialog extends BaseDialog<TipsVH, Object> {
         if (mBuilder.single) {
             mVH.tv_cancel.setVisibility(View.GONE);
         }
-        if (!Utils.isEmpty(mBuilder.title)) {
+        if (!IUtils.isEmpty(mBuilder.title)) {
             mVH.tv_title.setText(mBuilder.title);
         } else {
             mVH.tv_title.setVisibility(View.GONE);
@@ -62,7 +62,7 @@ public class TipsDialog extends BaseDialog<TipsVH, Object> {
             mVH.ll_content.addView(view);
             mBuilder.listener.onCustomLayout(view, this);
         } else {
-            if (!Utils.isEmpty(mBuilder.content)) {
+            if (!IUtils.isEmpty(mBuilder.content)) {
                 mVH.tv_content.setText(mBuilder.content);
                 if (mBuilder.content.length() > 150) {
                     mVH.tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
@@ -195,8 +195,8 @@ public class TipsDialog extends BaseDialog<TipsVH, Object> {
 
         }
 
-        public TipsDialog build() {
-            return new TipsDialog(this);
+        public ITipsDialog build() {
+            return new ITipsDialog(this);
         }
     }
 

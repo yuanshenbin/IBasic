@@ -1,10 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 
     <!--放大到正常-->
     <style name="basic_tips_dialog" parent="@android:style/Animation">
-        <item name="android:windowEnterAnimation">@anim/basic_dialog_tips_enter</item>
-        <item name="android:windowExitAnimation">@anim/basic_dialog_tips_exit</item>
+        <item name="android:windowEnterAnimation">@anim/basic_hint_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/basic_hint_dialog_exit</item>
+    </style>
+
+
+    <!--底部弹出Dialog动画-->
+    <style name="basic_bottom_dialog" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/basic_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/basic_bottom_out</item>
     </style>
 
 

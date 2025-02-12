@@ -25,8 +25,8 @@ import com.yuanshenbin.basic.base.BaseActivity;
 import com.yuanshenbin.basic.db.DBManager;
 import com.yuanshenbin.basic.delegate.BaseActivityDelegate;
 import com.yuanshenbin.basic.model.ErrorModel;
-import com.yuanshenbin.basic.util.RecyclerDividerUtils;
-import com.yuanshenbin.basic.util.Utils;
+import com.yuanshenbin.basic.util.IRecyclerDividerUtils;
+import com.yuanshenbin.basic.util.IUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -166,19 +166,19 @@ public class ErrorDescActivity extends BaseActivity<ErrorDescVH> {
     protected void initAdapter() {
         super.initAdapter();
         mVH.swipe_target.setLayoutManager(new LinearLayoutManager(mContext));
-        mVH.swipe_target.addItemDecoration(RecyclerDividerUtils.getDivider1px(mContext));
+        mVH.swipe_target.addItemDecoration(IRecyclerDividerUtils.getDivider1px(mContext));
         mAdapter = new CommonAdapter<ErrorModel>(R.layout.basic_error_activity_error_desc_item, mErrorModels) {
             @Override
             protected void convert(@NotNull BaseViewHolder baseViewHolder, ErrorModel errorModel) {
                 TextView tv_custom_crash_data = baseViewHolder.getView(R.id.tv_custom_crash_data);
-                if (Utils.isEmpty(errorModel.getCustomCrashData())) {
+                if (IUtils.isEmpty(errorModel.getCustomCrashData())) {
                     tv_custom_crash_data.setVisibility(View.GONE);
                 } else {
                     tv_custom_crash_data.setVisibility(View.VISIBLE);
-                    tv_custom_crash_data.setText(Utils.noNull(errorModel.getCustomCrashData()));
+                    tv_custom_crash_data.setText(IUtils.noNull(errorModel.getCustomCrashData()));
                 }
-                baseViewHolder.setText(R.id.tv_error, Utils.noNull(errorModel.getError()))
-                        .setText(R.id.tv_time, Utils.noNull(errorModel.getCreateTime()));
+                baseViewHolder.setText(R.id.tv_error, IUtils.noNull(errorModel.getError()))
+                        .setText(R.id.tv_time, IUtils.noNull(errorModel.getCreateTime()));
 
             }
         };

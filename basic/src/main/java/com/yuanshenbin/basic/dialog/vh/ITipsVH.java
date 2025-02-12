@@ -13,7 +13,7 @@ import com.yuanshenbin.basic.base.BasicViewHolder;
  * time   : 2021-02-24
  * desc   :
  */
-public class TipsVH extends BasicViewHolder {
+public class ITipsVH extends BasicViewHolder {
     public TextView tv_title;
     public TextView tv_content;
     public LinearLayout ll_content;
@@ -25,7 +25,7 @@ public class TipsVH extends BasicViewHolder {
         return R.layout.basic_dialog_tips;
     }
 
-    public TipsVH(Window rootView) {
+    public ITipsVH(Window rootView) {
         super(rootView);
         this.tv_title = (TextView) rootView.findViewById(R.id.tv_title);
         this.tv_content = (TextView) rootView.findViewById(R.id.tv_content);

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.yuanshenbin.basic.adapter.CommonAdapter;
 import com.yuanshenbin.basic.state.StateLayoutManager;
-import com.yuanshenbin.basic.util.NetworkUtils;
+import com.yuanshenbin.basic.util.INetworkUtils;
 import com.yuanshenbin.network.model.ResponseModel;
 
 import java.io.Serializable;
@@ -35,7 +35,7 @@ abstract class IDelegate implements Serializable {
                 case 结束:
                     break;
                 case 失败:
-                    if (NetworkUtils.isNetworkConnected(layoutManager.getContext())) {
+                    if (INetworkUtils.isNetworkConnected(layoutManager.getContext())) {
                         layoutManager.getNetworkState().showNetwork("网络似乎开小差了", "重试");
                     } else {
                         layoutManager.showNetwork();

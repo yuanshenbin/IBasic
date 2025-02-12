@@ -11,7 +11,7 @@
     <!--</style>-->
 
 
-    <style name="base_progress_dialog" parent="@android:style/Theme.Dialog">
+    <style name="basic_progress_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <!-- Dialog的windowFrame框为无 -->
         <item name="android:windowIsFloating">true</item>
@@ -24,7 +24,7 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <!--透明对话框-->
-    <style name="base_transparent_dialog" parent="@android:style/Theme.Dialog">
+    <style name="basic_transparent_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <!-- Dialog的windowFrame框为无 -->
         <item name="android:windowIsFloating">true</item>

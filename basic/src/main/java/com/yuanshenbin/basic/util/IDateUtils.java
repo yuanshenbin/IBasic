@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class DateUtils {
+public class IDateUtils {
 
     /**
      * * <pre>

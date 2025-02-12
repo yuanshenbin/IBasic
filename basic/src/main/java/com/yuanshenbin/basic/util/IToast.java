@@ -3,18 +3,13 @@ package com.yuanshenbin.basic.util;
 import android.content.Context;
 import android.widget.Toast;
 
-/**
- * Toast帮助类
- *
- * @author back
- * @version landingtech_v1
- */
-public class ToastUtils {
+
+public class IToast {
 
     private static Toast toast = null;
 
-    public static void shortToast(Context context, String text) {
-        if (Utils.isEmpty(text)) {
+    public static void showToast(Context context, String text) {
+        if (IUtils.isEmpty(text)) {
             return;
         }
         context = context.getApplicationContext();

@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  * desc   :
  */
 
-public class DecimalUtils {
+public class IDecimalUtils {
 
 
     /**

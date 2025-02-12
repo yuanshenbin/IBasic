@@ -57,7 +57,7 @@ public class DevelopConfig {
 
         private List<SystemApiModel> apiModels;
 
-        private int windowIcon = R.drawable.base_develop_mode_ic_launcher_round;
+        private int windowIcon = R.drawable.basic_develop_mode_ic_launcher_round;
 
         private Context context;
         private CustomRootListener rootListener;

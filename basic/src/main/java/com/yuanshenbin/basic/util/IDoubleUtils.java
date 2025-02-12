@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  * desc   :
  */
 
-public class DoubleUtils {
+public class IDoubleUtils {
     /**
      * @param number
      * @return 保留两位小数

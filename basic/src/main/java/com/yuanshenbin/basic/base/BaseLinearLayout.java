@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.yuanshenbin.basic.util.ToastUtils;
+import com.yuanshenbin.basic.util.IToast;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -107,7 +107,7 @@ public abstract class BaseLinearLayout<VH extends BasicViewHolder> extends Linea
     }
 
     protected void IShowToast(String str) {
-        ToastUtils.shortToast(mContext, str);
+        IToast.showToast(mContext, str);
     }
 
     /**

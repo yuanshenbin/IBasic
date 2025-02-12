@@ -26,11 +26,9 @@
     <external-files-path
         name="sharedata"
         path="shareData/" />
-       
     <external-files-path
         name="sharedata2"
         path="shareData2/" />
-     
     <external-files-path
         name="umeng_cache"
         path="umeng_cache/" />
@@ -38,7 +36,6 @@
         name="opensdk_external"
         path="Images/tmp" />
 
-           
     <root-path
         name="opensdk_root"
         path="" />

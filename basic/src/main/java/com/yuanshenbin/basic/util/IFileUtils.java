@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  * desc   : 文件操作
  */
 
-public class FileUtils {
+public class IFileUtils {
     /**
      * 判断是否有SD卡
      */

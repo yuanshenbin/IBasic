@@ -6,8 +6,7 @@ import android.widget.RelativeLayout;
 
 import com.yuanshenbin.basic.R;
 import com.yuanshenbin.basic.base.BasicViewHolder;
-import com.yuanshenbin.basic.util.DisplayUtils;
-import com.yuanshenbin.basic.util.Utils;
+import com.yuanshenbin.basic.util.IDisplayUtils;
 import com.yuanshenbin.basic.widget.HackyViewPager;
 import com.yuanshenbin.basic.widget.ITextView;
 
@@ -24,7 +23,7 @@ public class PreviewPicturesVH extends BasicViewHolder {
 
     @Override
     protected int initLayoutId() {
-        return R.layout.base_activity_preview_pictures;
+        return R.layout.basic_activity_preview_pictures;
     }
 
     public PreviewPicturesVH(ViewGroup rootView) {
@@ -33,8 +32,8 @@ public class PreviewPicturesVH extends BasicViewHolder {
         this.ll_back = (LinearLayout) rootView.findViewById(R.id.ll_back);
         this.tv_title = (ITextView) rootView.findViewById(R.id.tv_title);
         this.rl_top = (RelativeLayout) rootView.findViewById(R.id.rl_top);
-        RelativeLayout.LayoutParams rl =new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, DisplayUtils.dip2px(mContext,44));
-        rl.setMargins(0, DisplayUtils.getStatusBarHeight(mContext),0,0);
+        RelativeLayout.LayoutParams rl =new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, IDisplayUtils.dip2px(mContext,44));
+        rl.setMargins(0, IDisplayUtils.getStatusBarHeight(mContext),0,0);
         rl.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         rl_top.setLayoutParams(rl);
 

@@ -9,7 +9,7 @@ import android.content.res.Resources;
  * desc   :dp、sp、px转换
  */
 
-public class DisplayUtils {
+public class IDisplayUtils {
     /**
      * 将px值转换为dip或dp值，保证尺寸大小不变
      *

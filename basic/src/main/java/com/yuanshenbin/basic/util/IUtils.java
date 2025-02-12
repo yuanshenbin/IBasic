@@ -22,7 +22,7 @@ import java.util.Map;
  * desc   : 常用工具类
  */
 
-public class Utils {
+public class IUtils {
 
     /**
      * 拨打电话（跳转到拨号界面，用户手动点击拨打）
@@ -159,7 +159,7 @@ public class Utils {
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData mClipData = ClipData.newPlainText("Label", text);
         cm.setPrimaryClip(mClipData);
-        ToastUtils.shortToast(context, hint);
+        IToast.showToast(context, hint);
     }
 
     /**
@@ -216,7 +216,7 @@ public class Utils {
      * @return
      */
     public static boolean checkPackageName(Context context, String packageName) {
-        if (Utils.isEmpty(packageName)) {
+        if (IUtils.isEmpty(packageName)) {
             return false;
         }
         PackageInfo packageInfo = null;
@@ -239,7 +239,7 @@ public class Utils {
         Intent intent = new Intent();
         intent.setClassName(context, className);
         List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, 0);
-        return !Utils.isEmpty(list);
+        return !IUtils.isEmpty(list);
     }
 
     /**
@@ -255,7 +255,7 @@ public class Utils {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             context.startActivity(intent);
         } catch (Exception e) {
-            ToastUtils.shortToast(context, hint);
+            IToast.showToast(context, hint);
         }
     }
 

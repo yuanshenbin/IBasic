@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * desc   :
  */
 
-public class RecyclerDividerUtils {
+public class IRecyclerDividerUtils {
 
     public static IDividerItemDecoration getDivider1px(Context context) {
         IDividerItemDecoration decoration = new IDividerItemDecoration(context, RecyclerView.VERTICAL);

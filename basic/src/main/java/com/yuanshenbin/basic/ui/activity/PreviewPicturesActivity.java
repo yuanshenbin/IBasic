@@ -52,7 +52,7 @@ public class PreviewPicturesActivity extends BaseActivity<PreviewPicturesVH> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-        return R.layout.base_activity_preview_pictures;
+        return R.layout.basic_activity_preview_pictures;
     }
 
 

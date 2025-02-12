@@ -20,7 +20,7 @@ import java.util.Stack;
  * desc   :
  */
 
-public class StacksManager {
+public class IStacksManager {
 
     /**
      * 强引用使用不当（添加后没移除）会导致activiy内存溢出，反复切换activity会导致列表中的activiy数量暴增，内存消耗变大，
@@ -34,9 +34,9 @@ public class StacksManager {
 
 
     private Map<String, Stack<WeakReference<Activity>>> mStackMaps = new HashMap<>();
-    private static StacksManager instance;
+    private static IStacksManager instance;
 
-    private StacksManager() {
+    private IStacksManager() {
         mStackMaps.put(DEFAULT, new Stack<WeakReference<Activity>>());
 
     }
@@ -44,9 +44,9 @@ public class StacksManager {
     /**
      * 单一实例
      */
-    public static StacksManager getInstance() {
+    public static IStacksManager getInstance() {
         if (instance == null) {
-            instance = new StacksManager();
+            instance = new IStacksManager();
         }
         return instance;
     }

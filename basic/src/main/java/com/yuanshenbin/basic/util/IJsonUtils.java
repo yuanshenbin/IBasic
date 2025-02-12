@@ -14,7 +14,7 @@ import java.util.List;
  * desc   :
  */
 
-public class JsonUtils {
+public class IJsonUtils {
     private static Gson gson = new Gson();
 
     /**

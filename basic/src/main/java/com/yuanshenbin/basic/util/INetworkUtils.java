@@ -10,7 +10,7 @@ import android.net.NetworkInfo;
  * desc   :
  */
 
-public class NetworkUtils {
+public class INetworkUtils {
     /**
      * 判断是否有网络
      */
