@@ -1,10 +1,10 @@
 package com.yuanshenbin.basic.adapter;
 
 
+import androidx.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.chad.library.adapter.base.module.LoadMoreModule;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
 import java.util.List;
 
@@ -14,7 +14,11 @@ import java.util.List;
  * desc   :
  */
 
-public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder> implements LoadMoreModule {
+public abstract class CommonAdapter<T> extends BaseQuickAdapter<T, IBaseViewHolder> implements LoadMoreModule {
+
+
+
+
     /**
      * @param layoutResId
      * @param data
