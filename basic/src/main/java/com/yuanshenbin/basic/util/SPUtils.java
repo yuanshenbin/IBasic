@@ -35,7 +35,7 @@ public class SPUtils {
     }
 
 
-    public <T extends Parcelable> T getParcelable(String key, Class<T> value) {
+    public static <T extends Parcelable> T getParcelable(String key, Class<T> value) {
         return instance.getSP(key).decodeParcelable(key, value);
     }
 
