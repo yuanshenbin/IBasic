@@ -21,6 +21,7 @@ import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.yuanshenbin.basic.R;
 import com.yuanshenbin.basic.adapter.CommonAdapter;
+import com.yuanshenbin.basic.adapter.IBaseViewHolder;
 import com.yuanshenbin.basic.base.BaseActivity;
 import com.yuanshenbin.basic.db.DBManager;
 import com.yuanshenbin.basic.delegate.BaseActivityDelegate;
@@ -169,7 +170,7 @@ public class ErrorDescActivity extends BaseActivity<ErrorDescVH> {
         mVH.swipe_target.addItemDecoration(IRecyclerDividerUtils.getDivider1px(mContext));
         mAdapter = new CommonAdapter<ErrorModel>(R.layout.basic_error_activity_error_desc_item, mErrorModels) {
             @Override
-            protected void convert(@NotNull BaseViewHolder baseViewHolder, ErrorModel errorModel) {
+            protected void convert(@NotNull IBaseViewHolder baseViewHolder, ErrorModel errorModel) {
                 TextView tv_custom_crash_data = baseViewHolder.getView(R.id.tv_custom_crash_data);
                 if (IUtils.isEmpty(errorModel.getCustomCrashData())) {
                     tv_custom_crash_data.setVisibility(View.GONE);
