@@ -18,7 +18,7 @@ public class IPickerVH extends BasicViewHolder {
         super(rootView);
 
         fl_frame = rootView.findViewById(R.id.fl_frame);
-        tv_title=rootView.findViewById(R.id.tv_title);
+        tv_title=(ITextView) rootView.findViewById(R.id.tv_title);
         this.tv_cancel = (TextView) rootView.findViewById(R.id.tv_cancel);
         this.tv_ok = (TextView) rootView.findViewById(R.id.tv_ok);
     }
