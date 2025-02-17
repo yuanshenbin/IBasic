@@ -69,7 +69,7 @@ public class IPickerDialog extends BaseDialog<IPickerVH, PickerModel> {
 
         if (!IUtils.isEmpty(list)) {
             for (PickerModel pickerModel : list) {
-                options.add(pickerModel.getString());
+                options.add(pickerModel.getTitle());
             }
         }
 

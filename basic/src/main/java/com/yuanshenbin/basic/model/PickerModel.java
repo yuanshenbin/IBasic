@@ -3,7 +3,7 @@ package com.yuanshenbin.basic.model;
 public class PickerModel {
 
     private String id;
-    private String string;
+    private String title;
 
     public String getId() {
         return id;
@@ -13,11 +13,11 @@ public class PickerModel {
         this.id = id;
     }
 
-    public String getString() {
-        return string;
+    public String getTitle() {
+        return title;
     }
 
-    public void setString(String string) {
-        this.string = string;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

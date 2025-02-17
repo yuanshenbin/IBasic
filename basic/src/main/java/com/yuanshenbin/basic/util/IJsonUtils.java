@@ -30,15 +30,6 @@ public class IJsonUtils {
 
     public static <T> T object(String json, Type type) {
         return gson.fromJson(json, type);
-
-
-    }
-
-    public static <T> List<T> jsonToList(String json) {
-        Type type = new TypeToken<List<T>>() {
-        }.getType();
-        List<T> list = new Gson().fromJson(json, type);
-        return list;
     }
 
     public static <T> Type getType(AdaptClass<T> adaptClass) {
