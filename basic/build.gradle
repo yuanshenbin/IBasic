@@ -45,12 +45,12 @@ dependencies {
     api 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api('com.github.yuanshenbin:IRequest:1.0.8')
-
+    api 'com.contrarywind:Android-PickerView:4.1.9'
     api 'com.tencent:mmkv:1.2.13'
     api 'com.github.chrisbanes:PhotoView:2.3.0'
     api 'top.zibin:Luban:1.1.8'
     api('cat.ereza:customactivityoncrash:2.4.0', {
         exclude group: 'androidx.appcompat', module: 'appcompat'
     })
-
+    api 'com.contrarywind:Android-PickerView:4.1.9'
 }
