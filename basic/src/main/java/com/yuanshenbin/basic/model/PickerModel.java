@@ -5,6 +5,14 @@ public class PickerModel {
     private String id;
     private String title;
 
+    public PickerModel(String id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
+    public PickerModel() {
+    }
+
     public String getId() {
         return id;
     }

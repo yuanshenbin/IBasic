@@ -124,7 +124,7 @@ public class IPickerDialog extends BaseDialog<IPickerVH, PickerModel> {
     public static final class Builder {
         private Context context;
         private String title ;
-        private Callback callback;
+        private Callback<PickerModel> callback;
         private List<PickerModel> dataSource;
 
         private String okContent = BasicOptions.getInstance().getTipsAbstract().getOkContentTitle();
@@ -168,7 +168,7 @@ public class IPickerDialog extends BaseDialog<IPickerVH, PickerModel> {
             return this;
         }
 
-        public Builder callback(Callback callback) {
+        public Builder callback(Callback<PickerModel> callback) {
             this.callback = callback;
             return this;
         }
