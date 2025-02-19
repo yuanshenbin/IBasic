@@ -91,7 +91,8 @@ public class IPickerDialog extends BaseDialog<IPickerVH, PickerModel> {
 
             }
         })
-                .setContentTextSize(20)//滚轮文字大小
+                .setContentTextSize(16)//滚轮文字大小
+                .setLineSpacingMultiplier(2.3f)
                 .setDecorView(mVH.fl_frame)
                 .setOutSideCancelable(false)
                 .build();
