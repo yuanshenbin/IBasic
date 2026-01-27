@@ -1,0 +1,296 @@
+/**
+ * 4种状态下的style
+ normal 正常背景颜色
+ pressed 按背景颜色
+ disabled 禁用背景颜色
+ selected 已选择背景颜色
+ */
+export class ViewModifier<T extends ViewModifier<T>> implements AttributeModifier<ButtonAttribute | TextAttribute | ColumnAttribute | RowAttribute | FlexAttribute> {
+  protected buttonType_: ButtonType = ButtonType.Normal;
+  protected normalBackgroundColor_?: ResourceColor;
+  protected pressedBackgroundColor_?: ResourceColor;
+  protected disabledBackgroundColor_?: ResourceColor;
+  protected selectedBackgroundColor_?: ResourceColor;
+  protected normalBorderRadius_?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+  protected pressedBorderRadius_?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+  protected disabledBorderRadius_?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+  protected selectedBorderRadius_?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+  protected borderRadius_?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+  protected normalBorderWidth_?: Length | EdgeWidths | LocalizedEdgeWidths;
+  protected pressedBorderWidth_?: Length | EdgeWidths | LocalizedEdgeWidths;
+  protected disabledBorderWidth_?: Length | EdgeWidths | LocalizedEdgeWidths;
+  protected selectedBorderWidth_?: Length | EdgeWidths | LocalizedEdgeWidths;
+  protected normalBorderColor_?: ResourceColor | EdgeColors | LocalizedEdgeColors;
+  protected pressedBorderColor_?: ResourceColor | EdgeColors | LocalizedEdgeColors;
+  protected disabledBorderColor_?: ResourceColor | EdgeColors | LocalizedEdgeColors;
+  protected selectedBorderColor_?: ResourceColor | EdgeColors | LocalizedEdgeColors;
+  protected normalFontColor_?: ResourceColor;
+  protected pressedFontColor_?: ResourceColor;
+  protected disabledFontColor_?: ResourceColor;
+  protected selectedFontColor_?: ResourceColor;
+  protected normalFontSize_?: Length;
+  protected pressedFontSize_?: Length;
+  protected disabledFontSize_?: Length;
+  protected selectedFontSize_?: Length;
+
+  /**
+   * 组件普通状态时的样式。
+   * @param instance
+   */
+  applyNormalAttribute(instance: ButtonAttribute | TextAttribute | ColumnAttribute | RowAttribute | FlexAttribute): void {
+    instance.backgroundColor(this.normalBackgroundColor_);
+    instance.borderRadius(this.borderRadius_ || this.normalBorderRadius_);
+    instance.borderWidth(this.normalBorderWidth_);
+    instance.borderColor(this.normalBorderColor_);
+
+  }
+
+  /**
+   * 组件按压状态的样式。
+   * @param instance
+   */
+  applyPressedAttribute(instance: ButtonAttribute | TextAttribute | ColumnAttribute | RowAttribute | FlexAttribute): void {
+    instance.backgroundColor(this.pressedBackgroundColor_);
+    instance.borderRadius(this.borderRadius_ || this.pressedBorderRadius_);
+    instance.borderWidth(this.pressedBorderWidth_);
+    instance.borderColor(this.pressedBorderColor_);
+  }
+
+  /**
+   * 组件获焦状态的样式
+   * @param instance
+   */
+  applyFocusedAttribute(instance: ButtonAttribute | TextAttribute | ColumnAttribute | RowAttribute | FlexAttribute): void {
+    // 如果需要添加获焦状态的样式，可以在这里实现
+    // instance.type(this.buttonType);
+  }
+
+  /**
+   * 组件禁用状态的样式
+   * @param instance
+   */
+  applyDisabledAttribute(instance: ButtonAttribute | TextAttribute | ColumnAttribute | RowAttribute | FlexAttribute): void {
+    instance.backgroundColor(this.disabledBackgroundColor_);
+    instance.borderRadius(this.borderRadius_ || this.disabledBorderRadius_);
+    instance.borderWidth(this.disabledBorderWidth_);
+    instance.borderColor(this.disabledBorderColor_);
+
+  }
+
+  /**
+   * 组件选中状态的样式
+   * @param instance
+   */
+  applySelectedAttribute(instance: ButtonAttribute | TextAttribute | ColumnAttribute | RowAttribute | FlexAttribute): void {
+    instance.backgroundColor(this.selectedBackgroundColor_);
+    instance.borderRadius(this.borderRadius_ || this.selectedBorderRadius_);
+    instance.borderWidth(this.selectedBorderWidth_);
+    instance.borderColor(this.selectedBorderColor_);
+
+  }
+
+
+  buttonType(value: ButtonType): T {
+    this.buttonType_ = value;
+    return this as Object as T;
+  }
+
+  normalBackgroundColor(value: ResourceColor): T {
+    this.normalBackgroundColor_ = value;
+    return this as Object as T;
+  }
+
+  pressedBackgroundColor(value: ResourceColor): T {
+    this.pressedBackgroundColor_ = value;
+    return this as Object as T;
+  }
+
+  disabledBackgroundColor(value: ResourceColor): T {
+    this.disabledBackgroundColor_ = value;
+    return this as Object as T;
+  }
+
+  selectedBackgroundColor(value: ResourceColor): T {
+    this.selectedBackgroundColor_ = value;
+    return this as Object as T;
+  }
+
+  normalBorderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T {
+    this.normalBorderRadius_ = value;
+    return this as Object as T;
+  }
+
+  pressedBorderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T {
+    this.pressedBorderRadius_ = value;
+    return this as Object as T;
+  }
+
+  disabledBorderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T {
+    this.disabledBorderRadius_ = value;
+    return this as Object as T;
+  }
+
+  selectedBorderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T {
+    this.selectedBorderRadius_ = value;
+    return this as Object as T;
+  }
+
+  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T {
+    this.borderRadius_ = value;
+    return this as Object as T;
+  }
+
+  normalBorderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T {
+    this.normalBorderWidth_ = value;
+    return this as Object as T;
+  }
+
+  pressedBorderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T {
+    this.pressedBorderWidth_ = value;
+    return this as Object as T;
+  }
+
+  disabledBorderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T {
+    this.disabledBorderWidth_ = value;
+    return this as Object as T;
+  }
+
+  selectedBorderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T {
+    this.selectedBorderWidth_ = value;
+    return this as Object as T;
+  }
+
+  normalBorderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T {
+    this.normalBorderColor_ = value;
+    return this as Object as T;
+  }
+
+  pressedBorderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T {
+    this.pressedBorderColor_ = value;
+    return this as Object as T;
+  }
+
+  disabledBorderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T {
+    this.disabledBorderColor_ = value;
+    return this as Object as T;
+  }
+
+  selectedBorderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T {
+    this.selectedBorderColor_ = value;
+    return this as Object as T;
+  }
+
+  normalFontColor(value: ResourceColor): T {
+    this.normalFontColor_ = value;
+    return this as Object as T;
+  }
+
+  pressedFontColor(value: ResourceColor): T {
+    this.pressedFontColor_ = value;
+    return this as Object as T;
+  }
+
+  disabledFontColor(value: ResourceColor): T {
+    this.disabledFontColor_ = value;
+    return this as Object as T;
+  }
+
+  selectedFontColor(value: ResourceColor): T {
+    this.selectedFontColor_ = value;
+    return this as Object as T;
+  }
+
+  normalFontSize(value: Length): T {
+    this.normalFontSize_ = value;
+    return this as Object as T;
+  }
+
+  pressedFontSize(value: Length): T {
+    this.pressedFontSize_ = value;
+    return this as Object as T;
+  }
+
+  disabledFontSize(value: Length): T {
+    this.disabledFontSize_ = value;
+    return this as Object as T;
+  }
+
+  selectedFontSize(value: Length): T {
+    this.selectedFontSize_ = value;
+    return this as Object as T;
+  }
+}
+
+
+
+
+
+
+
+=============
+
+
+
+import { ViewModifier } from "./ViewModifier";
+
+
+export class ITextModifier extends ViewModifier<ITextModifier> {
+  /**
+   * 组件普通状态时的样式。
+   * @param instance
+   */
+  applyNormalAttribute(instance: TextAttribute): void {
+    super.applyNormalAttribute(instance)
+    instance.fontColor(this.normalFontColor_);
+    instance.fontSize(this.normalFontSize_);
+
+  }
+
+  /**
+   * 组件按压状态的样式。
+   * @param instance
+   */
+  applyPressedAttribute(instance: TextAttribute): void {
+    super.applyPressedAttribute(instance)
+    instance.fontColor(this.pressedFontColor_);
+    instance.fontSize(this.pressedFontSize_);
+
+
+  }
+
+  /**
+   * 组件获焦状态的样式
+   * @param instance
+   */
+  applyFocusedAttribute(instance: TextAttribute): void {
+    // 如果需要添加获焦状态的样式，可以在这里实现
+    // instance.type(this.buttonType);
+  }
+
+  /**
+   * 组件禁用状态的样式
+   * @param instance
+   */
+  applyDisabledAttribute(instance: TextAttribute): void {
+    super.applyDisabledAttribute(instance)
+    instance.fontColor(this.disabledFontColor_);
+    instance.fontSize(this.disabledFontSize_);
+
+  }
+
+  /**
+   * 组件选中状态的样式
+   * @param instance
+   */
+  applySelectedAttribute(instance: TextAttribute): void {
+    super.applySelectedAttribute(instance)
+    instance.fontColor(this.selectedFontColor_);
+    instance.fontSize(this.selectedFontSize_);
+
+  }
+}
+=====
+ Button('确1定')
+        .attributeModifier(new IButtonModifier()
+          .normalBackgroundColor('#000000')
+          .pressedBackgroundColor('#ff0000'))
